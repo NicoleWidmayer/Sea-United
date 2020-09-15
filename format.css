@@ -1,0 +1,19 @@
+#kopf {
+        height: 70px;
+        padding-top: 30px;
+        padding-left: 90px;
+}
+#navi {
+        width: 15%;
+        padding-top: 10px;
+        padding-left: 10px;
+}
+#inhalt {
+        position: absolute;
+        top: 100px;
+        padding: 10px;
+        width: 85%;
+        left: 15%;
+        border-left-style: solid;
+        border-left-width: 1px;
+}
