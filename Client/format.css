@@ -50,13 +50,12 @@
         object-fit: cover;
 }
 
-/*
+
 #inhalt {
         position: absolute;
         top: 100px;
         padding: 10px;
         width: 85%;
         left: 15%;
-        border-left-style: solid;
         border-left-width: 1px;
-}*/
+}
