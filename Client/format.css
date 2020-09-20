@@ -43,6 +43,12 @@
         color:white;
         border-radius: 12px;
 }
+.img-fit {
+        width: 100%;
+        height: 5%;
+        margin-top: 6rem;
+        object-fit: cover;
+}
 
 /*
 #inhalt {
