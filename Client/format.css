@@ -34,12 +34,12 @@
         text-decoration: none;
 }
 #navi li a:hover {
-        background-color:#81BEF7;
+        background-color:#0e4e78;
         color: white;
         border-radius: 12px;
 }     
 #navi #aktuell a {
-        background-color:#81BEF7;
+        background-color:#0e4e78;
         color:white;
         border-radius: 12px;
 }
