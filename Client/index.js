@@ -8,7 +8,7 @@ let  Benutzername = "Tobias";
 let  PWPassword = "test123";
 
 
-// Methode zum prüfend er Anmeldung
+// Methode zum prüfen der Anmeldung
 const PrüfepwBenutzername= () =>
 new Promise((resolve, reject)=>{
     let pwBenutzername = document.querySelector("#pwBenutzername").value;
@@ -23,6 +23,8 @@ new Promise((resolve, reject)=>{
 
 
 });
+
+// Methode zum Prüfen des Benutzer Passwortes
 const PrüfepwPasswort= () =>
 new Promise((resolve, reject)=>{
 
@@ -39,7 +41,7 @@ new Promise((resolve, reject)=>{
 
 });
 
-// Ausgabe ob Anmeldung erfolgreich, muss noch angepasst werden auf die Webseite
+// Ausgabe ob Anmeldung erfolgreich oder nicht, muss noch angepasst werden auf die Webseite aktuell nur als Alert und über console
 const AusgabeAnmeldung = () =>{
     console.log('Anmeldung war erfolgreich');
     alert("Anmeldung war erfolgreich");
