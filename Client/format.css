@@ -5,7 +5,7 @@
         width:100%;
         height: 70px;
         padding: 0;
-        padding-top: 30px;
+        padding-top: 25px;
         padding-left: 5px;
         background:transparent;
         transition: all 2s ease-out;
@@ -26,7 +26,7 @@
 #navi li a {
         display:inline-block;
         font-family:'old_standard_ttregular';
-        font-size: 1,7rem;
+        font-size: 1.7rem;
         letter-spacing: 3px;
         color: black;
         padding: .4rem 0rem;
@@ -46,8 +46,11 @@
 .img-fit{
         width: 100%;
         height: 100%;
-        margin-top: 6rem;
+        margin-top: 5.6rem;
         object-fit: cover;
+        background-position: center;
+        z-index: 1;
+        position: absolute;
 }
 #inhalt {
         position: absolute;
@@ -61,21 +64,25 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        width: 350px;
+        width: 40rem;
         background-color: white;
+        background: hsla(0, 0%, 100%, 0.3);
         border: none;
-        margin-top: 6%;
-        margin-left: 1rem;       
+        margin-top: 7rem;
+        margin-left: 1rem;
+        z-index: 2;
+        position: absolute;
+        border-radius: 20px;
 }
 .blocktext{
-        font-size: 1rem;
+        font-size: 1.5rem;
         padding: .4rem 0rem;
-        margin: 0 -2px;
+        margin: 10px;
         letter-spacing: 3px;
-        font-style: black;
+        font-style: white;
         font-family: 'old_standard_ttregular';
 }
 #header {
-        font-size: 1.7rem;
+        font-size: 2.5rem;
         font-weight: bold;
 }
