@@ -45,12 +45,10 @@
 }
 .img-fit {
         width: 100%;
-        height: 5%;
+        height: 100%;
         margin-top: 6rem;
         object-fit: cover;
 }
-
-
 #inhalt {
         position: absolute;
         top: 100px;
@@ -58,4 +56,26 @@
         width: 85%;
         left: 15%;
         border-left-width: 1px;
+}
+.container{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 350px;
+        background-color: white;
+        border: none;
+        margin-top: 6%;
+        margin-left: 1rem;       
+}
+.blocktext{
+        font-size: 1rem;
+        padding: .4rem 0rem;
+        margin: 0 -2px;
+        letter-spacing: 3px;
+        font-style: black;
+        font-family: 'old_standard_ttregular';
+}
+#header {
+        font-size: 1.7rem;
+        font-weight: bold;
 }
