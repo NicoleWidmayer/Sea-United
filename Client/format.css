@@ -10,13 +10,13 @@
         background:transparent;
         transition: all 2s ease-out;
 }
-#navi ul {
+#navi ul, #fussbereich ul {
         display:table-cell;
         vertical-align:middle;
         text-align:center;
         margin: 0 auto;
 }
-#navi li {
+#navi li, #fussbereich li {
         list-style-type : none;
         font-weight: normal;
         display:inline;
@@ -85,4 +85,11 @@
 #header {
         font-size: 2.5rem;
         font-weight: bold;
+}
+#fussbereich{
+        display: table;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+
 }
