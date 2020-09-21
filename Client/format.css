@@ -30,22 +30,24 @@
         letter-spacing: 3px;
         color: black;
         padding: .4rem 0rem;
-        margin: 0 -2px;
+        margin: 0;
         text-decoration: none;
 }
 #navi li a:hover {
         background-color:#0e4e78;
         color: white;
         border-radius: 12px;
+        padding: 8px;
 }     
 #navi #aktuell a {
         background-color:#0e4e78;
         color:white;
         border-radius: 12px;
+        padding: 8px;
 }
 .img-fit{
         width: 100%;
-        height: auto;
+        height: 100%;
         margin-top: 5.6rem;
         object-fit: cover;
         background-position: center;
@@ -91,5 +93,4 @@
         position: absolute;
         bottom: 0;
         width: 100%;
-
 }
