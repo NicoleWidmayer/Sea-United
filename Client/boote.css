@@ -1,7 +1,7 @@
 .grid-container{
     display: grid;
     grid-template-columns: 60% 40%;
-    grid-gap: 2px;
+    grid-gap: 3px;
     margin-top: 4.2rem;
     padding: 3px;
 }
@@ -17,4 +17,5 @@
 }
 .grid-container >div >p >a {
     font-size: 1.7rem;
+    font-weight: bold;
 }
