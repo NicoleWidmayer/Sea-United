@@ -94,3 +94,18 @@
         bottom: 0;
         width: 100%;
 }
+.boot{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: baseline;
+        align-content: space-around;
+
+}
+.bootgrow{
+        flex-grow: 2;
+}
+.bootshrink{
+        flex-shrink: 2;
+}
