@@ -94,11 +94,11 @@
         bottom: 0;
         width: 100%;
 }
-Grid.grid-container{
+.grid-container{
         display: grid;
         grid-template-columns: auto auto;
         grid-gap: 10px;
-        margin-top: 3.9rem;
+        margin-top: 3.7em;
         padding: 3px;
         max-height: 25%;
 }
