@@ -1,15 +1,15 @@
 .grid-container{
     display: grid;
-    grid-template-columns: 56% 44%;
+    grid-template-columns: 53% 47%;
     grid-gap: 5px;
     margin-top: 4.2rem;
     padding: 3px;
 }
 .grid-container > div {
-    max-width:95%;
+    max-width: 99%;
 }
 .grid-container > div >p {
-    min-width: 44%;
+    min-width: 50%;
     text-align: left;
     font-size: 1.5rem;
     letter-spacing: 3px;
