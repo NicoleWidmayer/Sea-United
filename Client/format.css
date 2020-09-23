@@ -9,13 +9,13 @@
         background:transparent;
         transition: all 2s ease-out;
 }
-#navi ul, #fussbereich ul {
+#navi ul {
         display:table-cell;
         vertical-align:middle;
         text-align:center;
         margin: 0 auto;
 }
-#navi li, #fussbereich li {
+#navi li {
         list-style-type : none;
         font-weight: normal;
         display:inline;
@@ -88,9 +88,8 @@
         font-size: 2.5rem;
         font-weight: bold;
 }
-#fussbereich{
-        display: table;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
+#grid-container-fussbereich{
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        
 }
