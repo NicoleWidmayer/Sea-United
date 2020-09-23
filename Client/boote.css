@@ -1,7 +1,7 @@
 .grid-container{
     display: grid;
-    grid-template-columns: 60% 40%;
-    grid-gap: 3px;
+    grid-template-columns: 56% 44%;
+    grid-gap: 5px;
     margin-top: 4.2rem;
     padding: 3px;
 }
@@ -9,7 +9,7 @@
     max-width:95%;
 }
 .grid-container > div >p {
-    min-width: 40%;
+    min-width: 44%;
     text-align: left;
     font-size: 1.5rem;
     letter-spacing: 3px;
