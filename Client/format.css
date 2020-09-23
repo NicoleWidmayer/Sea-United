@@ -90,9 +90,10 @@
 }
 #grid-container-fussbereich{
         display: grid;
-        grid-template-columns: auto auto auto auto;
+        grid-template-columns: 25% 25% 25% 25%;
         
 }
-#fussleiste{
-        font-size: 2rem;
+#grid-container-fussbereich > div{
+        font-size: 1rem;
+        padding: 3px;
 }
