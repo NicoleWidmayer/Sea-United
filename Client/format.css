@@ -1,3 +1,4 @@
+body { height: 100%;}
 
 #navi {
         display:table;
@@ -91,6 +92,11 @@
 #grid-container-fussbereich{
         display: grid;
         grid-template-columns: 25% 25% 25% 25%;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2em;
+        padding-top: 25rem;
         
 }
 #grid-container-fussbereich > div{
