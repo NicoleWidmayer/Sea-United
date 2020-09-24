@@ -1,6 +1,6 @@
 .grid-container{
     display: grid;
-    grid-template-columns: 53% 47%;
+    grid-template-columns: 55% 45%;
     grid-gap: 5px;
     margin-top: 4.2rem;
     padding: 3px;
@@ -9,13 +9,16 @@
     max-width: 99%;
 }
 .grid-container > div >p {
-    min-width: 50%;
+    min-width:45%;
     text-align: left;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     letter-spacing: 3px;
     font-family: old_standard_ttregular;
 }
-.grid-container >div >p >h1 {
+.grid-container >div >h1{
+    min-width:45%;
+    text-align: left;
     font-size: 1.7rem;
-    font-weight: bold;
+    letter-spacing: 3px;
+    font-family: old_standard_ttregular;
 }
