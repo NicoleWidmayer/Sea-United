@@ -15,7 +15,7 @@
     letter-spacing: 3px;
     font-family: old_standard_ttregular;
 }
-.grid-container >div >p >a {
+.grid-container >div >p >h1 {
     font-size: 1.7rem;
     font-weight: bold;
 }
