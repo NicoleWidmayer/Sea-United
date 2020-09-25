@@ -95,7 +95,7 @@ body { height: 100%;}
 #grid-container-fussbereich{
         display: grid;
         grid-template-columns: 25% 25% 25% 25%;
-        margin: 25%; 
+        text-align: center;
 }
 #grid-container-fussbereich > div{
         font-size: 1rem;
