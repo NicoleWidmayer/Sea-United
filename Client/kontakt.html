@@ -4,21 +4,28 @@
         <title>Kontakt</title>
         <link rel="stylesheet" type="text/css" href="format.css">
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="copy.css" >
     </head>
     <body>
-        <div id="navi">
-            <ul>
-                <li><a href="index.html">Startseite</a> </li> 
-                <li><a href="boote.html">Boote</a> </li>  
-                <li><a href="ausflug.html">Ausflug</a></li>
-                <li id="aktuell"><a href="kontakt.html">Kontakt</a> </li>
-                <li><a href ="anmeldung.html">Login </a></li>
-            </ul>
-        </div>
-
-        <br>
-
-        <form>
+        <header>
+            <div class="logo">
+                <div class="logobox-a">
+            <nav>
+                <div id="menu1">
+                <ul>
+                    <li><a  href="index.html">Startseite</a></li>
+                    <li><a  href="boote.html">Boote</a></li>
+                    <li><a  href="ausflug.html">Ausflug</a></li>
+                    <li id="aktuell"><a  href="kontakt.html">Kontakt</a></li>
+                    <li><a  href="anmeldung.html">Anmelden</a></li>
+                </ul>
+                </div>
+            </nav>
+            </div>
+            </div>
+        </header>
+        <section>
+            <form>
             <div>
             <label for="absender">Ihre E-Mail-Adresse:</label>
             </div><div><input id="absender"/></div>
@@ -27,11 +34,12 @@
             </div><div>
             <textarea id="nachricht" cols="20" rows="5"></textarea>
             </div><div><button type="submit">Nachricht absenden</button>
-        </div></form>
+            </div>
+            </form>
+        </section>
         
-        <br>
-
-        <div class="grid-container-fussbereich">
+        <footer>
+           <div class="grid-container-fussbereich">
             <div>Kontakt:</div>
             <div>Öffnungszeiten:</div>
             <div>Adresse:</div>
@@ -44,7 +52,9 @@
             
               
             <div> <a href="impressum.html"> Impressum</a></div>
-        </div> 
+            </div>  
+        </footer>
+        
     </body>
 </html>
        
