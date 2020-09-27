@@ -29,10 +29,13 @@ form {
     margin-top: 4.2rem;
     font-size: 1.2rem;
     letter-spacing: 3px;
-    font-family: old_standard_ttregular;  
+    font-family: old_standard_ttregular;
+}
+form >div {
+    display: block;
+    font-family: old_standard_ttregular;
 }
 label{
-    display: block;
     padding: 5px;
 }
 input, textarea{
@@ -40,6 +43,7 @@ input, textarea{
     background-color: white;
     border-radius: 12px;
     margin-bottom: 1rem;
+    min-width: 12rem;
 }
 textarea{
     min-width: 25rem;
@@ -51,5 +55,6 @@ button{
     font-family: old_standard_ttregular;
     border: 1.5px solid #0e4e78;
     background-color: white;
+    width: fit-content;
     border-radius: 12px;
 }
