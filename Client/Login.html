@@ -3,8 +3,27 @@
     <head>
         <title>Login und Registrierung</title>
         <link rel="stylesheet"  href="test.css"/>
+        <link rel="stylesheet" href="copy.css" type="text/css">
         </head>
         <body>
+            <header>
+                <div class="logo">
+                <div class="logobox-a">
+            <nav>
+                <div id="menu1">
+                <ul>
+                    <li><a  href="index.html">Startseite</a></li>
+                    <li ><a  href="boote.html">Boote</a></li>
+                    <li><a  href="ausflug.html">Ausflug</a></li>
+                    <li><a  href="kontakt.html">Kontakt</a></li>
+                    <li id="aktuell"><a  href="Login.html">Anmelden</a></li>
+                </ul>
+                </div>
+            </nav>
+                </div>
+                </div>
+            </header>
+
            
 
             <div class="hero">
@@ -13,17 +32,42 @@
     <div class="form-box">
         <div class="button-box"> 
             <div id="btn"> </div>
-            <button type="button" class="toggle-btn"> Anmelden</button>
-            <button type="button" class="toggle-btn"> Registrieren</button>
+            <button type="button" class="toggle-btn" onclick="login()"> Anmelden</button>
+            <button type="button" class="toggle-btn" onclick="register()"> Registrieren</button>
         </div>
-        <form class="input-group">
-            <input type="text" class="input-field" placeholder="User-Id" required>
-            <input type="text" class="input-field" placeholder="Enter Passwort" required>
+        <form id="login" class="input-group">
+            <input type="text" class="input-field" name ="pwBenutzername" id="pwBenutzername" placeholder="User-Id" required>
+            <input type="text" class="input-field" name="pwPasswort" id="pwPasswort" placeholder="Enter Passwort" required>
             <input type="checkbox" class="check-box"> <span>Merke Passwort</span>
-            <button type="submit" class="submit-btn">Einloggen</button>
+            <button type="submit" class="submit-btn" type="submit" name="btSubmit" id="btSubmit">Einloggen</button>
+        </form>
+        <form id="register" class="input-group">
+            <input type="text" class="input-field" name ="pwBenutzername" id="pwBenutzername"placeholder="User-Id" required>
+            <input type="email" class="input-field" name="Email" id ="Email" placeholder="Email Id" required>
+            <input type="text" class="input-field"  name="pwPasswort" id="pwPasswort" placeholder="Enter Passwort" required>
+            <input type="checkbox" class="check-box"> <span>Ich akzeptiere die AGBs</span>
+            <button type="submit" class="submit-btn" name="btSubmit" id="btSubmit">Registrieren</button>
         </form>
     </div>
 
 </div>
+<script>
+var x = document.getElementById("login");
+var y = document.getElementById("register");
+var z = document.getElementById("btn");
+
+function register(){
+    x.style.left="-400px";
+    y.style.left="50px";
+    z.style.left="10px";
+}
+function login(){
+    x.style.left="50px";
+    y.style.left="450px";
+    z.style.left="0";
+}
+
+
+</script>
 </body>
 </html>
