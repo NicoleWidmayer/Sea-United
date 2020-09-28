@@ -96,4 +96,7 @@ button{
     background: #fff;
     padding: 5px;
 }
-
+/*Css für Impressum*/
+.impressum{
+    font-family: old_standard_ttregular; 
+}
