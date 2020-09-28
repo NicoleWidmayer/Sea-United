@@ -68,7 +68,7 @@ html,body{
   left: 0;
   z-index: 0;
   border-radius: 5px;
-  background: -webkit-linear-gradient(left, #0e4e78, #1ea1f8);
+  background: -webkit-linear-gradient(left, #0e4e78, #0e4e78);
   transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
 }
 input[type="radio"]{
