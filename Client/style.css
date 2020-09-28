@@ -33,42 +33,66 @@
     }
 } 
 
- /* CSS-Style für Kontaktaufnahme in kontakt.html */
- form {
+/* CSS für Kontakt */
+section{
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
     height: 100%;
-    margin: 0 auto;
-    padding:0rem;
-    background-position:50% 50%;
-    font-size: 1.2rem;
-    letter-spacing: 3px;
-    font-family: old_standard_ttregular;
+    width: 100%;
+}
+section >div {
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 4rem;
+    font-family: 'old_standard_ttregular';
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+}
+form{
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-family: 'old_standard_ttregular';
+    font-size: 1.7rem;
+    letter-spacing: 2px;
 }
 form >div {
-    display:block;
     background-size:cover;
-    font-family: old_standard_ttregular;
 }
-label{
-    padding: 5px;
-}
-input, textarea{
-    border: 1.5px solid #0e4e78;
+input, textarea {
     background-color: white;
-    border-radius: 12px;
+    font-family: 'old_standard_ttregular';
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+input{
     margin-bottom: 1rem;
-    min-width: 12rem;
+    min-width: 35rem;
 }
 textarea{
-    min-width: 25rem;
+    min-width: 45rem;
     min-height: 10rem;
 }
-button{
-    font-size: .9rem;
-    letter-spacing: 3px;
-    font-family: old_standard_ttregular;
-    border: 1.5px solid #0e4e78;
-    background-color: white;
-    width: fit-content;
-    border-radius: 12px;
+input:focus, textarea:focus {
+    border-color: #0e4e78;
 }
-/* CSS für Kontakt */
+input::placeholder, textarea::placeholder{
+    color: #999;
+    transition: all 0.3s ease;
+}
+input:focus::placeholder, textarea:focus::placeholder{
+    color: #b3b3b3;
+}
+button{
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    background-color: #0e4e78;
+    color: white;
+    border: 1.5px solid #0e4e78;
+    border-radius: 5px;
+}
