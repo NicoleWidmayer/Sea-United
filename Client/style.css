@@ -1,38 +1,54 @@
 /* CSS-Style für Ansicht der Boote in boote.html */
 .grid-container{
     display: grid;
-    grid-template-columns: 55% 45%;
+    grid-template-columns: 53% 47%;
     grid-gap: 5px;
-    margin-top: 4.2rem;
     padding: 3px;
 }
 .grid-container > div {
     max-width: 99%;
 }
 .grid-container > div >p {
-    min-width:45%;
     text-align: left;
-    font-size: 1.2rem;
-    letter-spacing: 3px;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
     font-family: old_standard_ttregular;
 }
 .grid-container >div >h1{
-    min-width:45%;
     text-align: left;
     font-size: 1.7rem;
+    letter-spacing: 2px;
+    font-family: old_standard_ttregular;
+}
+@media (max-width: 1280px) {
+    .grid-container >div >p{
+        font-size: 1rem; 
+    }
+    .grid-container{
+        grid-template-columns: 50% 50%;
+    }
+    .grid-container >div >h1{
+        font-size: 1.4;
+        margin-bottom: 0;
+    }
+} 
+
+ /* CSS-Style für kontaktaufnahme in kontakt.html */
+ form {
+    height: 100%;
+    margin: 0 auto;
+    padding:0rem;
+    background-position:50% 50%;
+    font-size: 1.2rem;
     letter-spacing: 3px;
     font-family: old_standard_ttregular;
 }
-
- /* CSS-Style für kontaktaufnahme in kontakt.html */
-form {
-    margin-top: 4.2rem;
-    font-size: 1.2rem;
-    letter-spacing: 3px;
-    font-family: old_standard_ttregular;  
+form >div {
+    display:block;
+    background-size:cover;
+    font-family: old_standard_ttregular;
 }
 label{
-    display: block;
     padding: 5px;
 }
 input, textarea{
@@ -40,6 +56,7 @@ input, textarea{
     background-color: white;
     border-radius: 12px;
     margin-bottom: 1rem;
+    min-width: 12rem;
 }
 textarea{
     min-width: 25rem;
@@ -51,6 +68,7 @@ button{
     font-family: old_standard_ttregular;
     border: 1.5px solid #0e4e78;
     background-color: white;
+    width: fit-content;
     border-radius: 12px;
 }
 /* Css für Ausflug*/
