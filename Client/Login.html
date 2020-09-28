@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
-
+  
     <head>
-        <title>Login und Registrierung</title>
-        <link rel="stylesheet"  type="text/css" href="Login.css"/>
-        <link rel="stylesheet"  type="text/css" href="copy.css" >
+        <title>Anmeldung</title>
+        <link rel="stylesheet" type="text/css" href="Login.css"/>
+        <link rel="stylesheet" type="text/css" href="copy.css" >
+        <link rel="stylesheet" type="text/css" href="test.css">
     </head>
 
     <body>
-    <!-- /////////////////// Copyright-Vermerk /////////////////// -->
+    <!-- Copyright-Vermerk /////////////////// -->
     <!-- (c)Copyright by S.I.S.Papenburg / www.on-mouseover.de/templates/ -->
     <!-- ////////////////////////////////////// -->
         <header>
@@ -18,62 +19,88 @@
             <div id="menu1">
             <ul>
                 <li><a  href="index.html">Startseite</a></li>
-                <li><a  href="boote.html">Boote</a></li>
+                <li id="aktuell"><a  href="boote.html">Boote</a></li>
                 <li><a  href="ausflug.html">Ausflug</a></li>
                 <li><a  href="kontakt.html">Kontakt</a></li>
-                <li id="aktuell"><a  href="Login.html">Anmelden</a></li>
+                <li><a  href="Login.html">Anmelden</a></li>
             </ul>
             </div>
         </nav>
-            </div>
-            </div>
+        </div>
+        </div>
         </header>
     <!-- Ende Copyright-->
-           
 
-            <div class="hero">
-            <!--  <img  class="background" src="Images/banner.jpg" alt="Hintergrund">-->  
-
-    <div class="form-box">
-        <div class="button-box"> 
-            <div id="btn"> </div>
-            <button type="button" class="toggle-btn" onclick="login()"> Anmelden</button>
-            <button type="button" class="toggle-btn" onclick="register()"> Registrieren</button>
-        </div>
-        <form id="login" class="input-group">
-            <input type="text" class="input-field" name ="pwBenutzername" id="pwBenutzername" placeholder="User-Id" required>
-            <input type="text" class="input-field" name="pwPasswort" id="pwPasswort" placeholder="Enter Passwort" required>
-            <input type="checkbox" class="check-box"> <span>Merke Passwort</span>
-            <button type="submit" class="submit-btn" type="submit" name="btSubmit" id="btSubmit">Einloggen</button>
-        </form>
-        <form id="register" class="input-group">
-            <input type="text" class="input-field" name ="pwBenutzername" id="pwBenutzername"placeholder="User-Id" required>
-            <input type="email" class="input-field" name="Email" id ="Email" placeholder="Email Id" required>
-            <input type="text" class="input-field"  name="pwPasswort" id="pwPasswort" placeholder="Enter Passwort" required>
-            <input type="checkbox" class="check-box"> <span>Ich akzeptiere die AGBs</span>
-            <button type="submit" class="submit-btn" name="btSubmit" id="btSubmit">Registrieren</button>
-        </form>
-    </div>
+    <!-- Created By CodingNepal -->
+    <div class="wrapper">
+      <div class="title-text">
 
 </div>
+<div class="form-container">
+        <div class="slide-controls">
+          <input type="radio" name="slide" id="login" checked>
+          <input type="radio" name="slide" id="signup">
+          <label for="login" class="slide login">Anmelden</label>
+          <label for="signup" class="slide signup">Registrieren</label>
+          <div class="slider-tab">
+</div>
+</div>
+<div class="form-inner">
+          <form action="#" class="login">
+            <div class="field">
+              <input type="text" placeholder="Email Address" required>
+            </div>
+<div class="field">
+              <input type="password" placeholder="Password" required>
+            </div>
+<div class="pass-link">
+<a href="#">Passwort vergessen?</a></div>
+<div class="field btn">
+              <div class="btn-layer">
+</div>
+<input type="submit" value="Login">
+            </div>
+<div class="signup-link">
+Noch nicht angemeldet? <a href="">Hier anmelden</a></div>
+</form>
+<form action="#" class="signup">
+            <div class="field">
+              <input type="text" placeholder="Email Address" required>
+            </div>
+<div class="field">
+              <input type="password" placeholder="Password" required>
+            </div>
+<div class="field">
+              <input type="password" placeholder="Confirm password" required>
+            </div>
+<div class="field btn">
+              <div class="btn-layer">
+</div>
+<input type="submit" value="Signup">
+            </div>
+</form>
+</div>
+</div>
+</div>
 <script>
-var x = document.getElementById("login");
-var y = document.getElementById("register");
-var z = document.getElementById("btn");
+      const loginText = document.querySelector(".title-text .login");
+      const loginForm = document.querySelector("form.login");
+      const loginBtn = document.querySelector("label.login");
+      const signupBtn = document.querySelector("label.signup");
+      const signupLink = document.querySelector("form .signup-link a");
+      signupBtn.onclick = (()=>{
+        loginForm.style.marginLeft = "-50%";
+        loginText.style.marginLeft = "-50%";
+      });
+      loginBtn.onclick = (()=>{
+        loginForm.style.marginLeft = "0%";
+        loginText.style.marginLeft = "0%";
+      });
+      signupLink.onclick = (()=>{
+        signupBtn.click();
+        return false;
+      });
+    </script>
 
-function register(){
-    x.style.left="-400px";
-    y.style.left="50px";
-    z.style.left="10px";
-}
-function login(){
-    x.style.left="50px";
-    y.style.left="450px";
-    z.style.left="0";
-}
-
-
-</script>
-</body>
-<script src="index.js"></script>
+  </body>
 </html>
