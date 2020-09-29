@@ -136,6 +136,12 @@ button{
     text-decoration: none;
     cursor: pointer;
   }
+  /*Css für ausflug.html*/
+  main{
+     width: 50%;
+     margin: 50px auto; 
+  }
+  
 /*
 .open-button, button {
     display: block;
