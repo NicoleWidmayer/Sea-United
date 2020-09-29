@@ -1,0 +1,98 @@
+/* CSS-Style für Ansicht der Boote in boote.html */
+.grid-container{
+    display: grid;
+    grid-template-columns: 53% 47%;
+    grid-gap: 5px;
+    padding: 3px;
+}
+.grid-container > div {
+    max-width: 99%;
+}
+.grid-container > div >p {
+    text-align: left;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    font-family: old_standard_ttregular;
+}
+.grid-container >div >h1{
+    text-align: left;
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+    font-family: old_standard_ttregular;
+}
+@media (max-width: 1280px) {
+    .grid-container >div >p{
+        font-size: 1rem; 
+    }
+    .grid-container{
+        grid-template-columns: 50% 50%;
+    }
+    .grid-container >div >h1{
+        font-size: 1.4;
+        margin-bottom: 0;
+    }
+} 
+
+/* CSS für Kontakt */
+section{
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+section >div {
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 4rem;
+    font-family: 'old_standard_ttregular';
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+}
+form{
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-family: 'old_standard_ttregular';
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+}
+form >div {
+    background-size:cover;
+}
+input, textarea {
+    background-color: white;
+    font-family: 'old_standard_ttregular';
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+input{
+    margin-bottom: 1rem;
+    min-width: 35rem;
+}
+textarea{
+    min-width: 45rem;
+    min-height: 10rem;
+}
+input:focus, textarea:focus {
+    border-color: #0e4e78;
+}
+input::placeholder, textarea::placeholder{
+    color: #999;
+    transition: all 0.3s ease;
+}
+input:focus::placeholder, textarea:focus::placeholder{
+    color: #b3b3b3;
+}
+button{
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    background-color: #0e4e78;
+    color: white;
+    border: 1.5px solid #0e4e78;
+    border-radius: 5px;
+}
