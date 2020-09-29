@@ -4,6 +4,9 @@ const express = require("express");
 const mysql = require("mysql");
 const dotenv = require('dotenv');
 const path = require('path');
+const { Server } = require("http");
+
+const Services = require(".Client/Services");
 
 // Start des Servers
 const app = express();
@@ -57,3 +60,14 @@ app.use(express.static(publicDirectory));
 app.listen(5000,() =>{
     console.log("Server started on Port 5000")
 }) ;
+
+// read
+app.get('/ausflug.html', (request, response) => {
+    const db = Services.getServicesInstance();
+
+    const result = db.getData();
+
+    result
+    .then(data => response.json({data: data}))
+    .catch(err => console.log(err));
+})
