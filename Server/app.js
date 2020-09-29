@@ -1,19 +1,25 @@
-// Import von den Frameworks
+// Import von den Modulen
 
 const express = require("express"); 
 const mysql = require("mysql");
+const dotenv = require('dotenv');
 const path = require('path');
-const http =require('http');
+
 // Start des Servers
 const app = express();
+
+
+
+// Zum benutzen und zum Sichern der Datenbank Daten in einer Externen Datei, Quelle: https://telmoacademy.com/
+dotenv.config({path:'./.env'});
 
 // SQL Datenbank hinzufügen
 // Hier wird die verbindung zur db hergestellt, falls diese nicht lokal ist einfach bei host die IP-adresse eintragen
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "sea_united"
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_Password,
+    database: process.env.DATABASE
 });
 
 
@@ -39,20 +45,11 @@ const publicDirectory = path.join(__dirname, './Client');
 app.use(express.static(publicDirectory));
 
 // Starten der HTMl Engine
-app.set('index', 'html')
+//app.set('test', 'html')
 
 
 //Routen
 
-//app.use('/',require('./routes/pages.js'));
-
-//app.get('/', function(req,res){
-  //  res.sendFile(path.join(__dirname + '/Client/index.html'));
-//});
-
-//app.get('/', (req, res) => {
-  //  res.render('/Client/index');
-  //});
 
 
 
