@@ -96,3 +96,109 @@ button{
     border: 1.5px solid #0e4e78;
     border-radius: 5px;
 }
+
+/* CSS für Termin */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+/*
+.open-button, button {
+    display: block;
+    margin: 1rem;
+    background-color: #0e4e78;
+    color: white;
+    padding: 2rem;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    width: 20rem;
+    font-family: 'old_standard_ttregular';
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    box-sizing: border-box;
+}
+h1 {
+    color: white;
+    font-size: 1.7rem;
+    font-family: 'old_standard_ttregular';
+    letter-spacing: 2px;
+    margin: 1rem;
+}
+.form-popup {
+    display: none;
+    position: fixed;
+    max-height:100%;
+    bottom: 0;
+    margin: 0.5rem;
+    z-index: 2;
+}
+.form-container {
+    max-width:100%;
+    padding: 2rem;
+    font-family: 'old_standard_ttregular';
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    background-color:#0e4e78;
+    color: white;
+}
+.form-container input[type=date], .form-container select{
+  max-width:80%;
+  padding: 2rem;
+  margin: 0.5rem;
+  border-radius: 12px;
+  background: white;
+  color: black;
+}
+.form-container input[type=date]:focus, .form-container select:focus {
+  background-color: white;
+}
+.form-container .btn {
+  background-color: mediumseagreen;
+  color: white;
+  padding: 2rem;
+  cursor: pointer;
+  max-width: 100%;
+  margin-bottom:1rem;
+  opacity: 0.8;
+}
+.form-container .cancel {
+  background-color: orange;
+}
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
