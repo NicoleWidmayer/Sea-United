@@ -1,6 +1,7 @@
 /* CSS für Fußzeile */
 .grid-container-fussbereich{
         display: grid;
+        font-family: old_standard_ttregular;
         grid-template-columns: auto auto auto auto;
         text-align: center;
         margin-top: 4.2rem;
