@@ -4,8 +4,6 @@ const express = require("express");
 const mysql = require("mysql");
 const dotenv = require('dotenv');
 const path = require('path');
-
-// Start des Servers
 const app = express();
 
 
@@ -24,7 +22,7 @@ const db = mysql.createConnection({
 
 
 
-//verbindung zur Datenbank prüfen
+//verbindung zur Datenbank in der Console prüfen
 db.connect((error)=>{
     if(error)
     {
@@ -32,26 +30,50 @@ db.connect((error)=>{
     }
     else
     {
-        console.log("MYSQL connected...");
+        console.log("MYSQL Datenbank is connected...");
     }
 });
 
 
-// Anzeigen der Frontend Seite
-// Hier kommt das Frontend rein/ __dirname gibt dir zugriff auf die aktuelle Direktory bei uns dann eins hoch springen!
+// Starten des Webservers und Routen zum Frontend
+// / __dirname gibt dir zugriff auf die aktuelle Direktory bei uns dann eins hoch springen!
+
 const publicDirectory = path.join(__dirname, './Client');
 
-// hier wird die zuvor erzeuge Direktory benutzt, siehe oben const publicDirectory
+//Routen zu den Webseiten
+
+app.get('/', function (req, res) {
+    res.sendFile(publicDirectory+'/index.html');
+  });
+
+app.get('/Login.html', function (req, res) {
+    res.sendFile(publicDirectory+'/Login.html')
+  });
+
+app.get('/kontakt.html', function (req, res) {
+    res.sendFile(publicDirectory+'/kontakt.html');
+  });
+
+app.get('/ausflug.html', function(req,res) {
+    res.sendFile(publicDirectory+ '/ausflug.html');
+})
+
+app.get('/boote.html', function(req,res) {
+    res.sendFile(publicDirectory+ '/ausflug.html');
+})
+
+// Routen für Post (Login und Registrierung)
+const loginController = require('../Server/Skripte/login.js');
+//app.post('/Login.html', loginController.einloggen);
+
+app.post('/login/submit', loginController.einloggen);
+  
+const regController = require('../Server/Skripte/registrierung.js');
+app.post('/registrierung/submit', regController.reg);
+
+
+// Wird benötigt damit das css, bilder und die java Dateien bereit gestellt werden können Quelle: https://expressjs.com/de/starter/static-files.html
 app.use(express.static(publicDirectory));
-
-// Starten der HTMl Engine
-//app.set('test', 'html')
-
-
-//Routen
-
-
-
 
 // Auf diesen Port hört der express Server! Wichtig 
 app.listen(5000,() =>{
