@@ -16,7 +16,29 @@ const db = mysql.createConnection({
 
 
 
-exports.einloggen = (req, res) => {
-    console.log(req.body);
-    res.send("Einloggen Funktion");
+exports.einloggen = async(req, res) => {
+   console.log(req.body);
+    try {
+        // Abfrage E-mail und Password aus dem Formular
+        const{email: benutzername, password} = req.body;
+
+        if(!benutzername || !password)
+        {
+            return res.status(400).render('login',{
+                message:'Please provide an email an password'
+            })
+        }
+
+
+    db.query('SELECT * From benutzer WHERE email = ?', [benutzername], async(error, results) =>{
+    console.log(results);
+
+    });
+
+
+
+    } catch (error) {
+        console.log(error);
+    }
+
 };
