@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
-loadHTMLTable([]);
+    fetch("http://localhost:5000/ausflug.html")
+    .then (response => response.json())
+    .then (data => loadHTMLTable(data['data']));
 });
 
 function loadHTMLTable(data){
