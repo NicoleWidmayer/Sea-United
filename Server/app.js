@@ -32,7 +32,7 @@ db.connect((error)=>{
 
 // test wegen Datenbank
 
-//Parse URL-encoded bodies (as sent by html from), nimmt die von HTML gesendeten Sachen entgegen
+//Parse URL-encoded bodies (as sent by html from), nimmt die von HTML gesendeten Sachen entgegen und zeigt sie in der url nicht an
 app.use(express.urlencoded({extended:false}));
 // Sorg dafür das die Daten die kommen im Format JSON übertragen werden // Parse JSON Bodies (as sent by API Clients)
 app.use(express.json());
