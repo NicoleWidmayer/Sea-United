@@ -14,26 +14,29 @@ const db = mysql.createConnection({
 
 
 
-
-
 exports.einloggen = async(req, res) => {
+  
    console.log(req.body);
     try {
         // Abfrage E-mail und Password aus dem Formular
-        const{email: benutzername, password} = req.body;
+        const{benutzername, password} = req.body;
+        const test= 'false';
+        db.query('SELECT * From benutzer WHERE benutzername = ?', [benutzername], async(error, results) =>{
+            console.log(results);
+            
+        });
+        //if(!benutzername || !password)
+        //{
+          //  return res.status(400).render('login',{
+              //  message:'Please provide an email an password'
+            //})
+       // }
 
-        if(!benutzername || !password)
-        {
-            return res.status(400).render('login',{
-                message:'Please provide an email an password'
-            })
-        }
 
+    //db.query('SELECT * From benutzer WHERE email = ?', [benutzername], async(error, results) =>{
+   // console.log(results);
 
-    db.query('SELECT * From benutzer WHERE email = ?', [benutzername], async(error, results) =>{
-    console.log(results);
-
-    });
+    //});
 
 
 

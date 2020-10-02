@@ -38,7 +38,6 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 
-
 // Starten des Webservers und Routen zum Frontend
 // / __dirname gibt dir zugriff auf die aktuelle Direktory bei uns dann eins hoch springen!
 const publicDirectory = path.join(__dirname, './Client');
