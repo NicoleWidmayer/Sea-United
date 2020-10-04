@@ -13,6 +13,7 @@ const db = mysql.createConnection({
 });
 
 const path = require('path');
+const { RSA_NO_PADDING } = require('constants');
 const publicDirectory = path.join(__dirname, '../Client');
 
 
@@ -21,39 +22,32 @@ exports.einloggen = async(req, res) => {
    
    
     console.log(req.body);
-    
+
     try {
 
         // Abfrage E-mail und Password aus dem Formular
         const{benutzername, password} = req.body;
-        return true;
-
-        // Wird nicht benötigt
-        if(!benutzername|| !password)
-        {
+        
+        db.query('SELECT * From benutzer WHERE benutzername = ?', [benutzername], async(error, results) =>{
+         console.log(results);
             
+         if(!results || (password === results[2]))
+         {
+             res.status(401).render('/Login.hbs',{
+                 message:'Falsche Eingabe!'
+             })
+         }
+        else{
+            res.status(200).redirect("/termin.html");
         }
-        //db.query('SELECT * From benutzer WHERE benutzername = ?', [benutzername], async(error, results) =>{
-          //  console.log(results);
+        }); // Datenbankabfrage
 
-       // });
-        //if(!benutzername || !password)
-        //{
-          //  return res.status(400).render('login',{
-              //  message:'Please provide an email an password'
-            //})
-       // }
+        
 
 
-    //db.query('SELECT * From benutzer WHERE email = ?', [benutzername], async(error, results) =>{
-   // console.log(results);
-
-    //});
-
-
-
-    } catch (error) {
+    }// try 
+    catch (error) {
         console.log(error);
-    }
+    }// catch
 
-};
+}; // Methode Einloggen

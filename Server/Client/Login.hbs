@@ -49,6 +49,10 @@
               <input type="password" name="pwPasswort" id="pwPasswort" placeholder="Passwort" required>
             </div>
 <div class="pass-link">
+  <!-- /////////////////// Test der Skript ausgabe "Benutzerdaten Falsch" /////////////////// -->
+{{#if message }}
+  <h4 class="altert" alert-danger mt -4> {{message}}</h4>
+{{/if}}
 <a href="#">Passwort vergessen?</a></div>
 <div class="field btn">
               <div class="btn-layer">
