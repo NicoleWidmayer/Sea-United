@@ -29,14 +29,17 @@ exports.einloggen = async(req, res) => {
         const{pwBenutzername, pwPasswort} = req.body;
         console.log(pwBenutzername)
         db.query(('SELECT * FROM benutzer WHERE benutzername = ?'),[pwBenutzername] , async(error, results) =>{
+         //Test zum schauenw was aus der Datenbank zurück kommt
          console.log(results);
          console.log(results[0].passwort);
-
+         // Benutzer und passwort abfrage
          if( pwBenutzername == results[0].benutzername  || pwPasswort == results[0].passwort )
-         {
+         {       
+                // Weiterleitung zur buchen Seite
                  res.status(200).redirect("/termin.html");
          }
          else{     
+            // Ausgabe der Fehler Meldung
             res.status(401).render(publicDirectory + '/login.hbs', {
                 message:'Email or Password is incorrect'
             })
