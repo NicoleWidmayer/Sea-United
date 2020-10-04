@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 const path = require('path');
 const app = express();
 
+
 // SQL Datenbank hinzufügen
 // Zum benutzen und zum Sichern der Datenbank Daten in einer Externen Datei, Quelle: https://telmoacademy.com/
 dotenv.config({path:'./.env'});
@@ -38,7 +39,6 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 
-
 // Starten des Webservers und Routen zum Frontend
 // / __dirname gibt dir zugriff auf die aktuelle Direktory bei uns dann eins hoch springen!
 const publicDirectory = path.join(__dirname, './Client');
@@ -52,7 +52,7 @@ app.get('/', function (req, res) {
   });
 
 app.get('/Login.hbs', function (req, res) {
-    res.render(publicDirectory + '/Login');
+    res.render(publicDirectory + '/Login.hbs');
   });
 
 app.get('/kontakt.html', function (req, res) {

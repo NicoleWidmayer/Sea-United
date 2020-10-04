@@ -2,7 +2,6 @@
 
 // SQL Modul
 const mysql = require('mysql');
-const express = require('express');
 
 // Hier wird die verbindung zur db hergestellt
 const db = mysql.createConnection({
@@ -13,8 +12,9 @@ const db = mysql.createConnection({
 });
 
 const path = require('path');
-const { RSA_NO_PADDING } = require('constants');
+const { dirname } = require('path');
 const publicDirectory = path.join(__dirname, '../Client');
+
 
 
 
@@ -26,20 +26,23 @@ exports.einloggen = async(req, res) => {
     try {
 
         // Abfrage E-mail und Password aus dem Formular
-        const{benutzername, password} = req.body;
-        
-        db.query('SELECT * From benutzer WHERE benutzername = ?', [benutzername], async(error, results) =>{
+        const{pwBenutzername, pwPasswort} = req.body;
+        console.log(pwBenutzername)
+        db.query(('SELECT * FROM benutzer WHERE benutzername = ?'),[pwBenutzername] , async(error, results) =>{
          console.log(results);
-            
-         if(!results || (password === results[2]))
+         console.log(results[0].passwort);
+
+         if( pwBenutzername == results[0].benutzername  || pwPasswort == results[0].passwort )
          {
-             res.status(401).render('/Login.hbs',{
-                 message:'Falsche Eingabe!'
-             })
+                 res.status(200).redirect("/termin.html");
          }
-        else{
-            res.status(200).redirect("/termin.html");
-        }
+         else{     
+            res.status(401).render(publicDirectory + '/login.hbs', {
+                message:'Email or Password is incorrect'
+            })
+               
+            
+             }
         }); // Datenbankabfrage
 
         
