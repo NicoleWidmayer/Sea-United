@@ -29,7 +29,7 @@ exports.einloggen = async(req, res) => {
         const{pwBenutzername, pwPasswort} = req.body;
         console.log(pwBenutzername)
         db.query(('SELECT * FROM benutzer WHERE benutzername = ?'),[pwBenutzername] , async(error, results) =>{
-         //Test zum schauenw was aus der Datenbank zurück kommt
+         //Test zum schauen was aus der Datenbank zurück kommt
          console.log(results);
          console.log(results[0].passwort);
          // Benutzer und passwort abfrage
