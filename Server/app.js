@@ -38,17 +38,21 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 
+
 // Starten des Webservers und Routen zum Frontend
 // / __dirname gibt dir zugriff auf die aktuelle Direktory bei uns dann eins hoch springen!
 const publicDirectory = path.join(__dirname, './Client');
+
+// View engin, test (HBS) test mit ejs hat nicht geklappt   Fremd Code: https://stackoverflow.com/questions/23595282/error-no-default-engine-was-specified-and-no-extension-was-provided
+app.set('view engine', 'hbs')
 
 //Routen zu den Webseiten
 app.get('/', function (req, res) {
     res.sendFile(publicDirectory+'/index.html');
   });
 
-app.get('/Login.html', function (req, res) {
-    res.sendFile(publicDirectory+'/Login.html')
+app.get('/Login.hbs', function (req, res) {
+    res.render(publicDirectory + '/Login');
   });
 
 app.get('/kontakt.html', function (req, res) {
@@ -66,7 +70,7 @@ app.get('/boote.html', function(req,res) {
 // Routen für Post (Login und Registrierung)
 const loginController = require('../Server/Skripte/login.js');
 app.post('/login/submit', loginController.einloggen);
-  
+
 const regController = require('../Server/Skripte/registrierung.js');
 app.post('/registrierung/submit', regController.reg);
 

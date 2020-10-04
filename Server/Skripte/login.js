@@ -12,19 +12,31 @@ const db = mysql.createConnection({
     database: process.env.database
 });
 
+const path = require('path');
+const publicDirectory = path.join(__dirname, '../Client');
+
 
 
 exports.einloggen = async(req, res) => {
-  
-   console.log(req.body);
+   
+   
+    console.log(req.body);
+    
     try {
+
         // Abfrage E-mail und Password aus dem Formular
         const{benutzername, password} = req.body;
-        const test= 'false';
-        db.query('SELECT * From benutzer WHERE benutzername = ?', [benutzername], async(error, results) =>{
-            console.log(results);
+        return true;
+
+        // Wird nicht benötigt
+        if(!benutzername|| !password)
+        {
             
-        });
+        }
+        //db.query('SELECT * From benutzer WHERE benutzername = ?', [benutzername], async(error, results) =>{
+          //  console.log(results);
+
+       // });
         //if(!benutzername || !password)
         //{
           //  return res.status(400).render('login',{
