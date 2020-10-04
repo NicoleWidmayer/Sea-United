@@ -33,7 +33,7 @@ exports.einloggen = async(req, res) => {
          console.log(results);
          console.log(results[0].passwort);
          // Benutzer und passwort abfrage
-         if( pwBenutzername == results[0].benutzername  || pwPasswort == results[0].passwort )
+         if( (pwBenutzername == results[0].benutzername)  && (pwPasswort == results[0].passwort) )
          {       
                 // Weiterleitung zur buchen Seite
                  res.status(200).redirect("/termin.html");
