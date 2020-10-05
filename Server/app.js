@@ -72,6 +72,10 @@ app.get('/impressum', function (req,res){
     
 })
 
+app.get('/termin', function (req,res){
+    res.render('termin');
+})
+
 // Routen für Post (Login und Registrierung)
 const loginController = require('../Server/Skripte/login.js');
 app.post('/login/submit', loginController.einloggen);

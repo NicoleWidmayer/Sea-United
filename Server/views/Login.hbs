@@ -50,8 +50,14 @@
             </div>
 <div class="pass-link">
   <!-- /////////////////// Test der Skript ausgabe "Benutzerdaten Falsch" /////////////////// -->
-{{#if message }}
-  <h4 class="altert" alert-danger mt -4> {{message}}</h4>
+{{#if messageEins }}
+  <h4 class="altert" >{{messageEins}}</h4>
+{{/if}}
+{{#if messageZwei}}
+  <h4 class="altert" >{{messageZwei}}</h4>
+{{/if}}
+{{#if messageDrei }}
+  <h4 class="altert" >{{messageDrei}}</h4>
 {{/if}}
 <a href="#">Passwort vergessen?</a></div>
 <div class="field btn">
@@ -67,19 +73,20 @@ Noch nicht angemeldet? <a href="">Hier anmelden</a></div>
               <input type="text" name="Email" id="Email" placeholder="Email Adresse" required>
             </div>
             <div class="field">
-              <input type="text" name="pwBenutzername" id="pwBenutzername" placeholder="Benutzername" required>
+              <input type="text" name="Benutzername" id="pwBenutzername" placeholder="Benutzername" required>
             </div>
 <div class="field">
-              <input type="password"  name="pwPasswort" id="pwPasswort" placeholder="Passwort" required>
+              <input type="password"  name="IPasswort" id="pwPasswort" placeholder="Passwort" required>
             </div>
 <div class="field">
-              <input type="password"  name="pwPasswort" id="pwPasswort" placeholder="Passwort wiederholen" required>
+              <input type="password"  name="IWPasswort" id="pwPasswort" placeholder="Passwort wiederholen" required>
             </div>
 <div class="field btn">
               <div class="btn-layer">
 </div>
 <input type="submit" value="Registrieren">
-            </div>
+
+ </div>
 </form>
 </div>
 </div>

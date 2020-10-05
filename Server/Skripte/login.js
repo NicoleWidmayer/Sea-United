@@ -36,12 +36,12 @@ exports.einloggen = async(req, res) => {
          if( (pwBenutzername == results[0].benutzername)  && (pwPasswort == results[0].passwort) )
          {       
                 // Weiterleitung zur buchen Seite
-                 res.status(200).redirect("termin");
+                 res.status(200).render("termin");
          }
          else{     
             // Ausgabe der Fehler Meldung 
             res.status(401).render('login', {
-                message:'Benutzerdaten oder Passwort Falsch!'
+                messageEins: 'Falsches Passwort!'
             })
                
             
