@@ -36,20 +36,17 @@ exports.einloggen = async(req, res) => {
          if( (pwBenutzername == results[0].benutzername)  && (pwPasswort == results[0].passwort) )
          {       
                 // Weiterleitung zur buchen Seite
-                 res.status(200).redirect("/termin.html");
+                 res.status(200).redirect("termin");
          }
          else{     
-            // Ausgabe der Fehler Meldung
-            res.status(401).render(publicDirectory + '/login.hbs', {
-                message:'Email or Password is incorrect'
+            // Ausgabe der Fehler Meldung 
+            res.status(401).render('login', {
+                message:'Benutzerdaten oder Passwort Falsch!'
             })
                
             
              }
         }); // Datenbankabfrage
-
-        
-
 
     }// try 
     catch (error) {
