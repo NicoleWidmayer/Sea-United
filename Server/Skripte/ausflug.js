@@ -3,12 +3,11 @@
 
 const mysql = require('mysql');
 const express = require('express');
-const dotenv = require('dotenv');
-const dotenv = require('dotenv');
+
 let instance = null;
 
 //Verbindung zur DB
-const connection = createConnection({
+const connection = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     user: proccess.env.DATABASE_USER,
     passwort: process.env.DATABASE_PASSWORT,
@@ -82,15 +81,15 @@ class Services {
     //Diese Funktion übernimmt die SQL-Abfrage für die Tabelle
     async getAusflugData() {
         try{
-            //const response = await new Promise((resolve, reject) => {
-              //  
-                //connection.query("SELECT boot, kategorie, kapazität, datum, preis from Boote, Termine where boot = kennung and gebucht = 0;", (err, results) => {
-                  //  if (err) reject (new Error(err.message));
-                    //resolve(results);
-                //})
-            //});
-            //console.log(response);
-            //return response;
+            const response = await new Promise((resolve, reject) => {
+                
+                connection.query("SELECT boot, kategorie, kapazität, datum, preis from Boote, Termine where boot = kennung and gebucht = 0;", (err, results) => {
+                    if (err) reject (new Error(err.message));
+                    resolve(results);
+                })
+            });
+            console.log(response);
+            return response;
             console.log("Es funktioniert...")
         }catch (err){
             console.log(err);
