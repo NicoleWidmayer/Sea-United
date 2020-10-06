@@ -90,7 +90,6 @@ class Services {
             });
             console.log(response);
             return response;
-            console.log("Es funktioniert...")
         }catch (err){
             console.log(err);
         }
