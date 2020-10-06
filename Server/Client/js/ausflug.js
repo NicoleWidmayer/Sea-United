@@ -1,7 +1,7 @@
-//Durch den folgenden Code wird die Tabelle "Termin" auf der Seite angezeigt
+//Durch den folgenden Code wird die Tabelle der zur Verfügung stehenden Termineauf der Seite angezeigt
 
-const mysql = require("mysql");
 const express = require('express');
+const mysql = require("mysql");
 const dotenv = require("dotenv");
 dotenv.config();
 let instance = null;
@@ -25,7 +25,7 @@ connection.connect((err) => {
 
 
 document.addEventListener('DOMContentLoaded', function(){
-    fetch("http://localhost:5000/ausflug.html")
+    fetch("http://localhost:5000/ausflug.hbs")
     .then (response => response.json())
     .then (data => loadHTMLTable(data['data']));
 });
@@ -33,12 +33,14 @@ document.addEventListener('DOMContentLoaded', function(){
 function loadHTMLTable(data){
     const table = document.querySelector('table tbody');
 
+    //Wenn keine Daten vorliegen greift dies
     if(data.length === 0){
         table.innerHTML="<tr> <td class='no-data' colspan='6'>Derzeit sind keine Termine verfügbar.</td> </tr>";
         return;
     }
     let tableHTML="";
 
+    //Hierdurch wird die Tabelle mit den Daten zeilenweise befüllt
     data.forEach(function({Boot, Kategorie, Kapazität, Datum, Preis, Buchen}){
         tableHTML += "<tr>";
         tableHTML += `<td>§{boot}<td>`;
@@ -54,7 +56,7 @@ function loadHTMLTable(data){
 }
 
 
-// read
+// Auslesen des Sql-Statements, mit dem die Tabelle gefüllt werden soll
 app.get('/getAusflugData', (request, response) => {
     const db = Services.getServicesInstance();
 
@@ -65,6 +67,8 @@ app.get('/getAusflugData', (request, response) => {
     .catch(err => console.log(err));
 })
 
+//Funktion des "Buchen"-Buttons
+
 
 
 
@@ -74,6 +78,7 @@ class Services {
             return instance ? instance : new Services();
     }
 
+    //Diese Funktion übernimmt die SQL-Abfrage für die Tabelle
     async getAusflugData() {
         try{
             const response = await new Promise((resolve, reject) => {
