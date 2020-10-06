@@ -1,13 +1,14 @@
 //Durch den folgenden Code wird die Tabelle der zur Verfügung stehenden Termineauf der Seite angezeigt
+//Der gesamte Code ist inspiriert durch https://www.youtube.com/watch?v=vrj9AohVhPA
 
+const mysql = require('mysql');
 const express = require('express');
-const mysql = require("mysql");
-const dotenv = require("dotenv");
-dotenv.config();
+const dotenv = require('dotenv');
+const dotenv = require('dotenv');
 let instance = null;
 
 //Verbindung zur DB
-const connection = mysql.createConnection({
+const connection = createConnection({
     host: process.env.DATABASE_HOST,
     user: proccess.env.DATABASE_USER,
     passwort: process.env.DATABASE_PASSWORT,
@@ -81,16 +82,16 @@ class Services {
     //Diese Funktion übernimmt die SQL-Abfrage für die Tabelle
     async getAusflugData() {
         try{
-            const response = await new Promise((resolve, reject) => {
-                
-                connection.query("SELECT boot, kategorie, kapazität, datum, preis from Boote, Termine where boot = kennung and gebucht = 0;", (err, results) => {
-                    if (err) reject (new Error(err.message));
-                    resolve(results);
-                })
-            });
-            console.log(response);
-            return response;
-
+            //const response = await new Promise((resolve, reject) => {
+              //  
+                //connection.query("SELECT boot, kategorie, kapazität, datum, preis from Boote, Termine where boot = kennung and gebucht = 0;", (err, results) => {
+                  //  if (err) reject (new Error(err.message));
+                    //resolve(results);
+                //})
+            //});
+            //console.log(response);
+            //return response;
+            console.log("Es funktioniert...")
         }catch (err){
             console.log(err);
         }
