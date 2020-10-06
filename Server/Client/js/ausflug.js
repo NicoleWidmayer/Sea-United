@@ -65,10 +65,6 @@ app.get('/getAusflugData', (request, response) => {
     .catch(err => console.log(err));
 })
 
-function insertLineIntoTable(data) {
-
-}
-
 
 
 
@@ -76,24 +72,6 @@ function insertLineIntoTable(data) {
 class Services {
     static getServicesInstance (){
             return instance ? instance : new Services();
-    }
-
-    async getData() {
-        try{
-            const response = await new Promise((resolve, reject) => {
-                const query1 = "SELECT * FROM termine;"
-
-                connection.query(query1, (err, results) => {
-                    if (err) reject (new Error(err.message));
-                    resolve(results);
-                })
-            });
-            console.log(response);
-            return response;
-
-        }catch (err){
-            console.log(err);
-        }
     }
 
     async getAusflugData() {
