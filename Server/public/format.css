@@ -31,5 +31,11 @@
 .impressum{
         font-family: old_standard_ttregular; 
 }
-
+/*Css für Termin*/
+#Logout{
+        margin-top: 1%;
+        margin-left: 90%;
+        text-align: center;
+        width:100px;
+}
 
