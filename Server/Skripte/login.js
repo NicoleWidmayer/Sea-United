@@ -8,7 +8,7 @@ const db = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
     password:process.env.DATABASE_PASSWORD,
-    database: process.env.database
+    database: process.env.DATABASE
 });
 
 const path = require('path');
@@ -45,7 +45,7 @@ exports.einloggen = async(req, res) => {
             })
                
             
-             }
+             }   
         }); // Datenbankabfrage
 
     }// try 
