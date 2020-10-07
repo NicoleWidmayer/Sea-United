@@ -1,7 +1,7 @@
 // Import von den Modulen
 
 const express = require("express"); 
-const mysql = require("mysql");
+const mysql = require("mysql2/promise");
 const dotenv = require('dotenv');
 const path = require('path');
 const app = express();
@@ -12,24 +12,18 @@ const app = express();
 dotenv.config({path:'./.env'});
 
 // Hier wird die verbindung zur db hergestellt, falls diese nicht lokal ist einfach bei host die IP-adresse eintragen
-const db = mysql.createConnection({
+mysql
+  .createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_Password,
-    database: process.env.DATABASE
-});
+    database: process.env.DATABASE,
+  })
+  .then((con) => {
+    connection = con;
+    console.log("MYSQL Datenbank is connected...");
+  });
 
-//verbindung zur Datenbank in der Console prüfen
-db.connect((error)=>{
-    if(error)
-    {
-        console.log(error);
-    }
-    else
-    {
-        console.log("MYSQL Datenbank is connected...");
-    }
-});
 
 // test wegen Datenbank
 
@@ -64,7 +58,7 @@ app.get('/ausflug', function(req,res) {
 })
 
 app.get('/boote', function(req,res) {
-    res.render('boote');
+    res.render('ausflug');
 })
 
 app.get('/impressum', function (req,res){
