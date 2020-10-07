@@ -1,7 +1,7 @@
 /* CSS-Style für Ansicht der Boote in boote.html */
 .grid-container{
     display: grid;
-    grid-template-columns: 53% 47%;
+    grid-template-columns: 50% 50%;
     grid-gap: 5px;
     padding: 3px;
 }
@@ -19,18 +19,6 @@
     font-size: 1.7rem;
     letter-spacing: 2px;
     font-family: old_standard_ttregular;
-}
-@media scene and(max-width: 640px) {
-    .grid-container{
-        grid-template-columns:40% 60%;
-    }
-    .grid-container >div >p{
-        font-size: 1rem; 
-    }
-    .grid-container >div >h1{
-        font-size: 1.4;
-        margin-bottom: 0;
-    }
 }
 
 /* CSS für Kontakt */
@@ -97,6 +85,10 @@ button{
     border-radius: 5px;
 }
 
+<<<<<<< HEAD
+/* CSS für Termin */
+
+=======
 
   
   /* The Close Button *//*
@@ -113,6 +105,7 @@ button{
     text-decoration: none;
     cursor: pointer;
   }*/
+>>>>>>> 2a8fb993901383305025da1ebaf745f97f604e39
 
 
 /*
