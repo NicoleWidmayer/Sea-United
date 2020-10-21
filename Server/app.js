@@ -35,8 +35,34 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+//Datenbankkommunikation für die Ausflug-Seite
+//Füllen der Tabelle mit den noch freien Terminen
+app.post("/ausflug", async (req, res) => {
+  const[rows] = await con.execute("SELECT boot, kategorie, kapazität, datum, preis from Boote, Termine where boot = kennung and gebucht = 0;");
+})
 
+//Ändern der Daten durch drücken des "BUCHEN" Button
 
+//Datenbankkommunikation für die Termine-Seite
+//Füllen der Tabelle mit allen Terminen
+app.post("/termine", async (req, res) => {
+  const[rows] = await con.execute("SELECT boot, kategorie, kapazität, datum, preis, gebucht from Boote, Termine where boot = kennung;");
+})
+
+//Funktion Termin löschen
+app.delete("/delete", async (req, res) => {
+  const[rows] = await con.execute("DELETE FROM Termine WHERE boot = ? AND datum = ?;");
+})
+
+//Funktion Termin erstellen
+app.put("/erstellen", async (req, res) => {
+  const[rows] = await con.execute("INSERT INTO Termine VALUES(?, '?', false);"); //DATUM, BOOT, GEBUCHT
+})
+
+//Funktion Termin bearbeiten
+app.put("/bearbeiten", async (req, res) => {
+  const[rows] = await con.execute("UPDATE Termine SET boot = ?, datum = ? WHERE boot = ? AND datum = ?;");
+})
 
 // Auf diesen Port hört der express Server! Wichtig 
 app.listen(5000,() =>{
