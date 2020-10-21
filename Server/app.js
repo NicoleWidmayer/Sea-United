@@ -64,6 +64,36 @@ app.put("/bearbeiten", async (req, res) => {
   const[rows] = await con.execute("UPDATE Termine SET boot = ?, datum = ? WHERE boot = ? AND datum = ?;");
 })
 
+
+
+
+//Datenbankkommunikation für die Login Seite
+app.get("/benutzer", async (req, res) => {
+  try{
+    const [rows] = await connection.execute("SELECT * from benutzer");
+    res.json(rows);  
+  }catch{
+    res.status(500).send();
+  }
+  });
+
+// Datenbnakkomunikation für das Registrien von neuen Benutzern
+// Neuen Benutzer in der Datenbank anlegen
+app.post("/register", async (req, res) => {
+  try{
+  const [
+    rows,
+  ] = await connection.execute(
+    "INSERT INTO benutzer (benutzername, passwort, e_mail) VALUES (?, ?, ?)",
+    [req.body.benutzername,req.body.passwort, req.body.email]
+  );
+
+      }catch{
+        res.status(500).send();
+      }
+});
+
+
 // Auf diesen Port hört der express Server! Wichtig 
 app.listen(5000,() =>{
     console.log("Server started on Port 5000")

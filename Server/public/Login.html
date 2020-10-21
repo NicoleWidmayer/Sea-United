@@ -50,8 +50,10 @@
           </div>
         </div>
         <div class="form-inner">
+
+
            <!--form mit Post Methode -->
-          <form action="" class="login">-->
+          <form action="Login.html" class="login">
             <div class="field">
               <input type="text" name="pwBenutzername" id="pwBenutzername" placeholder="Benutzername" required>
             </div>
@@ -70,8 +72,10 @@
               Noch nicht angemeldet? <a href="">Hier anmelden</a></div>
                <!--form mit Post Methode Ende -->
          </form>
+
+
             <!--form mit Post Methode -->
-          <form action="/registrierung/submit" method="POST" class="signup">
+          <form action="Login.html"  class="signup">
             <div class="field">
               <input type="text" name="Email" id="Email" placeholder="Email Adresse" required>
             </div>
@@ -82,13 +86,13 @@
               <input type="password" name="IPasswort" id="pwPasswort1" placeholder="Passwort" required>
             </div>
             <div class="field">
-              <input type="password" name="IWPasswort" id="pwPasswort1" placeholder="Passwort wiederholen" required>
+              <input type="password" name="IWPasswort" id="pwPasswort2" placeholder="Passwort wiederholen" required>
             </div>
             <div class="field btn">
               <div class="btn-layer">
               </div>
                 <!--Button Registrieren -->
-              <input type="submit" value="Registrieren">
+              <input id="submitReg" type="submit" value="Registrieren">
 
             </div>
              <!--form mit Post Methode Ende -->
@@ -96,7 +100,10 @@
         </div>
       </div>
     </div>
-    <script src="/Server/public/login.js"></script>
+
+    <script src="login.js"></script>
+   <script src="register.js"></script>
+
     <script>
       const loginText = document.querySelector(".title-text .login");
       const loginForm = document.querySelector("form.login");
@@ -113,7 +120,7 @@
       });
       signupLink.onclick = (() => {
         signupBtn.click();
-        return false;
+        return true;
       });
     </script>
     <!--Ende Copyright-->
@@ -135,6 +142,7 @@
       <div> <a href="impressum.html"> Impressum</a></div>
     </div>
   </footer>
+    <!--Skript für den Login-->
   
 </body>
 
