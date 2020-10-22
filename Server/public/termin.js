@@ -20,7 +20,17 @@ document.addEventListener('DOMContentLoaded', function (e) {
 document.querySelector('table tbody').addEventListener('click', function(event) {
     if (event.target.className === "delete-row") {
         console.log(event.target.dataset.id);
-        deleteRowById(event.target.dataset.id);
+        
+     // Meldung inspiriert durch: https://www.w3schools.com/js/js_popup.asp
+     // Hier wird eine bestätigung zum Buchen abgefragt
+  
+    if (confirm("Wollen Sie diesen Termin wirklich buchen?")) {
+      console.log("OK");
+      console.log()
+      deleteRowById(event.target.dataset.id);
+    } else {
+      console.log("Abbrechen")
+    }
     }
     if (event.target.className === "edit-row") {
         handleEditRow(event.target.dataset.id);
