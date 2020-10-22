@@ -38,7 +38,11 @@ app.use(express.static("public"));
 //Datenbankkommunikation für die Ausflug-Seite
 //Füllen der Tabelle mit den noch freien Terminen
 app.post("/ausflug", async (req, res) => {
-  const[rows] = await con.execute("SELECT boot, kategorie, kapazität, datum, preis from Boote, Termine where boot = kennung and gebucht = 0;");
+  try {
+    const[rows] = await con.execute("SELECT boot, kategorie, kapazität, datum, preis from Boote, Termine where boot = kennung and gebucht = 0;");
+  } catch {
+    res.status(500).send();
+  }
 })
 
 //Ändern der Daten durch drücken des "BUCHEN" Button
@@ -46,22 +50,41 @@ app.post("/ausflug", async (req, res) => {
 //Datenbankkommunikation für die Termine-Seite
 //Füllen der Tabelle mit allen Terminen
 app.post("/termine", async (req, res) => {
-  const[rows] = await con.execute("SELECT boot, kategorie, kapazität, datum, preis, gebucht from Boote, Termine where boot = kennung;");
+  try {
+    const[rows] = await con.execute("SELECT boot, kategorie, kapazität, datum, preis, gebucht from Boote, Termine where boot = kennung;");
+  } catch {
+    res.status(500).send();
+  }
 })
 
 //Funktion Termin löschen
 app.delete("/delete", async (req, res) => {
-  const[rows] = await con.execute("DELETE FROM Termine WHERE boot = ? AND datum = ?;");
+  try {
+    const[rows] = await con.execute("DELETE FROM Termine WHERE boot = ? AND datum = ?;");
+    [req.body.boot, req.body.datum]
+  } catch {
+    res.status(500).send();
+  }
 })
 
 //Funktion Termin erstellen
-app.put("/erstellen", async (req, res) => {
-  const[rows] = await con.execute("INSERT INTO Termine VALUES(?, '?', false);"); //DATUM, BOOT, GEBUCHT
+app.pupostt("/erstellen", async (req, res) => {
+  try {
+    const[rows] = await con.execute("INSERT INTO Termine VALUES(?, '?', false);"); //DATUM, BOOT, GEBUCHT
+    [req.body.datum, req.body.boot, req.body.gebucht]
+  } catch {
+    res.status(500).send();
+  }
 })
 
 //Funktion Termin bearbeiten
 app.put("/bearbeiten", async (req, res) => {
-  const[rows] = await con.execute("UPDATE Termine SET boot = ?, datum = ? WHERE boot = ? AND datum = ?;");
+  try {
+    const[rows] = await con.execute("UPDATE Termine SET boot = ?, datum = ? WHERE boot = ? AND datum = ?;");
+    [req.body.boot, req.body.datum, req.body.altBoot, req.body.altDatum]
+  } catch {
+    res.status(500).send();
+  }
 })
 
 
