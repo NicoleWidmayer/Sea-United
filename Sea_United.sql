@@ -2,8 +2,8 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Erstellungszeit: 23. Sep 2020 um 17:06
+-- Host: 127.0.0.1
+-- Erstellungszeit: 22. Okt 2020 um 21:33
 -- Server-Version: 10.4.14-MariaDB
 -- PHP-Version: 7.4.9
 
@@ -24,52 +24,54 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `Admin`
+-- Tabellenstruktur für Tabelle `admin`
 --
 
-CREATE TABLE `Admin` (
+CREATE TABLE `admin` (
   `benutzername` char(20) NOT NULL,
   `passwort` char(200) NOT NULL,
   `e_mail` char(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `Admin`
+-- Daten für Tabelle `admin`
 --
 
-INSERT INTO `Admin` (`benutzername`, `passwort`, `e_mail`) VALUES
+INSERT INTO `admin` (`benutzername`, `passwort`, `e_mail`) VALUES
 ('admin', 'admin', 'admin@admin.de');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `Benutzer`
+-- Tabellenstruktur für Tabelle `benutzer`
 --
 
-CREATE TABLE `Benutzer` (
+CREATE TABLE `benutzer` (
   `benutzername` char(20) NOT NULL,
-  `passwort` char(200) NOT NULL,
-  `e_mail` char(50) NOT NULL
+  `passwort` varchar(200) NOT NULL,
+  `e_mail` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `Benutzer`
+-- Daten für Tabelle `benutzer`
 --
 
-INSERT INTO `Benutzer` (`benutzername`, `passwort`, `e_mail`) VALUES
+INSERT INTO `benutzer` (`benutzername`, `passwort`, `e_mail`) VALUES
 ('admin', 'admin', 'admin@admin.de'),
 ('beeke', 'wiltfang', '19253@lehre.dhbw-stuttgart.de'),
 ('melissa', 'negele', '19161@lehre.dhbw-stuttgart.de'),
 ('nicole', 'widmayer', '19063@lehre.dhbw-stuttgart.de'),
+('Test1', '123', 'Test1@gmail.com'),
+('Test12', '123', 'Test12@gmail.com'),
 ('tobias', 'hartmann', '19126@lehre.dhbw-stuttgart.de');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `Boote`
+-- Tabellenstruktur für Tabelle `boote`
 --
 
-CREATE TABLE `Boote` (
+CREATE TABLE `boote` (
   `kennung` char(20) NOT NULL,
   `preis` decimal(6,2) NOT NULL,
   `kapazität` int(2) NOT NULL,
@@ -77,10 +79,10 @@ CREATE TABLE `Boote` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `Boote`
+-- Daten für Tabelle `boote`
 --
 
-INSERT INTO `Boote` (`kennung`, `preis`, `kapazität`, `kategorie`) VALUES
+INSERT INTO `boote` (`kennung`, `preis`, `kapazität`, `kategorie`) VALUES
 ('katamaran01', '200.00', 20, 'Drunken Sailor'),
 ('segelboot11', '50.00', 2, 'Zeit zu Zweit'),
 ('segelboot21', '100.00', 10, 'Segeln tut man selten allein'),
@@ -89,68 +91,71 @@ INSERT INTO `Boote` (`kennung`, `preis`, `kapazität`, `kategorie`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `Termine`
+-- Tabellenstruktur für Tabelle `termine`
 --
 
-CREATE TABLE `Termine` (
+CREATE TABLE `termine` (
   `datum` date NOT NULL,
   `boot` char(20) NOT NULL,
-  `gebucht` tinyint(1) DEFAULT 0
+  `gebucht` tinyint(1) DEFAULT 0,
+  `ID` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `Termine`
+-- Daten für Tabelle `termine`
 --
 
-INSERT INTO `Termine` (`datum`, `boot`, `gebucht`) VALUES
-('2020-09-25', 'yacht01', 0),
-('2020-09-26', 'segelboot11', 0),
-('2020-09-27', 'segelboot21', 0),
-('2020-09-28', 'katamaran01', 0);
+INSERT INTO `termine` (`datum`, `boot`, `gebucht`, `ID`) VALUES
+('2020-10-23', 'katamaran01', 0, 1),
+('2020-10-28', 'segelboot11', 0, 2),
+('2020-10-28', 'yacht01', 0, 3),
+('2020-10-29', 'segelboot21', 0, 4);
 
 --
 -- Indizes der exportierten Tabellen
 --
 
 --
--- Indizes für die Tabelle `Admin`
+-- Indizes für die Tabelle `admin`
 --
-ALTER TABLE `Admin`
+ALTER TABLE `admin`
   ADD UNIQUE KEY `benutzername` (`benutzername`);
 
 --
--- Indizes für die Tabelle `Benutzer`
+-- Indizes für die Tabelle `benutzer`
 --
-ALTER TABLE `Benutzer`
+ALTER TABLE `benutzer`
   ADD PRIMARY KEY (`benutzername`);
 
 --
--- Indizes für die Tabelle `Boote`
+-- Indizes für die Tabelle `boote`
 --
-ALTER TABLE `Boote`
+ALTER TABLE `boote`
   ADD PRIMARY KEY (`kennung`);
 
 --
--- Indizes für die Tabelle `Termine`
+-- Indizes für die Tabelle `termine`
 --
-ALTER TABLE `Termine`
-  ADD KEY `boot` (`boot`);
+ALTER TABLE `termine`
+  ADD UNIQUE KEY `ID` (`ID`),
+  ADD KEY `boot` (`boot`),
+  ADD KEY `ID_2` (`ID`);
 
 --
 -- Constraints der exportierten Tabellen
 --
 
 --
--- Constraints der Tabelle `Admin`
+-- Constraints der Tabelle `admin`
 --
-ALTER TABLE `Admin`
-  ADD CONSTRAINT `Admin_ibfk_1` FOREIGN KEY (`benutzername`) REFERENCES `Benutzer` (`benutzername`);
+ALTER TABLE `admin`
+  ADD CONSTRAINT `Admin_ibfk_1` FOREIGN KEY (`benutzername`) REFERENCES `benutzer` (`benutzername`);
 
 --
--- Constraints der Tabelle `Termine`
+-- Constraints der Tabelle `termine`
 --
-ALTER TABLE `Termine`
-  ADD CONSTRAINT `Termine_ibfk_1` FOREIGN KEY (`boot`) REFERENCES `Boote` (`kennung`);
+ALTER TABLE `termine`
+  ADD CONSTRAINT `Termine_ibfk_1` FOREIGN KEY (`boot`) REFERENCES `boote` (`kennung`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
