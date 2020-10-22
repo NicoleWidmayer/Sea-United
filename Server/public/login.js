@@ -1,70 +1,44 @@
-
 // Login Skript 
-  console.log("Test Login Skript");
 
-// Variabeln und Buttons
+// Buttons
 const fetchLoginButton = document.querySelector("#submitLogin");
 
-
 fetchLoginButton.addEventListener('click', function(e){
-  e.preventDefault();
  
-//Benutzer werden vor den Aufgaben geladen, da diese Daten zum Einfügen der Tabellenzeilen nötig sind
-let benutzerSammlung = [];
-
-fetch("/benutzer").then((res) => {
-  //return res.json();
-
-  return res.json();
- 
-})
-
-});
-
-
-// Methode zum prüfen der Anmeldung
-const PrüfeAnmeldung= () =>
-new Promise((resolve, reject)=>{
-   
-   try {
-        // Abfrage Email und Password aus login.html   
-        let Benutzername = document.querySelector("#pwBenutzername").value;
-        let Passwort = document.querySelector("#pwPasswort").value;
-        console.log(Benutzername);
-        console.log(Passwort);
-
-        fetch ("/anmeldeDaten").then((res)=>{
-        console.log("test fetch");
-        console.log(res);
-
-
-        })
-
-
-   } catch (error) {
-       console.log(error);
-   }
+    let username = document.querySelector("#pwBenutzername").value;
+    let passwort = document.querySelector("#pwPasswort").value;
+    let blogin = false;
     
+    let userData = {
+      benutzername: username,
+      passwort: passwort,
+    
+  }// user Data
 
+  fetch("/login/user")
+  .then( async res =>{
+    const json = await res.json();
+    let length = json.length;
+  
+    // Prüfen auf User Namen und Passwort  
+    for(i = 0; i < length ; i++)
+    {
+      if((json[i].benutzername = username) && (json[i].passwort = passwort))
+       {
+       blogin = true;
+       }
+    }//for
 
-});
+    // Weiterleitung oder Fehlermdelung
+    if(blogin == true )
+    {
+      document.location.href ="/termin.html";
+      alert("Anmeldung erfolgreich");
+    }
+    else{
+      alert("Anmeldung nicht erfolgreich");
+    }
+    
+  })// fetch
 
-
-// Ausgabe ob Anmeldung erfolgreich oder nicht, muss noch angepasst werden auf die Webseite aktuell nur als Alert und über console
-const AusgabeAnmeldung = () =>{
-    console.log('Anmeldung war erfolgreich');
-    alert("Anmeldung war erfolgreich");
-};
-const ErrorAnmeldung = (error) =>{
-    console.log(error);
-    alert(error);
-};
-
-// Starten der Methoden Prüfe Benutzername und danach Prüfe Passwort + Ausgabe wenn etwas von beidem falsch ist
-//document.querySelector("#submitLogin").addEventListener("click",()=>{
-  //console.log("subbmit Button");
-    //PrüfeAnmeldung()
-    //.then(AusgabeAnmeldung)
-    //.catch(error => ErrorAnmeldung(error));
-
-//})
+})// Event Listener

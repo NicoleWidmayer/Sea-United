@@ -37,8 +37,11 @@ fetchRegButton.addEventListener("click", (reg) => {
 
 
         }).then((res) => {
-            if (res.ok) {
-                // Es wird automatisch wieder die Login Seite aufgerufen
+          // wird aktuell nicht ausgeführt
+            if(response.status >=400 )
+            {
+              console.log("Status 200");
+              alert("Registrierung erfolgreich");
             }
             else {
                 alert("Registrierung nicht erfolgreich");
