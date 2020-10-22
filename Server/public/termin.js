@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
         console.log(length);    
         loadHTMLTable(data);
     }) 
-    .then(data => loadHTMLTable(data['data']));
-    
 });
 
 
