@@ -8,9 +8,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
         const data = await res.json();
         console.log(data);
         let length = data.length;
-        console.log(length);
-        res.data;
-        loadHTMLTable(data['data']);
+        console.log(length);    
+        loadHTMLTable(data);
     }) 
     .then(data => loadHTMLTable(data['data']));
     
@@ -21,10 +20,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
 function loadHTMLTable(data) {
     const table = document.querySelector('table tbody');
     console.log(data);
-    let length = data.length;
-    console.log(length);
+    //let length = data.length;
+    //console.log(length);
     // Rückgabe, falls das ausgelesene Result leer ist
-    if (length === 0) {
+    if (data.length === 0) {
         table.innerHTML = "<tr><td class='no-data' colspan='5'>No Data</td></tr>";
         return;
     }
