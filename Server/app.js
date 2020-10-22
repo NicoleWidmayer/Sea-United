@@ -8,6 +8,8 @@ const { RSA_NO_PADDING } = require("constants");
 const { json } = require("express");
 const app = express();
 
+const datum = new Date();
+var heute = datum.getFullYear()+"-"+datum.getMonth()+"-"+datum.getDate();
 
 // SQL Datenbank hinzufügen
 // Zum benutzen und zum Sichern der Datenbank Daten in einer Externen Datei, Quelle: https://telmoacademy.com/
@@ -42,6 +44,7 @@ app.use(express.static("public"));
 app.get("/ausflug", async (req, res) => {
   try {
     const [rows] = await connection.execute("SELECT t.boot, b.kategorie, b.kapazität, t.datum, b.preis FROM boote AS b, termine AS t WHERE boot = kennung and gebucht = 0;");
+    //  and datum > "+datum+" --- evtl in sql abfrage einbauen...
     res.json(rows);
     console.log(res.json(rows));
   } catch {
