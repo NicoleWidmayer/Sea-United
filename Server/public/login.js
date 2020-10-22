@@ -8,18 +8,13 @@ fetchLoginButton.addEventListener('click', function(e){
     let username = document.querySelector("#pwBenutzername").value;
     let passwort = document.querySelector("#pwPasswort").value;
     let blogin = false;
-    
-    let userData = {
-      benutzername: username,
-      passwort: passwort,
-    
-  }// user Data
-
-  fetch("/login/user")
+  
+  fetch("/benutzer")
   .then( async res =>{
+   
     const json = await res.json();
     let length = json.length;
-  
+
     // Prüfen auf User Namen und Passwort  
     for(i = 0; i < length ; i++)
     {
