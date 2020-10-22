@@ -4,6 +4,7 @@ const express = require("express");
 const mysql = require("mysql2/promise");
 const dotenv = require('dotenv');
 const path = require('path');
+const { RSA_NO_PADDING } = require("constants");
 const app = express();
 
 
@@ -40,10 +41,19 @@ app.use(express.static("public"));
 app.post("/ausflug", async (req, res) => {
   try {
     const[rows] = await con.execute("SELECT boot, kategorie, kapazität, datum, preis from Boote, Termine where boot = kennung and gebucht = 0;");
+    
   } catch {
     res.status(500).send();
   }
-})
+
+  res.json({
+    boot: req.body.boot,
+    kategorie: req.body.kategorie,
+    kapazität: req.body.kapazität,
+    datum: req.body.datum,
+    preis: req.body.preis,
+  });
+});
 
 //Ändern der Daten durch drücken des "BUCHEN" Button
 
@@ -55,7 +65,7 @@ app.post("/termine", async (req, res) => {
   } catch {
     res.status(500).send();
   }
-})
+});
 
 //Funktion Termin löschen
 app.delete("/delete", async (req, res) => {
@@ -65,17 +75,17 @@ app.delete("/delete", async (req, res) => {
   } catch {
     res.status(500).send();
   }
-})
+});
 
 //Funktion Termin erstellen
-app.pupostt("/erstellen", async (req, res) => {
+app.post("/erstellen", async (req, res) => {
   try {
     const[rows] = await con.execute("INSERT INTO Termine VALUES(?, '?', false);"); //DATUM, BOOT, GEBUCHT
     [req.body.datum, req.body.boot, req.body.gebucht]
   } catch {
     res.status(500).send();
   }
-})
+});
 
 //Funktion Termin bearbeiten
 app.put("/bearbeiten", async (req, res) => {
@@ -85,7 +95,7 @@ app.put("/bearbeiten", async (req, res) => {
   } catch {
     res.status(500).send();
   }
-})
+});
 
 
 

@@ -15,30 +15,19 @@ function RowAusflug(boot, kategorie, kapazität, datum, preis) {
 
 
 
-  function loadHTMLTable(data){
-    const table = document.querySelector('table tbody');
+  const insertRow = (rowuserrowausflug) => {
+    const boothtml = `<tr><td>${rowausflug.boot}</td>`;
+    const kategoriehtml = `<td>${rowausflug.kategorie}</td>`;
+    const kapazitäthtml = `<td>${rowausflug.kapazität}</td>`;
+    const datumhtml = `<td>${rowausflug.datum}</td>`;
+    const preishtml = `<td>${rowausflug.preis}</td>`;
+    const buchenhtml = `<td><button>BUCHEN</button></td></tr>`;
+  
+    
+      tbody.insertAdjacentHTML('beforeend', boothtml + kategoriehtml + kapazitäthtml + datumhtml + preishtml);
 
-    //Wenn keine Daten vorliegen greift dies
-    if(data.length === 0){
-        table.innerHTML="<tr> <td class='no-data' colspan='6'>Derzeit sind keine Termine verfügbar.</td> </tr>";
-        return;
-    }
-    let tableHTML="";
-
-    //Hierdurch wird die Tabelle mit den Daten zeilenweise befüllt
-    data.forEach(function({Boot, Kategorie, Kapazität, Datum, Preis, Buchen}){
-        tableHTML += "<tr>";
-        tableHTML += `<td>§{boot}<td>`;
-        tableHTML += `<td>§{kategorie}<td>`;
-        tableHTML += `<td>§{kapazität}<td>`;
-        tableHTML += `<td>§{datum}<td>`;
-        tableHTML += `<td>§{preis}<td>`;
-        tableHTML += `<td><button class="dieseZeileBuchen" data-id=§{boot}>Buchen</button><td>`;
-        tableHTML += "</tr>";
-    });
-
-    table.innerHTML = tableHTML;
-}
+    
+    }//ende von insertRow()
 
 
 
