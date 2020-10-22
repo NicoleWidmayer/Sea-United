@@ -1,49 +1,44 @@
-function RowAusflug(boot, kategorie, kapazität, datum, preis) {
-    this.boot = boot;
-    this.kategorie = kategorie;
-    this.kapazität = kapazität;
-    this.datum = datum;
-    this.preis = preis;
-  }
+console.log("Skript funktioniert")
+
+
+document.addEventListener('DOMContentLoaded', function (e) {
+    fetch('/ausflug')
+    .then( async res =>{
+        console.log("Fetch geht");
+        const data = await res.json();
+        console.log(data);
+        let length = data.length;
+        console.log(length);    
+        loadHTMLTable(data);
+    }) 
+});
 
 
 
+function loadHTMLTable(data) {
+    const table = document.querySelector('table tbody');
+    console.log(data);
+    //let length = data.length;
+    //console.log(length);
+    // Rückgabe, falls das ausgelesene Result leer ist
+    if (data.length === 0) {
+        table.innerHTML = "<tr><td class='no-data' colspan='5'>No Data</td></tr>";
+        return;
+    }
 
-  let tbody = document.getElementById('hook');
-  const insertRow = (rowausflug) => {
-    const boothtml = `<tr><td>${rowausflug.boot}</td>`;
-    const kategoriehtml = `<td>${rowausflug.kategorie}</td>`;
-    const kapazitäthtml = `<td>${rowausflug.kapazität}</td>`;
-    const datumhtml = `<td>${rowausflug.datum}</td>`;
-    const preishtml = `<td>${rowausflug.preis}</td>`;
-    const buchenhtml = `<td><button>BUCHEN</button></td></tr>`;
-  
-    
-      tbody.insertAdjacentHTML(boothtml + kategoriehtml + kapazitäthtml + datumhtml + preishtml);
+    // Das hier passiert mit der Tabelle wenn das Result nicht leer ist
+    let tableHtml = "";
 
-    
-    }//ende von insertRow()
+    data.forEach(function ({boot, kategorie, kapazität, datum, preis}) {
+        tableHtml += "<tr>";
+        tableHtml += `<td>${boot}</td>`;
+        tableHtml += `<td>${kategorie}</td>`;
+        tableHtml += `<td>${kapazität}</td>`;
+        tableHtml += `<td>${new Date(datum).toLocaleString()}</td>`;
+        tableHtml += `<td>${preis}</td>`;
+        tableHtml += `<td><button class="edit-row-btn" data-id=${boot}>Buchen</td>`;
+        tableHtml += "</tr>";
+    });
 
-
-
-
-
-
-const ladeAusfluege = () => {
-   fetch("/ausflug").then((res) => //res.json()).then(data => console.log(data)); 
-   {
-   if (!res.ok) return Promise.reject(res.status);
-    
-        return res.json();
-      }).then((ausflug) => {
-        tbody.innerHTML = ''; //tabelle wird geleert
-        ausflug.forEach((ausflug) => {
-          let ausflugROW = new RowAusflug(ausflug.boot, ausflug.kategorie, ausflug.kapazität, ausflug.datum, ausflug.preis);
-          loadHTMLTable(ausflugROW);
-        })
-      }).catch((e) => {
-        alert(`Fehler ${e}`);
-      });
-
-ladeAusfluege();
+    table.innerHTML = tableHtml;
 }

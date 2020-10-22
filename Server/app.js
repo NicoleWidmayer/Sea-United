@@ -40,9 +40,13 @@ app.use(express.static("public"));
 //Datenbankkommunikation für die Ausflug-Seite
 //Füllen der Tabelle mit den noch freien Terminen
 app.get("/ausflug", async (req, res) => {
-  const [rows] = await connection.execute("SELECT boot, kategorie, kapazität, datum, preis from Boote, Termine where boot = kennung and gebucht = 0;");
-  res.json(rows);
-  console.log(res.json(rows));
+  try {
+    const [rows] = await connection.execute("SELECT t.boot, b.kategorie, b.kapazität, t.datum, b.preis FROM boote AS b, termine AS t WHERE boot = kennung and gebucht = 0;");
+    res.json(rows);
+    console.log(res.json(rows));
+  } catch {
+    res.status(500).send();
+  }
 });
 
 //Ändern der Daten durch drücken des "BUCHEN" Button
