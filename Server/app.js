@@ -38,28 +38,17 @@ app.use(express.static("public"));
 
 //Datenbankkommunikation für die Ausflug-Seite
 //Füllen der Tabelle mit den noch freien Terminen
-app.post("/ausflug", async (req, res) => {
-  try {
-    const[rows] = await con.execute("SELECT boot, kategorie, kapazität, datum, preis from Boote, Termine where boot = kennung and gebucht = 0;");
-    
-  } catch {
-    res.status(500).send();
-  }
-
-  res.json({
-    boot: req.body.boot,
-    kategorie: req.body.kategorie,
-    kapazität: req.body.kapazität,
-    datum: req.body.datum,
-    preis: req.body.preis,
-  });
+app.get("/ausflug", async (req, res) => {
+  const [rows] = await connection.execute("SELECT boot, kategorie, kapazität, datum, preis from Boote, Termine where boot = kennung and gebucht = 0;");
+  res.json(rows);
+  console.log(res.json(rows));
 });
 
 //Ändern der Daten durch drücken des "BUCHEN" Button
 
 //Datenbankkommunikation für die Termine-Seite
 //Füllen der Tabelle mit allen Terminen
-app.post("/termine", async (req, res) => {
+app.get("/termine", async (req, res) => {
   try {
     const[rows] = await con.execute("SELECT boot, kategorie, kapazität, datum, preis, gebucht from Boote, Termine where boot = kennung;");
   } catch {

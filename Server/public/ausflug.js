@@ -9,13 +9,8 @@ function RowAusflug(boot, kategorie, kapazität, datum, preis) {
 
 
 
-
-
-
-
-
-
-  const insertRow = (rowuserrowausflug) => {
+  let tbody = document.getElementById('hook');
+  const insertRow = (rowausflug) => {
     const boothtml = `<tr><td>${rowausflug.boot}</td>`;
     const kategoriehtml = `<td>${rowausflug.kategorie}</td>`;
     const kapazitäthtml = `<td>${rowausflug.kapazität}</td>`;
@@ -24,7 +19,7 @@ function RowAusflug(boot, kategorie, kapazität, datum, preis) {
     const buchenhtml = `<td><button>BUCHEN</button></td></tr>`;
   
     
-      tbody.insertAdjacentHTML('beforeend', boothtml + kategoriehtml + kapazitäthtml + datumhtml + preishtml);
+      tbody.insertAdjacentHTML(boothtml + kategoriehtml + kapazitäthtml + datumhtml + preishtml);
 
     
     }//ende von insertRow()
@@ -34,22 +29,13 @@ function RowAusflug(boot, kategorie, kapazität, datum, preis) {
 
 
 
-
-
-
-
-
-
-
-
-
-
 const ladeAusfluege = () => {
-    fetch("/ausflug").then((res) => {
-        if (!res.ok) return Promise.reject(res.status);
+   fetch("/ausflug").then((res) => //res.json()).then(data => console.log(data)); 
+   {
+   if (!res.ok) return Promise.reject(res.status);
     
         return res.json();
-      }).then((benutzer) => {
+      }).then((ausflug) => {
         tbody.innerHTML = ''; //tabelle wird geleert
         ausflug.forEach((ausflug) => {
           let ausflugROW = new RowAusflug(ausflug.boot, ausflug.kategorie, ausflug.kapazität, ausflug.datum, ausflug.preis);
@@ -58,7 +44,6 @@ const ladeAusfluege = () => {
       }).catch((e) => {
         alert(`Fehler ${e}`);
       });
-
 
 ladeAusfluege();
 }
