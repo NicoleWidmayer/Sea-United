@@ -48,25 +48,15 @@ function deleteRowById(id) {
     .then((res) =>{
         
         if(res.ok){
-            console.log("Löschen geht");
+            console.log("Termin wurde gelöscht");
+            location.reload();
         }
         else{
-            console.log("Löschen war nicht erfolgreich");
+            console.log("Termin Löschen war nicht erfolgreich");
         }
         
     })
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
