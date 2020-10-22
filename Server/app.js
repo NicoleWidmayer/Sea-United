@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 const path = require('path');
 const { RSA_NO_PADDING } = require("constants");
 const { json, response } = require("express");
+const { request } = require("http");
 const app = express();
 
 
@@ -55,7 +56,7 @@ app.get("/ausflug", async (req, res) => {
 //Füllen der Tabelle mit allen Terminen
 app.get("/termineAll", async (req, res) => {
   try {
-    const [rows] = await connection.execute("SELECT b.kennung, b.preis, b.kategorie, t.datum, t.gebucht FROM boote AS b, termine AS t WHERE b.kennung = t.boot");
+    const [rows] = await connection.execute("SELECT b.kennung, b.preis, b.kategorie, t.datum, t.gebucht, t.ID FROM boote AS b, termine AS t WHERE b.kennung = t.boot");
     res.json(rows);  
     console.log(rows);
   } catch {
@@ -64,10 +65,19 @@ app.get("/termineAll", async (req, res) => {
 });
 
 //Funktion Termin löschen
-app.delete("/delete", async (req, res) => {
+app.delete("/delete/:id", async (req, res) => {
   try {
-    const[boot] = await con.execute("DELETE FROM boote WHERE kennung = '?';", [req.body]);
-    response.json({sucess:data})
+    const [rows] = await connection.execute("DELETE FROM termine WHERE id = ?", [
+      req.params.id,
+    ]);
+    if(rows.affectedRows === 1)
+    {
+      res.status(200).send();
+    }
+    else{
+      res.status(404).send();
+    }
+    
   } catch {
     res.status(500).send();
   }

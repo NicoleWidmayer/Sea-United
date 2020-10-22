@@ -1,6 +1,7 @@
 // Termin Skript
 console.log("Skript funktioniert")
 
+
 // Event Listener auf die Webseite
 document.addEventListener('DOMContentLoaded', function (e) {
     fetch('/termineAll')
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
 document.querySelector('table tbody').addEventListener('click', function(event) {
     if (event.target.className === "delete-row") {
+        console.log(event.target.dataset.id);
         deleteRowById(event.target.dataset.id);
     }
     if (event.target.className === "edit-row") {
@@ -27,19 +29,21 @@ document.querySelector('table tbody').addEventListener('click', function(event) 
 
 
 
-
 // Funktion Löschen
 
 function deleteRowById(id) {
-    fetch('/delete', {
+    fetch('/delete/'+ id, {
         method: 'DELETE',
-        body: JSON.stringify(id),
-            headers: {
-                "content-type": "application/json",
-            },
     })
     .then((res) =>{
-        console.log("Löschen geht");
+        
+        if(res.ok){
+            console.log("Löschen geht");
+        }
+        else{
+            console.log("Löschen war nicht erfolgreich");
+        }
+        
     })
 }
 
@@ -74,16 +78,17 @@ function loadHTMLTable(data) {
     // Das hier passiert mit der Tabelle wenn das Result nicht leer ist
     let tableHtml = "";
 
-    data.forEach(function ({kennung, preis, kapazität, kategorie, datum, gebucht}) {
+    data.forEach(function ({kennung, preis, kapazität, kategorie, datum, gebucht, ID}) {
         tableHtml += "<tr>";
+        tableHtml += `<td>${ID}</td>`;
         tableHtml += `<td>${kennung}</td>`;
         tableHtml += `<td>${preis}</td>`;
         tableHtml += `<td>${kapazität}</td>`;
         tableHtml += `<td>${kategorie}</td>`;
         tableHtml += `<td>${new Date(datum).toLocaleString()}</td>`;
         tableHtml += `<td>${gebucht}</td>`;
-        tableHtml += `<td><button class="delete-row" data-id=${kennung}>Delete</td>`;
-        tableHtml += `<td><button class="edit-row" data-id=${kennung}>Edit</td>`;
+        tableHtml += `<td><button class="delete-row" data-id=${ID}>Delete</td>`;
+        tableHtml += `<td><button class="edit-row" data-id=${ID}>Edit</td>`;
         tableHtml += "</tr>";
     });
 
