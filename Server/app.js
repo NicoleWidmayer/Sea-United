@@ -5,7 +5,7 @@ const mysql = require("mysql2/promise");
 const dotenv = require('dotenv');
 const path = require('path');
 const { RSA_NO_PADDING } = require("constants");
-const { json } = require("express");
+const { json, response } = require("express");
 const app = express();
 
 
@@ -62,8 +62,8 @@ app.get("/termineAll", async (req, res) => {
 //Funktion Termin löschen
 app.delete("/delete", async (req, res) => {
   try {
-    const[rows] = await con.execute("DELETE FROM Termine WHERE boot = ? AND datum = ?;");
-    [req.body.boot, req.body.datum]
+    const[boot] = await con.execute("DELETE FROM boote WHERE kennung = '?';", [req.body]);
+    response.json({sucess:data})
   } catch {
     res.status(500).send();
   }
@@ -72,8 +72,7 @@ app.delete("/delete", async (req, res) => {
 //Funktion Termin erstellen
 app.post("/erstellen", async (req, res) => {
   try {
-    const[rows] = await con.execute("INSERT INTO Termine VALUES(?, '?', false);"); //DATUM, BOOT, GEBUCHT
-    [req.body.datum, req.body.boot, req.body.gebucht]
+    const[rows] = await con.execute("INSERT INTO Termine VALUES(?, '?', false);", [req.body.datum, req.body.boot, req.body.gebucht] ); //DATUM, BOOT, GEBUCHT
   } catch {
     res.status(500).send();
   }
@@ -82,8 +81,8 @@ app.post("/erstellen", async (req, res) => {
 //Funktion Termin bearbeiten
 app.put("/bearbeiten", async (req, res) => {
   try {
-    const[rows] = await con.execute("UPDATE Termine SET boot = ?, datum = ? WHERE boot = ? AND datum = ?;");
-    [req.body.boot, req.body.datum, req.body.altBoot, req.body.altDatum]
+    const[rows] = await con.execute("UPDATE Termine SET boot = ?, datum = ? WHERE boot = ? AND datum = ?;",   [req.body.boot, req.body.datum, req.body.altBoot, req.body.altDatum]);
+  
   } catch {
     res.status(500).send();
   }

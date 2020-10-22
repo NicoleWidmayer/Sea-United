@@ -1,6 +1,7 @@
+// Termin Skript
 console.log("Skript funktioniert")
 
-
+// Event Listener auf die Webseite
 document.addEventListener('DOMContentLoaded', function (e) {
     fetch('/termineAll')
     .then( async res =>{
@@ -13,8 +14,52 @@ document.addEventListener('DOMContentLoaded', function (e) {
     }) 
 });
 
+// Event Listener wenn etwas innerhalb von tbody gedrückt wird
+
+document.querySelector('table tbody').addEventListener('click', function(event) {
+    if (event.target.className === "delete-row") {
+        deleteRowById(event.target.dataset.id);
+    }
+    if (event.target.className === "edit-row") {
+        handleEditRow(event.target.dataset.id);
+    }
+});
 
 
+
+
+// Funktion Löschen
+
+function deleteRowById(id) {
+    fetch('/delete', {
+        method: 'DELETE',
+        body: JSON.stringify(id),
+            headers: {
+                "content-type": "application/json",
+            },
+    })
+    .then((res) =>{
+        console.log("Löschen geht");
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Funktion zum anzeigen der Tabelle
 function loadHTMLTable(data) {
     const table = document.querySelector('table tbody');
     console.log(data);
@@ -37,8 +82,8 @@ function loadHTMLTable(data) {
         tableHtml += `<td>${kategorie}</td>`;
         tableHtml += `<td>${new Date(datum).toLocaleString()}</td>`;
         tableHtml += `<td>${gebucht}</td>`;
-        tableHtml += `<td><button class="delete-row-btn" data-id=${kennung}>Delete</td>`;
-        tableHtml += `<td><button class="edit-row-btn" data-id=${kennung}>Edit</td>`;
+        tableHtml += `<td><button class="delete-row" data-id=${kennung}>Delete</td>`;
+        tableHtml += `<td><button class="edit-row" data-id=${kennung}>Edit</td>`;
         tableHtml += "</tr>";
     });
 
