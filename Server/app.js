@@ -9,8 +9,7 @@ const { json, response } = require("express");
 const { request } = require("http");
 const app = express();
 
-const datum = new Date();
-var heute = datum.getFullYear()+"-"+datum.getMonth()+"-"+datum.getDate();
+//const datum = new Date();
 
 // SQL Datenbank hinzufügen
 // Zum benutzen und zum Sichern der Datenbank Daten in einer Externen Datei, Quelle: https://telmoacademy.com/
@@ -54,6 +53,13 @@ app.get("/ausflug", async (req, res) => {
 });
 
 //Ändern der Daten durch drücken des "BUCHEN" Button
+app.put("/ausflugBuchen", async (req, res) => {
+  try {
+    const [rows] = await connection.execute("UPDATE Termin SET gebucht = true WHERE id = ?;"); [req.body.id];
+  } catch {
+    res.status(500).send();
+  }
+});
 
 //Datenbankkommunikation für die Termine-Seite
 //Füllen der Tabelle mit allen Terminen
