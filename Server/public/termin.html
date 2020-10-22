@@ -33,29 +33,45 @@
         </header>
     <!-- Ende Copyright-->
 
-        <main>
-            <div>
-                <input  id="search-input" placeholder="Ausflugsbezeichnung">
-                <button id="search-btn">suchen</button>
-            </div>
-            <table id="table" class="table table-striped table-hover">
-                <thead>
-                    <th>
-                        <span class="custom-checkbox">
-                            <input type="checkbox" id="selectAll">
-                            <label for="selectAll"></label>
-                        </span>
-                    </th>
-                    <th>Datum</th>
-                    <th>Gebucht</th>
-                    <th>Boot</th>
-                </thead>
-                <tbody>
 
-                </tbody>
-            </table>
-        </main>
-   
+
+
+    <label>Name:</label>
+    <input type="text" id="termin-input">
+    <button id="add-name-btn">Termin hinzufügen</button>
+
+    <br><br><br>
+    <div>
+       <input placeholder="nach Termin suchen" id="search-input">
+       <button id="search-btn">Suche nach einem Termin</button>
+    </div>
+    <table id="table">
+        <thead>
+            <th>Kennung</th>
+            <th>Preis</th>
+            <th>Kapazität</th>
+            <th>Kategorie</th>
+            <th>Datum</th>
+            <th>Gebucht</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <section hidden id="update-row">
+        <label>Name:</label>
+        <input type="text" id="update-name-input">
+        <button id="update-row-btn">Update</button>
+    </section>
+
+
+
+
+
+
+
+
     <footer>
         <div class="grid-container-fussbereich">
         <div>Kontakt:</div>

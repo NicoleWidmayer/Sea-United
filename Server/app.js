@@ -49,9 +49,11 @@ app.get("/ausflug", async (req, res) => {
 
 //Datenbankkommunikation für die Termine-Seite
 //Füllen der Tabelle mit allen Terminen
-app.get("/termine", async (req, res) => {
+app.get("/termineAll", async (req, res) => {
   try {
-    const[rows] = await con.execute("SELECT boot, kategorie, kapazität, datum, preis, gebucht from Boote, Termine where boot = kennung;");
+    const [rows] = await connection.execute("SELECT b.kennung, b.preis, b.kategorie, t.datum, t.gebucht FROM boote AS b, termine AS t WHERE b.kennung = t.boot");
+    res.json(rows);  
+    console.log(rows);
   } catch {
     res.status(500).send();
   }
