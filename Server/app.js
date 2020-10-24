@@ -43,7 +43,7 @@ app.use(express.static("public"));
 //Füllen der Tabelle mit den noch freien Terminen
 app.get("/ausflug", async (req, res) => {
   try {
-    const [rows] = await connection.execute("SELECT t.boot, b.kategorie, b.kapazität, t.datum, b.preis FROM boote AS b, termine AS t WHERE boot = kennung and gebucht = 0;");
+    const [rows] = await connection.execute("SELECT t.id, b.kategorie, b.kapazität, t.datum, b.preis FROM boote AS b, termine AS t WHERE t.boot = b.kennung and t.gebucht = 0;");
     //  and datum > "+datum+" --- evtl in sql abfrage einbauen...
     res.json(rows);
     console.log(res.json(rows));
@@ -53,9 +53,9 @@ app.get("/ausflug", async (req, res) => {
 });
 
 //Ändern der Daten durch drücken des "BUCHEN" Button
-app.put("/ausflugBuchen", async (req, res) => {
+app.put("/ausflugBuchen/:id", async (req, res) => {
   try {
-    const [rows] = await connection.execute("UPDATE Termin SET gebucht = true WHERE id = ?;"); [req.body.id];
+    const [rows] = await connection.execute("UPDATE Termin SET gebucht = 1 WHERE id = ?;"); [req.params.id];
   } catch {
     res.status(500).send();
   }

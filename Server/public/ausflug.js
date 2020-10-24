@@ -32,12 +32,13 @@ function loadHTMLTable(data) {
 
     data.forEach(function ({id, boot, kategorie, kapazität, datum, preis}) {
         tableHtml += "<tr>";
-        tableHtml += `<td>${boot}</td>`;
+        tableHtml += `<td>${id}</td>`;
+   //     tableHtml += `<td>${boot}</td>`;
         tableHtml += `<td>${kategorie}</td>`;
         tableHtml += `<td>${kapazität}</td>`;
         tableHtml += `<td>${new Date(datum).toLocaleString()}</td>`;
         tableHtml += `<td>${preis}</td>`;
-        tableHtml += `<td><button class="edit-row-btn" onclick="confirmBuchen()" data-id=${boot}>Buchen</td>`;
+        tableHtml += `<td><button class="edit-row-btn" onclick="confirmBuchen()" data-id=${id}>Buchen</td>`;
         tableHtml += "</tr>";
     });
 
@@ -49,11 +50,25 @@ function loadHTMLTable(data) {
 function confirmBuchen() {
   if (confirm("Wollen Sie diesen Termin wirklich buchen?")) {
     console.log("OK");
-    console.log()
 
+    updateRow(target.dataset.id);
 
     datenbankabfrage();
   } else {
     console.log("Abbrechen")
   }
+}
+
+function updateRow(id) {
+  fetch('/ausflugBuchen/'+ id, {
+    method: 'PUT',
+})
+.then((res) =>{
+    if(res.ok){
+        console.log("Änderung vorgenommen");
+    } else {
+        console.log("Änderung konnte nicht vorgenommen werden");
+    }
+    
+})
 }
