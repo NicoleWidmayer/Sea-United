@@ -39,12 +39,9 @@ document.addEventListener('DOMContentLoaded', function (e) {
         const subjectSel = document.getElementById("subject");
 
         
-       for (const x in subjectObject[1]['kennung'] ) {
+       for (const x in subjectObject) {
        subjectSel.options[subjectSel.options.length] = new Option(x,x);
              }
-
-
-
     }) 
 });
 
