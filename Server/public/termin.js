@@ -85,13 +85,10 @@ fetchRegButton.addEventListener("click", (reg) => {
         console.log(Test['kennung']);
         const subjectSel = document.getElementById("kennung");
 
-
-       for (const x in subjectObject ) {
+        
+       for (const x in subjectObject) {
        subjectSel.options[subjectSel.options.length] = new Option(x,x);
              }
-
-
-
     }) 
 });
 
@@ -200,3 +197,12 @@ function loadHTMLTable(data) {
 
     table.innerHTML = tableHtml;
 }
+
+
+
+const fetchLogoutButton = document.querySelector("#logout");
+
+fetchLogoutButton.addEventListener('click', function(e){
+    document.location.href ="/index.html";
+      alert("Abmeldung erfolgreich");
+});
