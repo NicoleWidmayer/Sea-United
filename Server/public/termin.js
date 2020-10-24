@@ -1,5 +1,5 @@
 // Termin Skript
-console.log("Skript funktioniert")
+// FIXME: Beschreibung des Termin Skripts
 
 
 // Übertragen der Kennung der Botte in einen Array 
@@ -21,10 +21,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
     fetch('/termineAll')
     .then( async res =>{
         console.log("Fetch geht");
-        const data = await res.json();
-        console.log(data);
-        let length = data.length;
-        console.log(length);    
+        const data = await res.json(); 
         loadHTMLTable(data);
 
 
@@ -35,7 +32,7 @@ fetchRegButton.addEventListener("click", (reg) => {
 
    // let kennung = document.querySelector("#kennung").value;
     let datum = document.querySelector("#gebdat").value;
-    
+    // FIXME: hier fehlt noch das auslesen der kennung aus dem Dropdown menü 
     let terminData = {
         kennung: "segelboot21",//kennung,
         datum: datum,
@@ -48,8 +45,6 @@ fetchRegButton.addEventListener("click", (reg) => {
     headers: {
         "content-type": "application/json",
     },
-
-
 }).then((res) => {
   // wird aktuell nicht ausgeführt
     if(res.status >=400 )
@@ -60,15 +55,8 @@ fetchRegButton.addEventListener("click", (reg) => {
     else {
         alert("Termin konnte nicht angelegt werden");
     }
-
-
 }) // fetch then
-
-
-
-
 }) // Event Listener
-
 
 
 
@@ -78,18 +66,30 @@ fetchRegButton.addEventListener("click", (reg) => {
 // https://www.w3schools.com/howto/howto_js_cascading_dropdown.asp
 
         // Test des arrays
+    
+            console.log(subjectObject);
+            console.log(subjectObject[0]);
+            console.log(subjectObject[0]['kennung']);
+            let Test = [];
+            for(i=0; i> subjectObject.length; i++)
+            {
+                Test.push(subjectObject[0]['kennung']);
+            }
+        
+             console.log(Test);
+       
+         const subjectSel = document.getElementById("kennung");
+          for (const x in Object.values(subjectObject)) {
+          subjectSel.options[subjectSel.options.length] = new Option(x,x);
+                }// for
 
-        console.log(subjectObject);
-         let Test = JSON.stringify(subjectObject)
-        console.log(Test['kennung']);
-        const subjectSel = document.getElementById("kennung");
+                
+            
+    }) // then Fetch Webseite geladen
+    
 
         
-       for (const x in subjectObject) {
-       subjectSel.options[subjectSel.options.length] = new Option(x,x);
-             }
-    }) 
-});
+}); // Webseite geladen zu ende
 
 
 
@@ -120,7 +120,7 @@ document.querySelector('table tbody').addEventListener('click', function(event) 
     } else {
       console.log("Abbrechen")
     }
-    } // Fall Edit gedrückt wird
+    } // Falls Edit gedrückt wird
     if (event.target.className === "edit-row") {
         handleEditRow(event.target.dataset.id);
     }
@@ -131,7 +131,7 @@ document.querySelector('table tbody').addEventListener('click', function(event) 
 
 
 
-//
+// Funktion Bearbeiten der Termine
 
 
 
@@ -168,9 +168,6 @@ function deleteRowById(id) {
 // Funktion zum anzeigen der Tabelle
 function loadHTMLTable(data) {
     const table = document.querySelector('table tbody');
-    console.log(data);
-    //let length = data.length;
-    //console.log(length);
     // Rückgabe, falls das ausgelesene Result leer ist
     if (data.length === 0) {
         table.innerHTML = "<tr><td class='no-data' colspan='5'>No Data</td></tr>";
