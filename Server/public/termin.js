@@ -2,6 +2,20 @@
 console.log("Skript funktioniert")
 
 
+// Übertragen der Kennung der Botte in einen Array 
+let subjectObject = [];
+fetch("/termineDropDown").then((res) => {
+    if (!res.ok) return Promise.reject(res.status);
+  
+    return res.json();
+  }).then((objekte) => {
+    objekte.forEach((objekte) => {
+        subjectObject.push(objekte);
+    })
+  });
+
+
+
 // Event Listener auf die Webseite
 document.addEventListener('DOMContentLoaded', function (e) {
     fetch('/termineAll')
@@ -12,20 +26,75 @@ document.addEventListener('DOMContentLoaded', function (e) {
         let length = data.length;
         console.log(length);    
         loadHTMLTable(data);
+
+// DropDown Menü
+/////////////////// Copyright-Vermerk /////////////////// 
+// https://www.w3schools.com/howto/howto_js_cascading_dropdown.asp
+
+        // Test des arrays
+
+        console.log(subjectObject[0]['kennung']);
+         let Test = JSON.stringify(subjectObject)
+        console.log(Test['kennung']);
+        const subjectSel = document.getElementById("subject");
+
+        
+       for (const x in subjectObject[1]['kennung'] ) {
+       subjectSel.options[subjectSel.options.length] = new Option(x,x);
+             }
+
+
+
     }) 
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Event Listener wenn etwas innerhalb von tbody gedrückt wird
 
 document.querySelector('table tbody').addEventListener('click', function(event) {
+    // Falls delete gedrückt wird
     if (event.target.className === "delete-row") {
         console.log(event.target.dataset.id);
-        deleteRowById(event.target.dataset.id);
+        
+     // Meldung inspiriert durch: https://www.w3schools.com/js/js_popup.asp
+     // Hier wird eine bestätigung zum Buchen abgefragt
+  
+    if (confirm("Wollen Sie diesen Termin wirklich löschen?")) {
+      console.log("OK");
+      console.log()
+      deleteRowById(event.target.dataset.id);
+    } else {
+      console.log("Abbrechen")
     }
+    } // Fall Edit gedrückt wird
     if (event.target.className === "edit-row") {
         handleEditRow(event.target.dataset.id);
     }
 });
+
+
+
+
+
+
+//
+
+
+
+
+
+
 
 
 
@@ -38,25 +107,15 @@ function deleteRowById(id) {
     .then((res) =>{
         
         if(res.ok){
-            console.log("Löschen geht");
+            console.log("Termin wurde gelöscht");
+            location.reload();
         }
         else{
-            console.log("Löschen war nicht erfolgreich");
+            console.log("Termin Löschen war nicht erfolgreich");
         }
         
     })
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
