@@ -150,6 +150,9 @@ function deleteRowById(id) {
 
 
 // Funktion zum anzeigen der Tabelle
+/////////////////// Copyright-Vermerk /////////////////// 
+// https://www.youtube.com/watch?v=vrj9AohVhPA
+
 function loadHTMLTable(data) {
     const table = document.querySelector('table tbody');
     // Rückgabe, falls das ausgelesene Result leer ist
