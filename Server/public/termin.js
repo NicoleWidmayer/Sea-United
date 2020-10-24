@@ -20,7 +20,6 @@ fetch("/termineDropDown").then((res) => {
 document.addEventListener('DOMContentLoaded', function (e) {
     fetch('/termineAll')
     .then( async res =>{
-        console.log("Fetch geht");
         const data = await res.json(); 
         loadHTMLTable(data);
 
@@ -32,9 +31,10 @@ fetchRegButton.addEventListener("click", (reg) => {
 
    // let kennung = document.querySelector("#kennung").value;
     let datum = document.querySelector("#gebdat").value;
-    // FIXME: hier fehlt noch das auslesen der kennung aus dem Dropdown menü 
+    let kennung = document.querySelector("#kennung").value;
+
     let terminData = {
-        kennung: "segelboot21",//kennung,
+        kennung: kennung,
         datum: datum,
     }
     console.log(terminData);
