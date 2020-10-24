@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 22. Okt 2020 um 21:33
+-- Erstellungszeit: 24. Okt 2020 um 18:26
 -- Server-Version: 10.4.14-MariaDB
 -- PHP-Version: 7.4.9
 
@@ -106,10 +106,10 @@ CREATE TABLE `termine` (
 --
 
 INSERT INTO `termine` (`datum`, `boot`, `gebucht`, `ID`) VALUES
-('2020-10-23', 'katamaran01', 0, 1),
-('2020-10-28', 'segelboot11', 0, 2),
-('2020-10-28', 'yacht01', 0, 3),
-('2020-10-29', 'segelboot21', 0, 4);
+('2020-11-08', 'katamaran01', 0, 1),
+('2020-11-10', 'segelboot11', 0, 2),
+('2020-11-13', 'segelboot21', 0, 3),
+('2020-11-16', 'yacht01', 0, 4);
 
 --
 -- Indizes der exportierten Tabellen
@@ -138,8 +138,17 @@ ALTER TABLE `boote`
 --
 ALTER TABLE `termine`
   ADD UNIQUE KEY `ID` (`ID`),
-  ADD KEY `boot` (`boot`),
-  ADD KEY `ID_2` (`ID`);
+  ADD KEY `boot` (`boot`);
+
+--
+-- AUTO_INCREMENT für exportierte Tabellen
+--
+
+--
+-- AUTO_INCREMENT für Tabelle `termine`
+--
+ALTER TABLE `termine`
+  MODIFY `ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints der exportierten Tabellen

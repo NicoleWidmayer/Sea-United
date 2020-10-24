@@ -28,9 +28,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
         loadHTMLTable(data);
 
 
-// Event Listener auf den Buuton Termin hinzufügen
+// Event Listener auf den Button Termin hinzufügen
 const fetchRegButton = document.querySelector("#termin-btn");
-
 
 fetchRegButton.addEventListener("click", (reg) => {
 
@@ -104,7 +103,7 @@ fetchRegButton.addEventListener("click", (reg) => {
 
 
 
-// Event Listener wenn etwas innerhalb von tbody gedrückt wird
+// Event Listener wenn etwas innerhalb von tbody gedrückt wird zum löschen und bearbeiten
 
 document.querySelector('table tbody').addEventListener('click', function(event) {
     // Falls delete gedrückt wird
