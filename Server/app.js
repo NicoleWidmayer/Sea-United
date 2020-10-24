@@ -94,7 +94,8 @@ app.delete("/delete/:id", async (req, res) => {
 //Funktion Termin erstellen
 app.post("/erstellen", async (req, res) => {
   try {
-    const[rows] = await con.execute("INSERT INTO Termine VALUES(?, '?', false);", [req.body.datum, req.body.boot, req.body.gebucht] ); //DATUM, BOOT, GEBUCHT
+    const[rows] = await connection.execute("INSERT INTO Termine (datum, boot, gebucht) VALUES (?,?,0);",
+    [req.body.datum, req.body.kennung,] ); //DATUM, BOOT, GEBUCHT
   } catch {
     res.status(500).send();
   }
@@ -103,7 +104,7 @@ app.post("/erstellen", async (req, res) => {
 //Funktion Termin bearbeiten
 app.put("/bearbeiten", async (req, res) => {
   try {
-    const[rows] = await con.execute("UPDATE Termine SET boot = ?, datum = ? WHERE boot = ? AND datum = ?;",   [req.body.boot, req.body.datum, req.body.altBoot, req.body.altDatum]);
+    const[rows] = await connection.execute("UPDATE Termine SET boot = ?, datum = ? WHERE boot = ? AND datum = ?;",   [req.body.boot, req.body.datum, req.body.altBoot, req.body.altDatum]);
   
   } catch {
     res.status(500).send();
@@ -113,7 +114,7 @@ app.put("/bearbeiten", async (req, res) => {
 app.get("/termineDropDown", async (req, res) => {
   try {
     const [rows] = await connection.execute("SELECT kennung FROM boote;");
-    console.log(rows);
+    //console.log(rows);
     res.json(rows);  
   } catch {
     res.status(500).send();

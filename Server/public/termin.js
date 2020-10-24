@@ -27,19 +27,66 @@ document.addEventListener('DOMContentLoaded', function (e) {
         console.log(length);    
         loadHTMLTable(data);
 
+
+// Event Listener auf den Buuton Termin hinzufügen
+const fetchRegButton = document.querySelector("#termin-btn");
+
+
+fetchRegButton.addEventListener("click", (reg) => {
+
+   // let kennung = document.querySelector("#kennung").value;
+    let datum = document.querySelector("#gebdat").value;
+    
+    let terminData = {
+        kennung: "segelboot21",//kennung,
+        datum: datum,
+    }
+    console.log(terminData);
+   // Über Post in die Datenbank laden
+   fetch("/erstellen", {
+    method: "Post",
+    body: JSON.stringify(terminData),
+    headers: {
+        "content-type": "application/json",
+    },
+
+
+}).then((res) => {
+  // wird aktuell nicht ausgeführt
+    if(res.status >=400 )
+    {
+      console.log("Status 200");
+      alert("Termin erfolgreich angelegt");
+    }
+    else {
+        alert("Termin konnte nicht angelegt werden");
+    }
+
+
+}) // fetch then
+
+
+
+
+}) // Event Listener
+
+
+
+
+
 // DropDown Menü
 /////////////////// Copyright-Vermerk /////////////////// 
 // https://www.w3schools.com/howto/howto_js_cascading_dropdown.asp
 
         // Test des arrays
 
-        console.log(subjectObject[0]['kennung']);
+        console.log(subjectObject);
          let Test = JSON.stringify(subjectObject)
         console.log(Test['kennung']);
-        const subjectSel = document.getElementById("subject");
+        const subjectSel = document.getElementById("kennung");
 
-        
-       for (const x in subjectObject[1]['kennung'] ) {
+
+       for (const x in subjectObject ) {
        subjectSel.options[subjectSel.options.length] = new Option(x,x);
              }
 
