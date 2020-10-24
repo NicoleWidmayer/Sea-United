@@ -114,7 +114,6 @@ app.put("/bearbeiten", async (req, res) => {
 app.get("/termineDropDown", async (req, res) => {
   try {
     const [rows] = await connection.execute("SELECT kennung FROM boote;");
-    //console.log(rows);
     res.json(rows);  
   } catch {
     res.status(500).send();

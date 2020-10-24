@@ -3,14 +3,14 @@
 
 
 // Übertragen der Kennung der Botte in einen Array 
-let subjectObject = [];
+let kennungObject = [];
 fetch("/termineDropDown").then((res) => {
     if (!res.ok) return Promise.reject(res.status);
   
     return res.json();
   }).then((objekte) => {
     objekte.forEach((objekte) => {
-        subjectObject.push(objekte);
+        kennungObject.push(objekte);
     })
   });
 
@@ -64,31 +64,15 @@ fetchRegButton.addEventListener("click", (reg) => {
 // DropDown Menü
 /////////////////// Copyright-Vermerk /////////////////// 
 // https://www.w3schools.com/howto/howto_js_cascading_dropdown.asp
-
-        // Test des arrays
+    const kenjectSel = document.getElementById("kennung");
     
-            console.log(subjectObject);
-            console.log(subjectObject[0]);
-            console.log(subjectObject[0]['kennung']);
-            let Test = [];
-            for(i=0; i> subjectObject.length; i++)
-            {
-                Test.push(subjectObject[0]['kennung']);
-            }
-        
-             console.log(Test);
-       
-         const subjectSel = document.getElementById("kennung");
-          for (const x in Object.values(subjectObject)) {
-          subjectSel.options[subjectSel.options.length] = new Option(x,x);
-                }// for
+    for(i=0; i< kennungObject.length; i++)
+    {
+    kenjectSel.options[kenjectSel.options.length] = new Option(kennungObject[i]['kennung']);   
+    }     
+  
 
-                
-            
-    }) // then Fetch Webseite geladen
-    
-
-        
+    }) // then Fetch Webseite geladen     
 }); // Webseite geladen zu ende
 
 
