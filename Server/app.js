@@ -67,7 +67,6 @@ app.get("/termineAll", async (req, res) => {
   try {
     const [rows] = await connection.execute("SELECT b.kennung, b.preis, b.kategorie, t.datum, t.gebucht, t.ID FROM boote AS b, termine AS t WHERE b.kennung = t.boot");
     res.json(rows);  
-    console.log(rows);
   } catch {
     res.status(500).send();
   }
@@ -106,6 +105,17 @@ app.put("/bearbeiten", async (req, res) => {
   try {
     const[rows] = await con.execute("UPDATE Termine SET boot = ?, datum = ? WHERE boot = ? AND datum = ?;",   [req.body.boot, req.body.datum, req.body.altBoot, req.body.altDatum]);
   
+  } catch {
+    res.status(500).send();
+  }
+});
+// Funktion Termin, DropDown befüllen
+app.get("/termineDropDown", async (req, res) => {
+  try {
+    const [rows] = await connection.execute("SELECT kennung FROM boote;");
+    console.log(rows);
+    res.json(rows);  
+    
   } catch {
     res.status(500).send();
   }

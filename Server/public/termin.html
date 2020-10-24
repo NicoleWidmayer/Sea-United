@@ -5,6 +5,7 @@
         <title>Termin </title>
         <link rel="stylesheet" type="text/css" href="/format.css" >
         <link rel="stylesheet" type="text/css" href="/copy.css">
+        
         <meta name="viewport" content="width=devicewitd, initial-scale=1.0">
     </head>
 
@@ -37,8 +38,30 @@
 
 
     <label>Name:</label>
-    <input type="text" id="termin-input">
-    <button id="add-name-btn">Termin hinzufügen</button>
+
+    <!-- /////////////////// Copyright-Vermerk /////////////////// -->
+    <!-- https://www.w3schools.com/howto/howto_js_cascading_dropdown.asp-->
+    <form name="form1" id="form1" action="/action_page.php">
+        Subjects: <select name="subject" id="subject">
+          <option value="" selected="selected">Select subject</option>
+        </select>
+        <br><br>
+        Topics: <select name="topic" id="topic">
+          <option value="" selected="selected">Please select subject first</option>
+        </select>
+        <br><br>
+        Chapters: <select name="chapter" id="chapter">
+          <option value="" selected="selected">Please select topic first</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+      </form>
+
+    <!-- /////////////////// Copyright-Vermerk /////////////////// -->
+    <!-- https://wiki.selfhtml.org/wiki/HTML/Formulare/input/time -->
+    <input type="date" id="gebdat">
+
+    <button id="termin-btn">Termin hinzufügen</button>
 
     <br><br><br>
     <div>
