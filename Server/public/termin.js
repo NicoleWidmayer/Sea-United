@@ -116,7 +116,26 @@ document.querySelector('table tbody').addEventListener('click', function(event) 
 
 
 // Funktion Bearbeiten der Termine
+function handleEditRow(id) {
+    console.log(id);
+   
+    // Felder auf sichtbar setzen
+    const updateSection = document.querySelector('#update-row');
+    updateSection.hidden = false;
 
+    // Feldern Werte zuweißen
+    
+  //  document.querySelector('#update-gebucht').dataset.id = datum;
+  //  document.querySelector('#update-gebdat').dataset.id = gebucht;
+    const kenjectSel = document.getElementById("update-kennung");
+    for(i=0; i< kennungObject.length; i++)
+    {
+    kenjectSel.options[kenjectSel.options.length] = new Option(kennungObject[i]['kennung']);   
+    }     
+
+
+
+}
 
 
 
