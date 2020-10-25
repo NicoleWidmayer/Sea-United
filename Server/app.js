@@ -102,14 +102,17 @@ app.post("/erstellen", async (req, res) => {
 });
 
 //Funktion Termin bearbeiten
-app.put("/bearbeiten", async (req, res) => {
+app.patch("/UpdateTermin", async (req, res) => {
   try {
-    const[rows] = await connection.execute("UPDATE Termine SET boot = ?, datum = ? WHERE boot = ? AND datum = ?;",   [req.body.boot, req.body.datum, req.body.altBoot, req.body.altDatum]);
-  
+    const [rows] = await connection.execute("UPDATE termine SET boot = ?, datum = ?, gebucht = ? WHERE ID = ?;",
+    [req.body.kennung, req.body.datum, req.body.gebucht, req.body.id]);
+    return res.status(204).send();
   } catch {
-    res.status(500).send();
+    res.status(404).json({error: "not found"});
   }
 });
+
+
 // Funktion Termin, DropDown befüllen
 app.get("/termineDropDown", async (req, res) => {
   try {

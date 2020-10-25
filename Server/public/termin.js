@@ -115,16 +115,14 @@ document.querySelector('table tbody').addEventListener('click', function(event) 
 
 
 
-// Funktion Bearbeiten der Termine
+// Funktion zum sichbarmachen der Termine, sobald bearbeiten gedrückt wurde
 function handleEditRow(id) {
-    console.log(id);
    
     // Felder auf sichtbar setzen
     const updateSection = document.querySelector('#update-row');
     updateSection.hidden = false;
 
-    // Feldern Werte zuweißen
-    
+    // Feldern Werte zuweißen FIXME: aktuell noch ohne funktion
   //  document.querySelector('#update-gebucht').dataset.id = datum;
   //  document.querySelector('#update-gebdat').dataset.id = gebucht;
     const kenjectSel = document.getElementById("update-kennung");
@@ -134,8 +132,44 @@ function handleEditRow(id) {
     }     
 
 
+    
+// Event Listener auf den Button Update
+const fetchUpdateButton = document.querySelector("#update-btn");
 
-}
+fetchUpdateButton.addEventListener("click", (reg) => {
+
+   // let kennung = document.querySelector("#kennung").value;
+    let datum = document.querySelector("#update-gebdat").value;
+    let kennung = document.querySelector("#update-kennung").value;
+    let gebucht = document.querySelector("#update-gebucht").value;
+ 
+    let terminUpdateData = {
+        kennung: kennung,
+        datum: datum,
+        gebucht: gebucht,
+        id: id
+    }
+
+    console.log(terminUpdateData);
+   // Über Post in die Datenbank laden
+   fetch("/UpdateTermin", {
+    method: "PATCH",
+    body: JSON.stringify(terminUpdateData),
+    headers: {
+        "content-type": "application/json",
+    },
+}).then((res) =>{
+    if(res.ok, res.status, res, location.reload());
+    
+
+})// Fetch Then
+}) // Event Listener
+
+
+
+}// Edit Listener
+
+
 
 
 
