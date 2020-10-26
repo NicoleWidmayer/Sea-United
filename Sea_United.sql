@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Erstellungszeit: 24. Okt 2020 um 18:26
+-- Host: localhost
+-- Erstellungszeit: 26. Okt 2020 um 13:35
 -- Server-Version: 10.4.14-MariaDB
--- PHP-Version: 7.4.9
+-- PHP-Version: 7.2.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -106,10 +106,14 @@ CREATE TABLE `termine` (
 --
 
 INSERT INTO `termine` (`datum`, `boot`, `gebucht`, `ID`) VALUES
-('2020-11-08', 'katamaran01', 0, 1),
-('2020-11-10', 'segelboot11', 0, 2),
-('2020-11-13', 'segelboot21', 0, 3),
-('2020-11-16', 'yacht01', 0, 4);
+('2020-11-08', 'katamaran01', 1, 1),
+('2020-11-10', 'segelboot11', 1, 2),
+('2020-11-13', 'segelboot21', 1, 3),
+('2020-11-16', 'yacht01', 1, 4),
+('2020-12-01', 'katamaran01', 0, 5),
+('2020-12-02', 'segelboot11', 0, 6),
+('2020-12-03', 'segelboot21', 0, 7),
+('2020-12-04', 'yacht01', 0, 8);
 
 --
 -- Indizes der exportierten Tabellen
@@ -148,7 +152,7 @@ ALTER TABLE `termine`
 -- AUTO_INCREMENT für Tabelle `termine`
 --
 ALTER TABLE `termine`
-  MODIFY `ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints der exportierten Tabellen
