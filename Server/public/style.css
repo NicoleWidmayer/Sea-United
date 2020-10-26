@@ -85,15 +85,31 @@ button{
     border-radius: 5px;
 }
 
-/* CSS Logout Button*/
-#logout {
+/* CSS für Termin */
+#table {
+    border: 1.5 solid #0e4e78;
+    font-family: 'old_standard_ttregular';
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: black;
+    text-align: center;
+}
+#table-header {
+    background-color: #0e4e78;
+    font-size: 1.7rem;
+    color: white;
+}
+#table-body:hover {
     background-color: #0e4e78;
     color: white;
-    border: 1.5px solid #0e4e78;
-    border-radius: 5px;
 }
 
-/* CSS für Termin */
+
+
+
+
+
+
 
 
 
