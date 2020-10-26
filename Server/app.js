@@ -56,7 +56,8 @@ app.get("/ausflug", async (req, res) => {
 //Ändern der Daten durch drücken des "BUCHEN" Button
 app.patch("/ausflugBuchen/:id", async (req, res) => {
   try {
-    const [rows] = await connection.execute("UPDATE termine SET gebucht = 1 WHERE id = ?;"); [req.params.id];
+    const[rows] = await connection.execute("UPDATE termine SET gebucht = 1 WHERE id = ?;",
+    [req.params.id] ); 
     if(rows.affectedRows === 1){
       res.status(204).send(); // FIXME: 204 oder 205? (No Content oder Reset Content)
     }
@@ -102,7 +103,7 @@ app.delete("/delete/:id", async (req, res) => {
 app.post("/erstellen", async (req, res) => {
   try {
     const[rows] = await connection.execute("INSERT INTO Termine (datum, boot, gebucht) VALUES (?,?,0);",
-    [req.body.datum, req.body.kennung,] ); //DATUM, BOOT, GEBUCHT
+    [req.body.datum, req.body.kennung] ); //DATUM, BOOT, GEBUCHT
     
     if(rows.changedRows === 1){
       res.status(204).send(); // FIXME: 204 oder 205? (No Content oder Reset Content)
