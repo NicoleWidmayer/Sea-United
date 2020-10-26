@@ -237,12 +237,3 @@ function loadHTMLTable(data) {
 
     table.innerHTML = tableHtml;
 }
-
-
-
-const fetchLogoutButton = document.querySelector("#logout");
-
-fetchLogoutButton.addEventListener('click', function(e){
-    document.location.href ="/index.html";
-      alert("Abmeldung erfolgreich");
-});
