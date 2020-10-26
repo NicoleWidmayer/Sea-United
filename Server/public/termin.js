@@ -228,12 +228,11 @@ function loadHTMLTable(data) {
         tableHtml += `<td>${preis}</td>`;
         tableHtml += `<td>${kapazität}</td>`;
         tableHtml += `<td>${kategorie}</td>`;
-        tableHtml += `<td>${new Date(datum).toLocaleString()}</td>`;
+        tableHtml += `<td>${new Date(datum).toLocaleDateString()}</td>`;
         tableHtml += `<td>${gebucht}</td>`;
         tableHtml += `<td><button class="delete-row" data-id=${ID}>Delete</td>`;
         tableHtml += `<td><button class="edit-row" data-id=${ID}>Edit</td>`;
         tableHtml += "</tr>";
     });
-
     table.innerHTML = tableHtml;
 }
