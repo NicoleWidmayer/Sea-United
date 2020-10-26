@@ -1,4 +1,4 @@
-// Wenn die Seite aufgerufen wird, wird die Datenbankabfrage gemacht
+// If this page is called, the database request runs
 document.addEventListener('DOMContentLoaded', function (e) {
     datenbankabfrage();
 });
@@ -11,18 +11,21 @@ function datenbankabfrage() {
   }) 
 }
 
-// Die Tabelle wird befüllt
+// functions to show the filled table
+/////////////////// Copyright-Vermerk /////////////////// 
+// https://www.youtube.com/watch?v=vrj9AohVhPA
 function loadHTMLTable(data) {
   const table = document.querySelector('table tbody');
   
-  // Rückgabe, falls das ausgelesene Result leer ist
+  // In case that the ResultSet is empty
   if (data.length === 0) {
     table.innerHTML = "<tr><td class='no-data' colspan='6'>No Data</td></tr>";
     return;
   }
 
-  // Das hier passiert mit der Tabelle wenn das Result nicht leer ist
+  // It´s to not have doubble information in table
   let tableHtml = "";
+  // Table will be filled
   data.forEach(function ({id, kategorie, kapazität, datum, preis}) {
     tableHtml += "<tr>";
     tableHtml += `<td>${id}</td>`;
@@ -37,7 +40,7 @@ function loadHTMLTable(data) {
 }
 
 // Meldung inspiriert durch: https://www.w3schools.com/js/js_popup.asp
-// Hier wird eine bestätigung zum Buchen abgefragt
+// Asks for a confirmation for "Buchen"
 function confirmBuchen(id) {
   if (confirm("Wollen Sie diesen Termin wirklich buchen?")) {
    fetch('/ausflugBuchen/'+ id, {
