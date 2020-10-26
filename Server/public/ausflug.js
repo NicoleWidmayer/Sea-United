@@ -54,21 +54,18 @@ function confirmBuchen() {
     updateRow(target.dataset.id);
 
     datenbankabfrage();
-  } else {
-    console.log("Abbrechen")
   }
 }
 
 function updateRow(id) {
-  fetch('/ausflugBuchen/'+ id, {
+  fetch('/ausflugBuchen'+ id, {
     method: 'PUT',
-})
-.then((res) =>{
+  })
+  .then((res) =>{
     if(res.ok){
         console.log("Änderung vorgenommen");
     } else {
         console.log("Änderung konnte nicht vorgenommen werden");
-    }
-    
-})
-}
+    }   
+  })
+};
