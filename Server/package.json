@@ -1,13 +1,13 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A website for booking boat trips",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Beeke Wiltfang, Tobias Hartmann, Melissa Negele, Nicole Widmayer",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
