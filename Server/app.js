@@ -46,7 +46,6 @@ app.get("/ausflug", async (req, res) => {
   try {
     const [rows] = await connection.execute("SELECT t.id, b.kategorie, b.kapazität, t.datum, b.preis FROM boote AS b, termine AS t WHERE t.boot = b.kennung and t.gebucht = 0;");
     //  and datum > "+datum+" --- evtl in sql abfrage einbauen...
-    res.status(201).send(); // 201 (Created) 
     res.json(rows);
     console.log(res.json(rows));
   } catch {
@@ -58,7 +57,7 @@ app.get("/ausflug", async (req, res) => {
 app.put("/ausflugBuchen/:id", async (req, res) => {
   try {
     const [rows] = await connection.execute("UPDATE Termin SET gebucht = 1 WHERE id = ?;"); [req.params.id];
-    if(rows.changedRows === 1){
+    if(rows.affectedRows === 1){
       res.status(204).send(); // FIXME: 204 oder 205? (No Content oder Reset Content)
       }
       else{
@@ -75,7 +74,6 @@ app.put("/ausflugBuchen/:id", async (req, res) => {
 app.get("/termineAll", async (req, res) => {
   try {
     const [rows] = await connection.execute("SELECT b.kennung, b.preis, b.kategorie, t.datum, t.gebucht, t.ID FROM boote AS b, termine AS t WHERE b.kennung = t.boot");
-    res.status(201).send(); // 201 (Created) 
     res.json(rows);  
   } catch {
     res.status(500).send();
@@ -142,7 +140,6 @@ app.patch("/UpdateTermin", async (req, res) => {
 app.get("/termineDropDown", async (req, res) => {
   try {
     const [rows] = await connection.execute("SELECT kennung FROM boote;");
-    res.status(201).send(); // 201 (Created) 
     res.json(rows);  
   } catch {
     res.status(500).send(); // „Sammel-Statuscode“ für unerwartete Serverfehler.
@@ -156,8 +153,8 @@ app.get("/termineDropDown", async (req, res) => {
 app.get("/benutzer", async (req, res) => {
   try{
     const [rows] = await connection.execute("SELECT * from benutzer");
-    res.status(201).send(); // 201 (Created) 
-    res.json(rows);  
+    res.json(rows);    ;
+      
   }catch{
     res.status(500).send();
   }
@@ -171,7 +168,7 @@ app.post("/register", async (req, res) => {
     "INSERT INTO benutzer (benutzername, passwort, e_mail) VALUES (?, ?, ?)",
     [req.body.benutzername,req.body.passwort, req.body.email] );
     console.log(rows);
-    if(rows.changedRows === 1){
+    if(rows.affectedRows === 1){
       res.status(204).send(); // FIXME: 204 oder 205? (No Content oder Reset Content)
       }
       else{
