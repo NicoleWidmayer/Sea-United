@@ -29,6 +29,7 @@ mysql
   })
   .catch((error) =>{
       console.log(error)
+      console.log("MYSQL Datenbank is not connected...");
   });
 
 
@@ -45,6 +46,7 @@ app.get("/ausflug", async (req, res) => {
   try {
     const [rows] = await connection.execute("SELECT t.id, b.kategorie, b.kapazität, t.datum, b.preis FROM boote AS b, termine AS t WHERE t.boot = b.kennung and t.gebucht = 0;");
     //  and datum > "+datum+" --- evtl in sql abfrage einbauen...
+    res.status(201).send(); // 201 (Created) 
     res.json(rows);
     console.log(res.json(rows));
   } catch {
@@ -56,9 +58,16 @@ app.get("/ausflug", async (req, res) => {
 app.put("/ausflugBuchen/:id", async (req, res) => {
   try {
     const [rows] = await connection.execute("UPDATE Termin SET gebucht = 1 WHERE id = ?;"); [req.params.id];
-  } catch {
-    res.status(500).send();
-  }
+    if(rows.changedRows === 1){
+      res.status(204).send(); // FIXME: 204 oder 205? (No Content oder Reset Content)
+      }
+      else{
+      res.status(400).send(); // Die Anfrage-Nachricht war fehlerhaft aufgebaut, Die Ursache des Scheiterns der Anfrage liegt (eher) im Verantwortungsbereich des Clients.
+      }
+      
+    } catch(err) {
+      res.status(500).json(); //Dies ist ein „Sammel-Statuscode“ für unerwartete Serverfehler.
+    }
 });
 
 //Datenbankkommunikation für die Termine-Seite
@@ -66,6 +75,7 @@ app.put("/ausflugBuchen/:id", async (req, res) => {
 app.get("/termineAll", async (req, res) => {
   try {
     const [rows] = await connection.execute("SELECT b.kennung, b.preis, b.kategorie, t.datum, t.gebucht, t.ID FROM boote AS b, termine AS t WHERE b.kennung = t.boot");
+    res.status(201).send(); // 201 (Created) 
     res.json(rows);  
   } catch {
     res.status(500).send();
@@ -80,14 +90,13 @@ app.delete("/delete/:id", async (req, res) => {
     ]);
     if(rows.affectedRows === 1)
     {
-      res.status(200).send();
+      res.status(204).send(); // FIXME: 204 oder 205? (No Content oder Reset Content)
     }
     else{
-      res.status(404).send();
+      res.status(400).send(); // Die Anfrage-Nachricht war fehlerhaft aufgebaut, Die Ursache des Scheiterns der Anfrage liegt (eher) im Verantwortungsbereich des Clients.
     }
-    
-  } catch {
-    res.status(500).send();
+  } catch(err) {
+    res.status(500).send(); //Dies ist ein „Sammel-Statuscode“ für unerwartete Serverfehler.
   }
 });
 
@@ -96,9 +105,17 @@ app.post("/erstellen", async (req, res) => {
   try {
     const[rows] = await connection.execute("INSERT INTO Termine (datum, boot, gebucht) VALUES (?,?,0);",
     [req.body.datum, req.body.kennung,] ); //DATUM, BOOT, GEBUCHT
-  } catch {
-    res.status(500).send();
-  }
+    
+    if(rows.changedRows === 1){
+      res.status(204).send(); // FIXME: 204 oder 205? (No Content oder Reset Content)
+      }
+      else{
+      res.status(400).send(); // Die Anfrage-Nachricht war fehlerhaft aufgebaut, Die Ursache des Scheiterns der Anfrage liegt (eher) im Verantwortungsbereich des Clients.
+      }
+      
+    } catch(err) {
+      res.status(500).json(); //Dies ist ein „Sammel-Statuscode“ für unerwartete Serverfehler.
+    }
 });
 
 //Funktion Termin bearbeiten
@@ -106,9 +123,17 @@ app.patch("/UpdateTermin", async (req, res) => {
   try {
     const [rows] = await connection.execute("UPDATE termine SET boot = ?, datum = ?, gebucht = ? WHERE ID = ?;",
     [req.body.kennung, req.body.datum, req.body.gebucht, req.body.id]);
-    return res.status(204).send();
-  } catch {
-    res.status(404).json({error: "not found"});
+    console.log(rows);
+
+    if(rows.changedRows === 1){
+    res.status(204).send(); // FIXME: 204 oder 205? (No Content oder Reset Content)
+    }
+    else{
+    res.status(400).send(); // Die Anfrage-Nachricht war fehlerhaft aufgebaut, Die Ursache des Scheiterns der Anfrage liegt (eher) im Verantwortungsbereich des Clients.
+    }
+    
+  } catch(err) {
+    res.status(500).json(); //Dies ist ein „Sammel-Statuscode“ für unerwartete Serverfehler.
   }
 });
 
@@ -117,9 +142,10 @@ app.patch("/UpdateTermin", async (req, res) => {
 app.get("/termineDropDown", async (req, res) => {
   try {
     const [rows] = await connection.execute("SELECT kennung FROM boote;");
+    res.status(201).send(); // 201 (Created) 
     res.json(rows);  
   } catch {
-    res.status(500).send();
+    res.status(500).send(); // „Sammel-Statuscode“ für unerwartete Serverfehler.
   }
 });
 
@@ -130,6 +156,7 @@ app.get("/termineDropDown", async (req, res) => {
 app.get("/benutzer", async (req, res) => {
   try{
     const [rows] = await connection.execute("SELECT * from benutzer");
+    res.status(201).send(); // 201 (Created) 
     res.json(rows);  
   }catch{
     res.status(500).send();
@@ -140,16 +167,20 @@ app.get("/benutzer", async (req, res) => {
 // Neuen Benutzer in der Datenbank anlegen
 app.post("/register", async (req, res) => {
   try{
-  const [
-    rows,
-  ] = await connection.execute(
+  const [rows,] = await connection.execute(
     "INSERT INTO benutzer (benutzername, passwort, e_mail) VALUES (?, ?, ?)",
-    [req.body.benutzername,req.body.passwort, req.body.email]
-  );
-
-      }catch{
-        res.status(500).send();
+    [req.body.benutzername,req.body.passwort, req.body.email] );
+    console.log(rows);
+    if(rows.changedRows === 1){
+      res.status(204).send(); // FIXME: 204 oder 205? (No Content oder Reset Content)
       }
+      else{
+      res.status(400).send(); // Die Anfrage-Nachricht war fehlerhaft aufgebaut, Die Ursache des Scheiterns der Anfrage liegt (eher) im Verantwortungsbereich des Clients.
+      }
+      
+    } catch(err) {
+      res.status(500).json(); //Dies ist ein „Sammel-Statuscode“ für unerwartete Serverfehler.
+    }
 });
 
 

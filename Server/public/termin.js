@@ -159,7 +159,12 @@ fetchUpdateButton.addEventListener("click", (reg) => {
         "content-type": "application/json",
     },
 }).then((res) =>{
-    if(res.ok, res.status, res, location.reload());
+    if(res.ok){
+      location.reload();
+    }
+    else{
+        alert("Termin konnte nicht bearbeitet werden");
+    }
     
 
 })// Fetch Then
@@ -187,7 +192,6 @@ function deleteRowById(id) {
     .then((res) =>{
         
         if(res.ok){
-            console.log("Termin wurde gelöscht");
             location.reload();
         }
         else{

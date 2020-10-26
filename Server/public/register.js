@@ -38,9 +38,8 @@ fetchRegButton.addEventListener("click", (reg) => {
 
         }).then((res) => {
           // wird aktuell nicht ausgeführt
-            if(response.status >=400 )
+            if(res.ok)
             {
-              console.log("Status 200");
               alert("Registrierung erfolgreich");
             }
             else {
