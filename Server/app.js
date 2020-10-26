@@ -1,5 +1,4 @@
 // Import von den Modulen
-
 const express = require("express"); 
 const mysql = require("mysql2/promise");
 const dotenv = require('dotenv');
@@ -8,6 +7,8 @@ const { RSA_NO_PADDING } = require("constants");
 const { json, response } = require("express");
 const { request } = require("http");
 const app = express();
+
+const datum = new Date();
 
 // SQL Datenbank hinzufügen
 // Zum benutzen und zum Sichern der Datenbank Daten in einer Externen Datei, Quelle: https://telmoacademy.com/
@@ -42,8 +43,7 @@ app.use(express.static("public"));
 //Füllen der Tabelle mit den noch freien Terminen
 app.get("/ausflug", async (req, res) => {
   try {
-    const [rows] = await connection.execute("SELECT t.id, b.kategorie, b.kapazität, t.datum, b.preis FROM boote AS b, termine AS t WHERE t.boot = b.kennung and t.gebucht = 0;");
-    //  and datum > "+datum+" --- evtl in sql abfrage einbauen...
+    const [rows] = await connection.execute("SELECT t.id, b.kategorie, b.kapazität, t.datum, b.preis FROM boote AS b, termine AS t WHERE t.boot = b.kennung and t.gebucht = 0 and datum > '"+datum+"';");
     res.json(rows);
     console.log(res.json(rows));
   } catch {
