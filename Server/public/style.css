@@ -86,21 +86,27 @@ button{
 }
 
 /* CSS für Termin */
+.grid-termin {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 5px;
+}
+.grid-termin >div {
+    max-width: 100%;
+}
 #table {
     border: 1.5 solid #0e4e78;
     font-family: 'old_standard_ttregular';
-    font-size: 1.5rem;
+    font-size: 1rem;
     letter-spacing: 2px;
     color: black;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 #table-header {
     background-color: #0e4e78;
-    font-size: 1.7rem;
-    color: white;
-}
-#table-body:hover {
-    background-color: #0e4e78;
+    font-size: 1.4rem;
     color: white;
 }
 
