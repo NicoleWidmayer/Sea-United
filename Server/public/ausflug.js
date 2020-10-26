@@ -28,7 +28,7 @@ function loadHTMLTable(data) {
     tableHtml += `<td>${id}</td>`;
     tableHtml += `<td>${kategorie}</td>`;
     tableHtml += `<td>${kapazität}</td>`;
-    tableHtml += `<td>${new Date(datum).toLocaleString()}</td>`;
+    tableHtml += `<td>${new Date(datum).toLocaleDateString()}</td>`;
     tableHtml += `<td>${preis}</td>`;
     tableHtml += `<td><button class="edit-row-btn" onclick="confirmBuchen(${id})" data-id=${id}>Buchen</td>`;
     tableHtml += "</tr>";
