@@ -38,7 +38,7 @@ function loadHTMLTable(data) {
         tableHtml += `<td>${kapazität}</td>`;
         tableHtml += `<td>${new Date(datum).toLocaleString()}</td>`;
         tableHtml += `<td>${preis}</td>`;
-        tableHtml += `<td><button class="edit-row-btn" onclick="confirmBuchen()" data-id=${id}>Buchen</td>`;
+        tableHtml += `<td><button class="edit-row-btn" onclick="confirmBuchen(${id})" data-id=${id}>Buchen</td>`;
         tableHtml += "</tr>";
     });
 
@@ -47,25 +47,20 @@ function loadHTMLTable(data) {
 
 // Meldung inspiriert durch: https://www.w3schools.com/js/js_popup.asp
 // Hier wird eine bestätigung zum Buchen abgefragt
-function confirmBuchen() {
+function confirmBuchen(id) {
   if (confirm("Wollen Sie diesen Termin wirklich buchen?")) {
     console.log("OK");
 
-    updateRow(target.dataset.id);
+    fetch('/ausflugBuchen/'+ id, {
+      method: 'PATCH',
+    }).then((res) =>{
+      if(res.ok){
+          console.log("Änderung vorgenommen");
+      } else {
+          console.log("Änderung konnte nicht vorgenommen werden");
+      }   
+    })
 
     datenbankabfrage();
   }
 }
-
-function updateRow(id) {
-  fetch('/ausflugBuchen'+ id, {
-    method: 'PUT',
-  })
-  .then((res) =>{
-    if(res.ok){
-        console.log("Änderung vorgenommen");
-    } else {
-        console.log("Änderung konnte nicht vorgenommen werden");
-    }   
-  })
-};
