@@ -1,50 +1,35 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>Termin </title>
-        <link rel="stylesheet" type="text/css" href="/format.css" >
-        <link rel="stylesheet" type="text/css" href="/copy.css">
-        
-        <meta name="viewport" content="width=devicewitd, initial-scale=1.0">
-    </head>
+<head>
+    <title>Termin </title>
+    <link rel="stylesheet" type="text/css" href="/format.css">
+    <link rel="stylesheet" type="text/css" href="/copy.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-    <body>
+    <meta name="viewport" content="width=devicewitd, initial-scale=1.0">
+</head>
+
+<body>
     <!-- /////////////////// Copyright-Vermerk /////////////////// -->
     <!-- (c)Copyright by S.I.S.Papenburg / www.on-mouseover.de/templates/ -->
     <!-- ////////////////////////////////////// -->
-        <header>
-            <div class="logo">
-            <div class="logobox-a">
+    <header>
         <nav>
             <div id="menu1">
-            <ul>
-                <li><a  href="buchen.html">Buchen</a></li>
-                <li id="aktuell"><a  href="termin.html">Termine</a></li>
-                <li><a href="index.html">Logout</a></li>
-            </ul>
+                <ul>
+                    <li><a href="buchen.html">Buchen</a></li>
+                    <li id="aktuell"><a href="termin.html">Termine</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
             </div>
-           
+
         </nav>
-            </div>
-            </div>
-        </header>
+        </div>
+        </div>
+    </header>
     <!-- Ende Copyright-->
 
-
-    <!-- /////////////////// Copyright-Vermerk /////////////////// -->
-    <!-- https://www.w3schools.com/howto/howto_js_cascading_dropdown.asp-->
-    <form name="form1" id="form1" action="">
-        <select name="kennung" id="kennung">
-          <option value="" selected="selected">Boot auswählen</option>
-        </select>
-    <!-- /////////////////// Copyright-Vermerk /////////////////// -->
-    <!-- https://wiki.selfhtml.org/wiki/HTML/Formulare/input/time -->
-    <input type="date" id="gebdat">
-
-    <button id="termin-btn">Termin hinzufügen</button>
-</form>
-    <br><br>
 
     <table id="table">
         <thead id="table-header">
@@ -61,41 +46,54 @@
         <tbody id="table-body"></tbody>
     </table>
 
-    <!-- /////////////////// Copyright-Vermerk /////////////////// -->
-    <!-- https://www.youtube.com/watch?v=vrj9AohVhPA -->
-    <section hidden id="update-row">
-        <select name="kennung" id="update-kennung">
-            <option value="" selected="selected">Boot ändern</option>
-          </select>
-    <!-- /////////////////// Copyright-Vermerk /////////////////// -->
-    <!-- https://wiki.selfhtml.org/wiki/HTML/Formulare/input/number -->
-        <input id="update-gebucht" type="number" min="0" max="1"/>
-        <input type="date" id="update-gebdat">
-        <button id="update-btn">Update</button>
-    </section>
+    <div class="grid-termin">
+        <div>
+            <!-- /////////////////// Copyright-Vermerk /////////////////// -->
+            <!-- https://www.w3schools.com/howto/howto_js_cascading_dropdown.asp-->
+            <form name="form1" id="form1" action="">
+                <select name="kennung" id="kennung">
+                    <option value="" selected="selected">Boot auswählen</option>
+                </select>
+                <!-- /////////////////// Copyright-Vermerk /////////////////// -->
+                <!-- https://wiki.selfhtml.org/wiki/HTML/Formulare/input/time -->
+                <input type="date" id="gebdat">
 
-
-
-
-
-
+                <button id="termin-btn">Termin hinzufügen</button>
+            </form>
+        </div>
+        <div>
+            <!-- /////////////////// Copyright-Vermerk /////////////////// -->
+            <!-- https://www.youtube.com/watch?v=vrj9AohVhPA -->
+            <section hidden id="update-row">
+                <select name="kennung" id="update-kennung">
+                    <option value="" selected="selected">Boot ändern</option>
+                </select>
+                <!-- /////////////////// Copyright-Vermerk /////////////////// -->
+                <!-- https://wiki.selfhtml.org/wiki/HTML/Formulare/input/number -->
+                <input id="update-gebucht" type="number" min="0" max="1" />
+                <input type="date" id="update-gebdat">
+                <button id="update-btn">Update</button>
+            </section>
+        </div>
+    </div>
 
 
     <footer>
         <div class="grid-container-fussbereich">
-        <div>Kontakt:</div>
-        <div>Öffnungszeiten:</div>
-        <div>Adresse:</div>
-        <div>Rechthinweise:</div>
-        <div> Tel: 01234/56789 <br> oder über unser <br><a href="kontakt.html">  Kontaktformular</a></div>
-        
-        <div>Mo-So bei schönem Wetter <br> ab 9 Uhr geöffnet. <br> Zeiten können variieren.</div>
-        
-        <div>Musterstrasse 1 <br> 12345 Musterhausen</div>
-          
-        <div> <a href="impressum.html"> Impressum</a></div>
+            <div>Kontakt:</div>
+            <div>Öffnungszeiten:</div>
+            <div>Adresse:</div>
+            <div>Rechthinweise:</div>
+            <div> Tel: 01234/56789 <br> oder über unser <br><a href="kontakt.html"> Kontaktformular</a></div>
+
+            <div>Mo-So bei schönem Wetter <br> ab 9 Uhr geöffnet. <br> Zeiten können variieren.</div>
+
+            <div>Musterstrasse 1 <br> 12345 Musterhausen</div>
+
+            <div> <a href="impressum.html"> Impressum</a></div>
         </div>
     </footer>
-    </body>
-    <script src="termin.js"></script>
-</html>  
+</body>
+<script src="termin.js"></script>
+
+</html>
