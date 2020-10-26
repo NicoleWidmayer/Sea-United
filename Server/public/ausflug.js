@@ -6,11 +6,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
 function datenbankabfrage() {
   fetch('/ausflug')
   .then( async res =>{
-      console.log("Fetch geht");
       const data = await res.json();
-      console.log(data);
-      let length = data.length;
-      console.log(length);    
       loadHTMLTable(data);
   }) 
 }
@@ -18,9 +14,7 @@ function datenbankabfrage() {
 // Die Tabelle wird befüllt
 function loadHTMLTable(data) {
     const table = document.querySelector('table tbody');
-    console.log(data);
-    //let length = data.length;
-    //console.log(length);
+    
     // Rückgabe, falls das ausgelesene Result leer ist
     if (data.length === 0) {
         table.innerHTML = "<tr><td class='no-data' colspan='6'>No Data</td></tr>";
@@ -30,10 +24,9 @@ function loadHTMLTable(data) {
     // Das hier passiert mit der Tabelle wenn das Result nicht leer ist
     let tableHtml = "";
 
-    data.forEach(function ({id, boot, kategorie, kapazität, datum, preis}) {
+    data.forEach(function ({id, kategorie, kapazität, datum, preis}) {
         tableHtml += "<tr>";
         tableHtml += `<td>${id}</td>`;
-   //     tableHtml += `<td>${boot}</td>`;
         tableHtml += `<td>${kategorie}</td>`;
         tableHtml += `<td>${kapazität}</td>`;
         tableHtml += `<td>${new Date(datum).toLocaleString()}</td>`;
@@ -41,7 +34,6 @@ function loadHTMLTable(data) {
         tableHtml += `<td><button class="edit-row-btn" onclick="confirmBuchen(${id})" data-id=${id}>Buchen</td>`;
         tableHtml += "</tr>";
     });
-
     table.innerHTML = tableHtml;
 }
 
@@ -49,9 +41,7 @@ function loadHTMLTable(data) {
 // Hier wird eine bestätigung zum Buchen abgefragt
 function confirmBuchen(id) {
   if (confirm("Wollen Sie diesen Termin wirklich buchen?")) {
-    console.log("OK");
-
-    fetch('/ausflugBuchen/'+ id, {
+   fetch('/ausflugBuchen/'+ id, {
       method: 'PATCH',
     }).then((res) =>{
       if(res.ok){
@@ -60,7 +50,6 @@ function confirmBuchen(id) {
           console.log("Änderung konnte nicht vorgenommen werden");
       }   
     })
-
     datenbankabfrage();
   }
 }

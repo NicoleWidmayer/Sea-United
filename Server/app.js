@@ -55,6 +55,7 @@ app.get("/ausflug", async (req, res) => {
 
 //Ändern der Daten durch drücken des "BUCHEN" Button
 app.patch("/ausflugBuchen/:id", async (req, res) => {
+  console.log(req.params.id);
   try {
     const [rows] = await connection.execute("UPDATE Termin SET gebucht = 1 WHERE id = ?;"); [req.params.id];
     if(rows.affectedRows === 1){
