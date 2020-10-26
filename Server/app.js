@@ -9,8 +9,6 @@ const { json, response } = require("express");
 const { request } = require("http");
 const app = express();
 
-//const datum = new Date();
-
 // SQL Datenbank hinzufügen
 // Zum benutzen und zum Sichern der Datenbank Daten in einer Externen Datei, Quelle: https://telmoacademy.com/
 dotenv.config({path:'./.env'});
@@ -28,8 +26,8 @@ mysql
     console.log("MYSQL Datenbank is connected...");
   })
   .catch((error) =>{
-      console.log(error)
-      console.log("MYSQL Datenbank is not connected...");
+    console.log(error);
+    console.log("MYSQL Datenbank is not connected...");
   });
 
 
