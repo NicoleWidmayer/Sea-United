@@ -86,58 +86,84 @@ button{
 }
 
 /* CSS für Termin */
-
+/* Termin hinzufügen */
 #form1 {
     align-items: center;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    font-family: 'old_standard_ttregular';
     margin-bottom: 3rem;
 }
-#update-gebucht {
-    font-size: 1.2rem;
+#kennung {
+    letter-spacing: 2px;
     font-family: 'old_standard_ttregular';
-}
-#update-kennung {
     font-size: 1.2rem;
     margin-bottom: 1rem;
     border-radius: .3rem;
 }
-#kennung {
+#gebdat {
+    letter-spacing: 2px;
+    font-family: 'old_standard_ttregular';
+    font-size: 1.2rem;
+}
+#termin-btn {
+    letter-spacing: 2px;
+    font-family: 'old_standard_ttregular';
+    padding: 0.4px;
+    width: 15rem;
+    font-size: 1.2rem;
+}
+#termin-btn:hover {
+    background: -webkit-linear-gradient(right, #0e4e78,#187abb,#1ea1f8, #4db8ff);
+}
+/* Termin bearbeiten */
+section {
+    overflow: hidden;
+}
+#update-gebucht {
+    font-size: 1.2rem;
+    font-family: 'old_standard_ttregular';
+    letter-spacing: 2px;
+    
+}
+#update-kennung {
+    letter-spacing: 2px;
+    font-family: 'old_standard_ttregular';
     font-size: 1.2rem;
     margin-bottom: 1rem;
     border-radius: .3rem;
 }
 #update-gebdat {
-    font-size: 1.2rem;
-}
-#gebdat {
+    letter-spacing: 2px;
+    font-family: 'old_standard_ttregular';
     font-size: 1.2rem;
 }
 #update-btn {
+    letter-spacing: 2px;
+    font-family: 'old_standard_ttregular';
     width: 15rem;
     font-size: 1.2rem;
 }
-#termin-btn {
-    padding: 0.4px;
-    width: 15rem;
-    font-size: 1.2rem;
+#update-btn:hover {
+    background: -webkit-linear-gradient(right, #0e4e78,#187abb,#1ea1f8, #4db8ff);
 }
+/* Tabelle */
 .edit-row, .delete-row {
     font-size: 1.2rem;
 }
-.edit-row:hover, .delete-row:hover {
-    background-color: red;
+.edit-row:hover, .delete-row:hover{
+    background: -webkit-linear-gradient(right, #0e4e78,#187abb,#1ea1f8, #4db8ff);
 }
 table, th, td {
     border-collapse: collapse;
-    border: 1.5 solid #0e4e78;
 }
 th, td {
-    padding: 5px;
+    padding: 10px;
+    border-bottom: 1.5px solid #0e4e78;
+}
+tr:hover {
+    background-color: #f5f5f5;
 }
 #table {
-    border: 1.5 solid #0e4e78;
+    border-left: 1.5px solid #0e4e78;
+    border-right: 1.5px solid #0e4e78;
     font-family: 'old_standard_ttregular';
     font-size: 1.2rem;
     letter-spacing: 2px;
