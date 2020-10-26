@@ -55,19 +55,18 @@ app.get("/ausflug", async (req, res) => {
 
 //Ändern der Daten durch drücken des "BUCHEN" Button
 app.patch("/ausflugBuchen/:id", async (req, res) => {
-  console.log(req.params.id);
   try {
-    const [rows] = await connection.execute("UPDATE Termin SET gebucht = 1 WHERE id = ?;"); [req.params.id];
+    const [rows] = await connection.execute("UPDATE termine SET gebucht = 1 WHERE id = ?;"); [req.params.id];
     if(rows.affectedRows === 1){
       res.status(204).send(); // FIXME: 204 oder 205? (No Content oder Reset Content)
-      }
-      else{
-      res.status(400).send(); // Die Anfrage-Nachricht war fehlerhaft aufgebaut, Die Ursache des Scheiterns der Anfrage liegt (eher) im Verantwortungsbereich des Clients.
-      }
-      
-    } catch(err) {
-      res.status(500).json(); //Dies ist ein „Sammel-Statuscode“ für unerwartete Serverfehler.
     }
+    else{
+      res.status(400).send(); // Die Anfrage-Nachricht war fehlerhaft aufgebaut, Die Ursache des Scheiterns der Anfrage liegt (eher) im Verantwortungsbereich des Clients.
+    }
+      
+  } catch(err) {
+    res.status(500).json(); //Dies ist ein „Sammel-Statuscode“ für unerwartete Serverfehler.
+  }
 });
 
 //Datenbankkommunikation für die Termine-Seite
