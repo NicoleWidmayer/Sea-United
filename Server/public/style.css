@@ -86,23 +86,66 @@ button{
 }
 
 /* CSS für Termin */
-.grid-termin {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-gap: 5px;
+
+#form1 {
+    align-items: center;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    font-family: 'old_standard_ttregular';
+    margin-bottom: 3rem;
 }
-.grid-termin >div {
-    max-width: 100%;
+#update-gebucht {
+    font-size: 1.2rem;
+    font-family: 'old_standard_ttregular';
+}
+#update-kennung {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: .3rem;
+}
+#kennung {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: .3rem;
+}
+#update-gebdat {
+    font-size: 1.2rem;
+}
+#gebdat {
+    font-size: 1.2rem;
+}
+#update-btn {
+    width: 15rem;
+    font-size: 1.2rem;
+}
+#termin-btn {
+    padding: 0.4px;
+    width: 15rem;
+    font-size: 1.2rem;
+}
+.edit-row, .delete-row {
+    font-size: 1.2rem;
+}
+.edit-row:hover, .delete-row:hover {
+    background-color: red;
+}
+table, th, td {
+    border-collapse: collapse;
+    border: 1.5 solid #0e4e78;
+}
+th, td {
+    padding: 5px;
 }
 #table {
     border: 1.5 solid #0e4e78;
     font-family: 'old_standard_ttregular';
-    font-size: 1rem;
+    font-size: 1.2rem;
     letter-spacing: 2px;
     color: black;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 4rem;
 }
 #table-header {
     background-color: #0e4e78;
