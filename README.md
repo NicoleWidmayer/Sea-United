@@ -12,7 +12,6 @@ Sea-United, die Website auf der atemberaubende Tagesbootsausflüge gebucht werde
 
 ## Quickstart
  1. git clone https://github.com/NicoleWidmayer/Sea-United/edit/master/README.md.git
- 2. npm install
  2. install XAMPP Control Panel
  3. Apache und MySQL starten
  4. MySQL Admin -> Neue Datenbank anlegen mit dem Namen "Sea_United"
@@ -44,11 +43,11 @@ Wir waren Innovativ und haben anmelden und registrieren auf eine Html-Seite gepa
 Da wir uns eine sehr komplizierte Aufgabe gestellt haben für den Zeitraum und unsere Erfahrungen, zwischen einem Admin und einem User zu unterscheiden, haben wir Sicherheitstechnische aspekte nicht ganz so ernst genommen. 
 
  **6. Buchen (buchen.html)**
-Da man auch buchen können sollten wenn man angelemdet ist, haben wir die Html-Seite buchen.html mit der selben Funktion und Art und Weise wie sie aggiert, wie die ausflug.html Seite ausgesattet. Für weitere Erkläungen bitte bei dem punkt Ausflug nachschauen. 
+Da man auch buchen können sollten wenn man angemeldet ist, haben wir die Html-Seite buchen.html mit der selben Funktion und Art und Weise wie sie aggiert, wie die ausflug.html Seite ausgesattet. Für weitere Erkläungen bitte bei dem punkt Ausflug nachschauen. 
 
 
  **7. Termine (termin.html)**
-Damit unser Unternhemen nicht pleite geht müssen wir ständig neue Ausflüge einstellen. Dies kann direkt als erstes auf der Seite gemacht werden. Hierfür muss ein Boot udn ein in der Zukunft liegedes datum ausgewählt werden. Alle anderen Eingaben sind fehlerhaft. In der darunterfolgenden Tabelle sind alle aktuellen und in der zukunftliegenden Termine ersichtlich. Auch der Buchungsstand der Termine kann hier eingesehen werden (Gebucht: 0=Nein, 1=Ja). 
+Damit unser Unternehmen nicht pleite geht müssen wir ständig neue Ausflüge einstellen. Dies kann direkt als erstes auf der Seite gemacht werden. Hierfür muss ein Boot udn ein in der Zukunft liegedes datum ausgewählt werden. Alle anderen Eingaben sind fehlerhaft. In der darunterfolgenden Tabelle sind alle aktuellen und in der zukunftliegenden Termine ersichtlich. Auch der Buchungsstand der Termine kann hier eingesehen werden (Gebucht: 0=Nein, 1=Ja). 
 Findet ein Termin nicht mehr statt oder wird er nicht mehr benötigt kann dieser in der 2 Spalte von rechts mit dem Delete-Button gelöscht werden. 
 Da Menschen und Mitarbeiter nicht perfekt sind passieren Fehler. Dafür gibt es in der rechten Spalte der Tabelle einen Edit-Button pro Tabelleneintrag. Wenn dieser gedrückt wird erscheint unterhalb der Tabelle ein Formular, um den Termin in seinen Daten zu ändern (natürlich Zukunftsorientiert).
 
