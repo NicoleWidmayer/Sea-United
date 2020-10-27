@@ -114,11 +114,15 @@ button{
     background: -webkit-linear-gradient(right, #0e4e78,#187abb,#1ea1f8, #4db8ff);
 }
 /* Termin bearbeiten */
+#update-termin {
+    font-size: 1.4rem;
+    font-family: 'old_standard_ttregular';
+    letter-spacing: 2px; 
+}
 #update-gebucht {
     font-size: 1.2rem;
     font-family: 'old_standard_ttregular';
-    letter-spacing: 2px;
-    
+    letter-spacing: 2px;   
 }
 #update-kennung {
     letter-spacing: 2px;
@@ -165,7 +169,7 @@ th, td {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 #table-header {
     background-color: #0e4e78;
