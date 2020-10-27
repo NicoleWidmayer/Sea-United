@@ -1,4 +1,4 @@
-// Import von den Modulen
+// Import af all needed Modules
 const express = require("express"); 
 const mysql = require("mysql2/promise");
 const dotenv = require('dotenv');
@@ -10,11 +10,11 @@ const app = express();
 
 const datum = new Date();
 
-// SQL Datenbank hinzufügen
+// add SQL Database
 // Zum benutzen und zum Sichern der Datenbank Daten in einer Externen Datei, Quelle: https://telmoacademy.com/
 dotenv.config({path:'./.env'});
 
-// Hier wird die verbindung zur db hergestellt, falls diese nicht lokal ist einfach bei host die IP-adresse eintragen
+// Connection to the Database, if not local: give IP-Adress to host
 mysql
   .createConnection({
     host: process.env.DATABASE_HOST,
@@ -72,7 +72,7 @@ app.patch("/ausflugBuchen/:id", async (req, res) => {
 //Füllen der Tabelle mit allen Terminen
 app.get("/termineAll", async (req, res) => {
   try {
-    const [rows] = await connection.execute("SELECT b.kennung, b.preis, b.kategorie, t.datum, t.gebucht, t.ID FROM boote AS b, termine AS t WHERE b.kennung = t.boot");
+    const [rows] = await connection.execute("SELECT b.kennung, b.preis, b.kategorie, t.datum, t.gebucht, t.ID, b.kapazität FROM boote AS b, termine AS t WHERE b.kennung = t.boot");
     res.json(rows);  
   } catch {
     res.status(500).send();
