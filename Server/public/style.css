@@ -114,6 +114,14 @@ button{
     background: -webkit-linear-gradient(right, #0e4e78,#187abb,#1ea1f8, #4db8ff);
 }
 /* Termin bearbeiten */
+article {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    font-family: 'old_standard_ttregular';
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+}
 #update-termin {
     font-size: 1.4rem;
     font-family: 'old_standard_ttregular';
@@ -125,6 +133,7 @@ button{
     letter-spacing: 2px;   
 }
 #update-kennung {
+    width: 475px;
     letter-spacing: 2px;
     font-family: 'old_standard_ttregular';
     font-size: 1.2rem;
