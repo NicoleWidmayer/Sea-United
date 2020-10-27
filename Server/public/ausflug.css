@@ -4,14 +4,33 @@ main{
     text-align: center;
  }
  table{
-     margin: 50px auto;
+     margin-top: 10%;
+    border-left: 1.5px solid #0e4e78;
+    border-right: 1.5px solid #0e4e78;
+    font-family: 'old_standard_ttregular';
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: black;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4rem;
  }
+ #table-header {
+    background-color: #0e4e78;
+    font-size: 1.4rem;
+    color: white;
+}
+#table_body:hover {
+    background-color: #f5f5f5;
+}
  table, th, td{
      border-collapse: collapse;
-     border: 1px solid #000;
+     
  }
  th, td{
-     padding: 5px;
+     padding: 10px;
+     border-bottom: 1.5px solid #0e4e78;
  }
  .grid-container-ausflug{
     display: grid;
@@ -19,4 +38,7 @@ main{
     margin-top: 10rem;
     text-align: center;
   
+}
+footer{
+    margin-top: 20%;
 }
