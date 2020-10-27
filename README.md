@@ -25,7 +25,7 @@ Sea-United, die Website auf der atemberaubende Tagesbootsausflüge gebucht werde
 ## Architektur
 Es wurden die Programmiersprachen HTML (Hypertext Markup Language), JavaScript und CSS (Cascading Style Sheets) verwendet. 
 Unsere Website ist aufgeteilt in Frontend, Backend und Datenbank.  
-Front- und Backend interagieren dabei mit der Fetch-API (Application programming Interface).
+Front- und Backend interagieren dabei mit der Fetch-API (Application Programming Interface).
 
  ### Datenmodell
 
@@ -63,3 +63,4 @@ Da Menschen und Mitarbeiter nicht perfekt sind passieren Fehler. Dafür gibt es 
 Informationen die keiner braucht, ausgenommen unser Gesetz. 
 
 **CSS**
+Die CSS wurde für die Gestaltung der HTML-files eingebunden. Dabei kamen mehrer CSS-files zum Einsatz. 
