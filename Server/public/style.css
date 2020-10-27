@@ -114,9 +114,6 @@ button{
     background: -webkit-linear-gradient(right, #0e4e78,#187abb,#1ea1f8, #4db8ff);
 }
 /* Termin bearbeiten */
-section {
-    overflow: hidden;
-}
 #update-gebucht {
     font-size: 1.2rem;
     font-family: 'old_standard_ttregular';
