@@ -45,6 +45,7 @@ main{
 }
 footer{
     margin-top: 9%;
+    position: absolute;
 }
 .edit-row-btn{
     font-size: 1.2rem;
