@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 }) // End of fetch then
             } else {
                 datum.value = "";
+                alert("Datum muss in der Zukunft liegen!");
             }
         }) // End of Event Listener
 
@@ -144,6 +145,7 @@ function handleEditRow(id) {
             kenjectSel.value = allKennungObject[(id-1)];
             document.querySelector("#update-gebdat").value = new Date(allDateObject[id-1]).toISOString().split('T')[0];
             document.querySelector("#update-gebucht").value = allBookedObject[id-1];
+            alert("Datum muss in der Zukunft liegen!");
         }
     }) // End of Event Listener
 }// End of Edit Listener

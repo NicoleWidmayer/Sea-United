@@ -36,20 +36,24 @@
             Wir freuen uns auf eine nachricht von Ihnen.
         </div>
         <form>
-
             <div>Ihre E-Mail-Adresse:</div>
             <div>
-                <input type="text" placeholder="E-Mail-Adresse">
+                <input type="email" name="name" placeholder="E-Mail-Adresse">
             </div>
             <div>Ihre Nachricht:</div>
             <div>
-                <textarea name="Nachricht" id="message" placeholder="Nachricht" cols="30" rows="10"></textarea>
+                <textarea type="message" name="info" id="message" placeholder="Nachricht" cols="30"
+                    rows="10"></textarea>
             </div>
             <div>
-                <button type="submit" name="senden">Nachricht senden</button>
+                <button id="submitBtn" type="submit" name="senden" onclick="sendMessage()">Nachricht senden</button>
             </div>
         </form>
     </section>
+
+    <script>function sendMessage() {
+        alert("Nachricht wurde gesendet!");
+    }</script>
 
     <footer>
         <div class="grid-container-fussbereich">
