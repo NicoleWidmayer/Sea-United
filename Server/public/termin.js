@@ -32,30 +32,34 @@ document.addEventListener('DOMContentLoaded', function (e) {
         const fetchRegButton = document.querySelector("#termin-btn");
 
         fetchRegButton.addEventListener("click", (reg) => {
-            let datum = document.querySelector("#gebdat").value;
-            let kennung = document.querySelector("#kennung").value;
+            if (document.querySelector("#gebdat").value > new Date()) {
+                let datum = document.querySelector("#gebdat").value;
+                let kennung = document.querySelector("#kennung").value;
 
-            let terminData = {
-                kennung: kennung,
-                datum: datum,
-            }
-
-            // load data into database with POST
-            fetch("/erstellen", {
-                method: "Post",
-                body: JSON.stringify(terminData),
-                headers: {
-                    "content-type": "application/json",
-                },
-            }).then((res) => {
-                // wird aktuell nicht ausgeführt
-                if(res.status >=400) {
-                    console.log("Status 200");
-                    alert("Termin erfolgreich angelegt");
-                } else {
-                    alert("Termin konnte nicht angelegt werden");
+                let terminData = {
+                    kennung: kennung,
+                    datum: datum,
                 }
-            }) // End of fetch then
+
+                // load data into database with POST
+                fetch("/erstellen", {
+                    method: "Post",
+                    body: JSON.stringify(terminData),
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                }).then((res) => {
+                    // wird aktuell nicht ausgeführt
+                    if(res.status >=400) {
+                        console.log("Status 200");
+                        alert("Termin erfolgreich angelegt");
+                    } else {
+                        alert("Termin konnte nicht angelegt werden");
+                    }
+                }) // End of fetch then
+            } else {
+                datum.value = "";
+            }
         }) // End of Event Listener
 
         // DropDown Menü
@@ -103,38 +107,44 @@ function handleEditRow(id) {
     kenjectSel.value = allKennungObject[(id-1)];
     document.querySelector("#update-gebdat").value = new Date(allDateObject[id-1]).toISOString().split('T')[0];
     document.querySelector("#update-gebucht").value = allBookedObject[id-1];
-    console.log(new Date(allDateObject[id-1]).toISOString().slice(0,10));
   
     // Event Listener auf den Button Update
     const fetchUpdateButton = document.querySelector("#update-btn");
 
     fetchUpdateButton.addEventListener("click", (reg) => {
-        let datum = document.querySelector("#update-gebdat").value;
-        let kennung = document.querySelector("#update-kennung").value;
-        let gebucht = document.querySelector("#update-gebucht").value;
+        if (document.querySelector("#update-gebdat").value > new Date().toISOString().split('T')[0]) {
+            let datum = document.querySelector("#update-gebdat").value;
+            let kennung = document.querySelector("#update-kennung").value;
+            let gebucht = document.querySelector("#update-gebucht").value;
 
-        let terminUpdateData = {
-            kennung: kennung,
-            datum: datum,
-            gebucht: gebucht,
-            id: id
+            let terminUpdateData = {
+                kennung: kennung,
+                datum: datum,
+                gebucht: gebucht,
+                id: id
+            }
+            
+            // Bring data with PATCH into the database
+            fetch("/UpdateTermin", {
+                method: "PATCH",
+                body: JSON.stringify(terminUpdateData),
+                headers: {
+                    "content-type": "application/json",
+                },
+            }).then((res) =>{
+                if(res.ok){
+                location.reload();
+                }
+                else{
+                    alert("Termin konnte nicht bearbeitet werden");
+                }
+            })// End of Fetch Then
+        } // End of If
+        else {
+            kenjectSel.value = allKennungObject[(id-1)];
+            document.querySelector("#update-gebdat").value = new Date(allDateObject[id-1]).toISOString().split('T')[0];
+            document.querySelector("#update-gebucht").value = allBookedObject[id-1];
         }
-        console.log(terminUpdateData);
-        // Bring data with PATCH into the database
-        fetch("/UpdateTermin", {
-            method: "PATCH",
-            body: JSON.stringify(terminUpdateData),
-            headers: {
-                "content-type": "application/json",
-            },
-        }).then((res) =>{
-            if(res.ok){
-            location.reload();
-            }
-            else{
-                alert("Termin konnte nicht bearbeitet werden");
-            }
-        })// End of Fetch Then
     }) // End of Event Listener
 }// End of Edit Listener
 
