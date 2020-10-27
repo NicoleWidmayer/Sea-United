@@ -38,7 +38,7 @@
         <form>
             <div>Ihre E-Mail-Adresse:</div>
             <div>
-                <input type="email" name="name" placeholder="E-Mail-Adresse">
+                <input id="emailTf" type="email" name="name" placeholder="E-Mail-Adresse">
             </div>
             <div>Ihre Nachricht:</div>
             <div>
@@ -52,7 +52,9 @@
     </section>
 
     <script>function sendMessage() {
-        alert("Nachricht wurde gesendet!");
+        if (emailTf.checkValidity()) {
+            alert("Nachricht wurde gesendet!");
+        }
     }</script>
 
     <footer>

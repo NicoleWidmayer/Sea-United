@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         const fetchRegButton = document.querySelector("#termin-btn");
 
         fetchRegButton.addEventListener("click", (reg) => {
-            if (document.querySelector("#gebdat").value > new Date()) {
+            if (document.querySelector("#gebdat").value > new Date().toISOString().split('T')[0]) {
                 let datum = document.querySelector("#gebdat").value;
                 let kennung = document.querySelector("#kennung").value;
 
@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
                     }
                 }) // End of fetch then
             } else {
-                datum.value = "";
                 alert("Datum muss in der Zukunft liegen!");
             }
         }) // End of Event Listener
