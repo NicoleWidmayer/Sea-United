@@ -1,9 +1,19 @@
-// Login Skript 
+/*
+Author: Group Sea_United
+Version: 1.3
+Description: 
+user login,
+all information about the users is fetched from the database. 
+This information is then compared to determine whether the user name exists and the password matches
+*/
 
-// Buttons
+// Button Declaration
 const fetchLoginButton = document.querySelector("#submitLogin");
 
+// Event Listener for the button Login
 fetchLoginButton.addEventListener('click', function(e){ 
+
+  // fetch all information about the users from the database
   fetch("/benutzer")
   .then( async res =>{
    
@@ -13,7 +23,7 @@ fetchLoginButton.addEventListener('click', function(e){
     let passwort = document.querySelector("#pwPasswort").value;
     let blogin = false;
    
-    // Prüfen auf User Namen und Passwort  
+    // Comparison of the login data with the database data
     for(i = 0; i < length ; i++)
     {
       let usernameDB = json[i].benutzername;
@@ -25,7 +35,7 @@ fetchLoginButton.addEventListener('click', function(e){
        }
     }//for
 
-    // Weiterleitung oder Fehlermdelung
+    // Output of the message if the data matches or not
     if(blogin == true )
     {
       document.location.href ="/termin.html";
@@ -35,6 +45,7 @@ fetchLoginButton.addEventListener('click', function(e){
       alert("Anmeldung nicht erfolgreich");
     }
     
-  })// fetch
+  })//End of fetch
 
-})// Event Listener
+})// End of Event Listener
+
