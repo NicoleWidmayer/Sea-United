@@ -3,6 +3,9 @@
 
 // give "Kennung" into Array 
 let kennungObject = [];
+let allKennungObject = [];
+let allDateObject = [];
+let allBookedObject = [];
 fetch("/termineDropDown").then((res) => {
     if (!res.ok) return Promise.reject(res.status);
   
@@ -17,7 +20,12 @@ fetch("/termineDropDown").then((res) => {
 document.addEventListener('DOMContentLoaded', function (e) {
     fetch('/termineAll')
     .then( async res =>{
-        const data = await res.json(); 
+        const data = await res.json();
+        data.forEach((data) => {
+            allKennungObject.push(data.kennung);
+            allDateObject.push(data.datum);
+            allBookedObject.push(data.gebucht);
+        }) 
         loadHTMLTable(data);
 
         // Event Listener for button "Termin"
@@ -86,12 +94,16 @@ function handleEditRow(id) {
     const updateSection = document.querySelector('#update-row');
     updateSection.hidden = false;
 
-    // Feldern Werte zuweißen FIXME: aktuell noch ohne funktion
+    // Fill Fields to Update, also give default values
     const kenjectSel = document.getElementById("update-kennung");
     for(i=0; i< kennungObject.length; i++)
     {
     kenjectSel.options[kenjectSel.options.length] = new Option(kennungObject[i]['kennung']);   
-    }   
+    }
+    kenjectSel.value = allKennungObject[(id-1)];
+    document.querySelector("#update-gebdat").value = new Date(allDateObject[id-1]).toISOString().split('T')[0];
+    document.querySelector("#update-gebucht").value = allBookedObject[id-1];
+    console.log(new Date(allDateObject[id-1]).toISOString().slice(0,10));
   
     // Event Listener auf den Button Update
     const fetchUpdateButton = document.querySelector("#update-btn");
@@ -148,7 +160,7 @@ function loadHTMLTable(data) {
     const table = document.querySelector('table tbody');
     // In case that the ResultSet is empty
     if (data.length === 0) {
-        table.innerHTML = "<tr><td class='no-data' colspan='5'>No Data</td></tr>";
+        table.innerHTML = "<tr><td class='no-data' colspan='9'>No Data</td></tr>";
         return;
     }
 
