@@ -1,3 +1,10 @@
+/*
+Author: Group Sea_United
+Version: 1.7
+Description: 
+All trips that are not booked yet are displayed and can be booked
+*/
+
 // If this page is called, the database request runs
 document.addEventListener('DOMContentLoaded', function (e) {
     datenbankabfrage();

@@ -1,5 +1,9 @@
-// Termin Skript
-// FIXME: Beschreibung des Termin Skripts
+/*
+Author: Group Sea_United
+Version: 1.7
+Description: 
+Here all Termine events can be viewed, new events can be added and previous events can be edited
+*/
 
 // give "Kennung" into Array 
 let kennungObject = [];
