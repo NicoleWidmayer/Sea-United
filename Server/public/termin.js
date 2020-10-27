@@ -91,7 +91,7 @@ function handleEditRow(id) {
     for(i=0; i< kennungObject.length; i++)
     {
     kenjectSel.options[kenjectSel.options.length] = new Option(kennungObject[i]['kennung']);   
-    }     
+    }   
   
     // Event Listener auf den Button Update
     const fetchUpdateButton = document.querySelector("#update-btn");
@@ -155,7 +155,7 @@ function loadHTMLTable(data) {
     // It´s to not have doubble information in table
     let tableHtml = "";
     // Table will be filled
-    data.forEach(function ({kennung, preis, kapazität, kategorie, datum, gebucht, ID}) {
+    data.forEach(function ({kennung, preis, kategorie, datum, gebucht, ID, kapazität}) {
         tableHtml += "<tr>";
         tableHtml += `<td>${ID}</td>`;
         tableHtml += `<td>${kennung}</td>`;
