@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Erstellungszeit: 26. Okt 2020 um 13:35
+-- Host: 127.0.0.1
+-- Erstellungszeit: 27. Okt 2020 um 17:50
 -- Server-Version: 10.4.14-MariaDB
--- PHP-Version: 7.2.33
+-- PHP-Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,25 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `sea_united`
 --
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `admin`
---
-
-CREATE TABLE `admin` (
-  `benutzername` char(20) NOT NULL,
-  `passwort` char(200) NOT NULL,
-  `e_mail` char(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Daten für Tabelle `admin`
---
-
-INSERT INTO `admin` (`benutzername`, `passwort`, `e_mail`) VALUES
-('admin', 'admin', 'admin@admin.de');
 
 -- --------------------------------------------------------
 
@@ -61,8 +42,6 @@ INSERT INTO `benutzer` (`benutzername`, `passwort`, `e_mail`) VALUES
 ('beeke', 'wiltfang', '19253@lehre.dhbw-stuttgart.de'),
 ('melissa', 'negele', '19161@lehre.dhbw-stuttgart.de'),
 ('nicole', 'widmayer', '19063@lehre.dhbw-stuttgart.de'),
-('Test1', '123', 'Test1@gmail.com'),
-('Test12', '123', 'Test12@gmail.com'),
 ('tobias', 'hartmann', '19126@lehre.dhbw-stuttgart.de');
 
 -- --------------------------------------------------------
@@ -120,12 +99,6 @@ INSERT INTO `termine` (`datum`, `boot`, `gebucht`, `ID`) VALUES
 --
 
 --
--- Indizes für die Tabelle `admin`
---
-ALTER TABLE `admin`
-  ADD UNIQUE KEY `benutzername` (`benutzername`);
-
---
 -- Indizes für die Tabelle `benutzer`
 --
 ALTER TABLE `benutzer`
@@ -157,12 +130,6 @@ ALTER TABLE `termine`
 --
 -- Constraints der exportierten Tabellen
 --
-
---
--- Constraints der Tabelle `admin`
---
-ALTER TABLE `admin`
-  ADD CONSTRAINT `Admin_ibfk_1` FOREIGN KEY (`benutzername`) REFERENCES `benutzer` (`benutzername`);
 
 --
 -- Constraints der Tabelle `termine`
