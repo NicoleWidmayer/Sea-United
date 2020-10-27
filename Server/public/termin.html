@@ -30,6 +30,18 @@
     </header>
     <!-- Ende Copyright-->
 
+    <!-- /////////////////// Copyright-Vermerk /////////////////// -->
+    <!-- https://www.w3schools.com/howto/howto_js_cascading_dropdown.asp-->
+    <form name="form1" id="form1" action="">
+        <select name="kennung" id="kennung">
+            <option value="" selected="selected">Boot auswählen</option>
+        </select>
+        <!-- /////////////////// Copyright-Vermerk /////////////////// -->
+        <!-- https://wiki.selfhtml.org/wiki/HTML/Formulare/input/time -->
+        <input type="date" id="gebdat">
+
+        <button id="termin-btn">Termin hinzufügen</button>
+    </form>
 
     <table id="table">
         <thead id="table-header">
@@ -46,36 +58,19 @@
         <tbody id="table-body"></tbody>
     </table>
 
-    <div class="grid-termin">
-        <div>
-            <!-- /////////////////// Copyright-Vermerk /////////////////// -->
-            <!-- https://www.w3schools.com/howto/howto_js_cascading_dropdown.asp-->
-            <form name="form1" id="form1" action="">
-                <select name="kennung" id="kennung">
-                    <option value="" selected="selected">Boot auswählen</option>
-                </select>
-                <!-- /////////////////// Copyright-Vermerk /////////////////// -->
-                <!-- https://wiki.selfhtml.org/wiki/HTML/Formulare/input/time -->
-                <input type="date" id="gebdat">
 
-                <button id="termin-btn">Termin hinzufügen</button>
-            </form>
-        </div>
-        <div>
-            <!-- /////////////////// Copyright-Vermerk /////////////////// -->
-            <!-- https://www.youtube.com/watch?v=vrj9AohVhPA -->
-            <section hidden id="update-row">
-                <select name="kennung" id="update-kennung">
-                    <option value="" selected="selected">Boot ändern</option>
-                </select>
-                <!-- /////////////////// Copyright-Vermerk /////////////////// -->
-                <!-- https://wiki.selfhtml.org/wiki/HTML/Formulare/input/number -->
-                <input id="update-gebucht" type="number" min="0" max="1" />
-                <input type="date" id="update-gebdat">
-                <button id="update-btn">Update</button>
-            </section>
-        </div>
-    </div>
+    <!-- /////////////////// Copyright-Vermerk /////////////////// -->
+    <!-- https://www.youtube.com/watch?v=vrj9AohVhPA -->
+    <section hidden id="update-row">
+        <select name="kennung" id="update-kennung">
+            <option value="" selected="selected">Boot ändern</option>
+        </select>
+        <!-- /////////////////// Copyright-Vermerk /////////////////// -->
+        <!-- https://wiki.selfhtml.org/wiki/HTML/Formulare/input/number -->
+        <input id="update-gebucht" type="number" min="0" max="1" />
+        <input type="date" id="update-gebdat">
+        <button id="update-btn">Update</button>
+    </section>
 
 
     <footer>
@@ -90,7 +85,12 @@
 
             <div>Musterstrasse 1 <br> 12345 Musterhausen</div>
 
-            <div> <a href="impressum.html"> Impressum</a></div>
+            <div>
+                <a target="popup" onclick="window.open 
+                ('', 'popup', 'width=600, height=400, scrollbars=yes, toolbar=no, status=no,resizable=yes, menubar=no, location=no, directories=no, top=200, left=400')
+                " href="impressum.html">Impressum
+                </a>
+            </div>
         </div>
     </footer>
 </body>
