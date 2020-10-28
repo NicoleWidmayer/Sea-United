@@ -44,29 +44,33 @@ Enthält keine REST-Services.
 Enthält keine REST-Services.
 
  **3. Ausflug (ausflug.html)**
-Mit der REST-Funktion "get" werden die Dateninhalte aus der Datenbank angefordert und auf der Ausflugseite damit die Tabelle befüllt.
-Hierbei wird aus der Datenbank Tabelle boot und termine daten ausgelesen.
-
-Mit der REST-Funktion "post" ist ein buchen von Ausflügen möglich.
+Mit der REST-Funktion "get" werden die Dateninhalte aus der Datenbank angefordert und auf der Ausflugseite wird damit dann die Tabelle befüllt.
+Hierbei wird aus der Datenbank Tabelle "boot" und "termine" Daten ausgelesen.
+Mit der REST-Funktion "patch" ist ein interagieren mit der Webseite und ein buchen von Ausflügen möglich, hierbei wird der ausgewählte Eintrag in der Tabelle "termine" verändert und auf gebucht gesetzt.
 
  **4. Kontakt (kontakt.html)**
 Enthält keine REST-Services.
 
  **5. Anmelden (Login.html)**
+Auf der Anmelden Seite ist ein Anmelden über die REST-Funktion "get" möglich, dabei werden alle Dateninhalte der Benutzer aus der Datenbank Tabelle "benutzer" angefordert und mit den eingegebenen Daten verglichen.
 
+Mit der Rest-Funktion "post" ist hier auch eine Registrierung möglich, dabei werden alle neuen Daten eines Benutzers in die Datenbank Tabelle "benutzer aufgenommen.
 
  **6. Buchen (buchen.html)**
- 
-
-
+Mit der REST-Funktion "get" werden die Dateninhalte aus der Datenbank angefordert und auf der Ausflugseite wird damit dann die Tabelle befüllt.
+Hierbei wird aus der Datenbank Tabelle "boot" und "termine" Daten ausgelesen.
+Mit der REST-Funktion "patch" ist ein interagieren mit der Webseite und ein buchen von Ausflügen möglich, hierbei wird der ausgewählte Eintrag in der Tabelle "termine" verändert und auf gebucht gesetzt.
  **7. Termine (termin.html)**
-
+Die Seite Termine enthält alle REST-Funktionen, "get", "post", "patch", "delete".
+Mit der REST-Funktion "get" werden die Dateninhalte aus der Datenbank angefordert und auf der Ausflugseite wird damit dann die Tabelle befüllt.
+Hierbei wird aus der Datenbank Tabelle "boot" und "termine" Daten ausgelesen.
+Zusätzlich wird mit der Rest-Funktion "get" das DorpDown mit Daten befüllt, hierbei wir die Kennung der Boote aus der Datenbank ausgelesen und in das DropDown geschrieben.
+Über die Rest-Funktion "post" ist das anlegen eines neuen Termines möglich, dafür wird in der Tabelle "termine" ein neuer Termin Eintrag angelegt.
+Mit der Rest-Funktion "delete" ist das löschen eines ausgewählten Termines aus der Datenbank Tabelle "termine" möglich.
+Zudem ist es über die Rest-Funktion "patch" möglich, ausgewählte Termine zu bearbeiten. Dabei wir ein Update des Datenbank Eintrages durchgeführt.
 
  **8. Impressum (impressum.html)**
  Enthält keine REST-Services.
-
-
-
 
  ### Frontend
 Das Frontend ist gegliedert in 8 Html-Seiten. Auf allen Seiten ist ein Header zu finden, welches den Wechsel zwischen den verscheidenne Html-Seiten ermöglicht (ausgenommen Impressum.html). Ebenfalls enthalten alle Html-Seiten, bevor man sich angemeldet hat, einen Footer. Der Footer gibt Auskunft über wesentliche Bestandteile unsere Unternehmens (Kontakt und Rechtliche Hinweise, auf diese im falle des anklickens weitergeleitet wird).  
