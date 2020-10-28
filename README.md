@@ -83,7 +83,7 @@ Das Frontend ist gegliedert in 8 Html-Seiten. Auf allen Seiten ist ein Header zu
 Enthält ein statisches, cliffhängendes Angebot das nicht ausgeschlagen werden kann. #WeLoveSailing
     
  **2. Boote (boote.html)**
-Unsere Reiseangebot werden auf dieser Seite sichtbar in Bild und Schrift dargestellt. Es zeigt dabei die atemberaubenden Angebote in voller Pracht. Da diese Seite aber statisch ist, haben wir als Unternehmen nicht das Bedürfnis uns nach neuen anderen Booten umzuschauen (das ist eine statische Seite). 
+Unsere Reiseangebot werden auf dieser Seite sichtbar in Bild und Schrift dargestellt. Es zeigt dabei die atemberaubenden Angebote in voller Pracht. Da diese Seite aber statisch ist, haben wir als Unternehmen nicht das Bedürfnis uns nach neuen anderen Booten umzuschauen. 
 
  **3. Ausflug (ausflug.html)**
 Hier findest du unsere Terminangebote, welche durch den eine angemeldete Person eingestellt wurden. Die Termine sind mit allen ihren Details in der Tabelle ersichtlich und dort auch buchbar. Die Daten in der Tabelle stammen aus der Datenbank. Auf dem Button ist ein EventListener der das buchen durchführt. Nach dem buchen ist der gebuchte Termin nicht mehr in der Tabelle einsehbar und kann somit nicht mehr gebucht werden. 
