@@ -97,7 +97,7 @@ Wir waren Innovativ und haben anmelden und registrieren auf eine Html-Seite gepa
 Da wir uns eine sehr komplizierte Aufgabe gestellt haben für den Zeitraum und unsere Erfahrungen, zwischen einem Admin und einem User zu unterscheiden, haben wir Sicherheitstechnische aspekte nicht ganz so ernst genommen. 
 
  **6. Buchen (buchen.html)**
-Da man auch buchen können sollten wenn man angemeldet ist, haben wir die Html-Seite buchen.html mit der selben Funktion und Art und Weise wie sie aggiert, wie die ausflug.html Seite ausgesattet. Für weitere Erkläungen bitte bei dem punkt Ausflug nachschauen. 
+Da man auch buchen können sollten wenn man angemeldet ist, haben wir die Html-Seite buchen.html mit derselben Funktion und Art und Weise wie sie aggiert, wie die ausflug.html Seite ausgesattet. Für weitere Erkläungen bitte bei dem Punkt Ausflug nachschauen. 
 
 
  **7. Termine (termin.html)**
