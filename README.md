@@ -86,7 +86,7 @@ Enthält ein statisches, cliffhängendes Angebot das nicht ausgeschlagen werden 
 Unsere Reiseangebot werden auf dieser Seite sichtbar in Bild und Schrift dargestellt. Es zeigt dabei die atemberaubenden Angebote in voller Pracht. Da diese Seite aber statisch ist, haben wir als Unternehmen nicht das Bedürfnis uns nach neuen anderen Booten umzuschauen. 
 
  **3. Ausflug (ausflug.html)**
-Hier findest du unsere Terminangebote, welche durch den eine angemeldete Person eingestellt wurden. Die Termine sind mit allen ihren Details in der Tabelle ersichtlich und dort auch buchbar. Die Daten in der Tabelle stammen aus der Datenbank. Auf dem Button ist ein EventListener der das buchen durchführt. Nach dem buchen ist der gebuchte Termin nicht mehr in der Tabelle einsehbar und kann somit nicht mehr gebucht werden. 
+Hier werden unsere Terminangebote, welche durch den eine angemeldete Person eingestellt wurden, dargestellt. Die Termine sind mit allen ihren Details in der Tabelle ersichtlich und dort auch buchbar. Die Daten in der Tabelle stammen aus der Datenbank. Auf dem Button ist ein EventListener der das buchen durchführt. Nach dem buchen ist der gebuchte Termin nicht mehr in der Tabelle einsehbar und kann somit nicht mehr gebucht werden. 
 
  **4. Kontakt (kontakt.html)**
 Bei Fragen bezüglich unserer Ausflüge kann man sich an unser Unternehmen wenden. Aufgrund dessen, das wir nur ein fiktives Unternehmen sind, besitzen wir keine E-Mail-Adresse. Die Nachricht führt daher ins leere. Eine Antwort unseres Unternehmens ist somit zu 100% ausgeschlossen.
