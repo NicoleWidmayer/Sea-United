@@ -8,7 +8,7 @@ Sea-United, die Website auf der atemberaubende Tagesbootsausflüge gebucht werde
  * :man superhero: Tobias Hartmann
  * :woman superhero: Melissa Negele
  * :woman superhero: Nicole Widmayer 
- * :woman superhero: Beeke Wiltfang
+ * :U+1F9B8: Beeke Wiltfang
 
 ## Quickstart
  1. git clone https://github.com/NicoleWidmayer/Sea-United/edit/master/README.md.git
