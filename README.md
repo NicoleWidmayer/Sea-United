@@ -89,7 +89,7 @@ Unsere Reiseangebot werden auf dieser Seite sichtbar in Bild und Schrift dargest
 Hier findest du unsere Terminangebote, welche durch den eine angemeldete Person eingestellt wurden. Die Termine sind mit allen ihren Details in der Tabelle ersichtlich und dort auch buchbar. Die Daten in der Tabelle stammen aus der Datenbank. Auf dem Button ist ein EventListener der das buchen durchführt. Nach dem buchen ist der gebuchte Termin nicht mehr in der Tabelle einsehbar und kann somit nicht mehr gebucht werden. 
 
  **4. Kontakt (kontakt.html)**
-Bei Fragen über unsere Ausflüge kann man sich an unser Unternehmen wenden. Aufgrund dessen, das wir nur ein fiktives Unternehmen sind, besitzen wir keine E-Mail-Adresse. Die Nachricht führt daher ins leere. Eine Antwort unseres Unternehmens ist somit zu 100% ausgeschlossen.
+Bei Fragen bezüglich unserer Ausflüge kann man sich an unser Unternehmen wenden. Aufgrund dessen, das wir nur ein fiktives Unternehmen sind, besitzen wir keine E-Mail-Adresse. Die Nachricht führt daher ins leere. Eine Antwort unseres Unternehmens ist somit zu 100% ausgeschlossen.
 
  **5. Anmelden (Login.html)**
 Wir waren Innovativ und haben anmelden und registrieren auf eine Html-Seite gepackt. Mit dem Anmelden-/Registrieren-Button kann zwischen Anmelden und Registrieren gewechselt werden. Nach der Registrierung muss sich einmal angemeldet werden, um angemeldet zu sein. Bei falschen Eingaben ist das ganze mit Fehlermeldungen versehen. 
