@@ -36,11 +36,6 @@ Bei einem Fehler im Verbindungsaufbau z.B die Datenbank wurde nicht gestartet, d
 
 Auf der Webseite werden die REST-Funktionen "get","post","delete" und "patch" verwendet.
 
-Mit der REST-Funktion "post" werden die Daten auf der Webseite mit den Daten aus der Datenbank abgeglichen. Dies wird beim Einloggen und dem Registrieren neuer Benutzer verwendet. Zudem hat es die Funktion eingegebene Daten auf der Website, in die Tabellen von der Datenbank einzufügen. Somit kann man auf unserer Seite sich als neuen Benutzer anlegen und neue Rezepte in die Datenbank hinzufügen.
-
-Um Daten aus der Datenbank löschen zu können, wird die Funktion "delete" verwendet. Mit ihr wird eine bestimmte Zeile aus der Datenbank oder mehrere Datenbankinhalte gelöscht. Auf der Website wählt man hier die ID eines Rezeptes aus und über die Funktion wird die Zeile mit der übereinstimmenden ID aus der Datenbank gelöscht.
-
-Damit Daten in der Tabelle auf der Forumseite angezeigt werden, wird die REST-Funktion "get" verwendet. Über diese Funktion kann man Datenbankinhalte anfordern und anzeigen lassen.
 
 **1. Startseite (index.html):**
 Enthält keine REST-Services.
