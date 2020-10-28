@@ -7,7 +7,7 @@ Sea-United, die Website auf der atemberaubende Tagesbootsausflüge gebucht werde
 ## Team
  * <p>&#128526</p> Tobias Hartmann
  * Melissa Negele
- * <p>U+1F47F</p> Nicole Widmayer
+ * <p>&#128520</p> Nicole Widmayer
  * Beeke Wiltfang
 
 ## Quickstart
