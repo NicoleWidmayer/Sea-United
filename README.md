@@ -37,7 +37,7 @@ Front- und Backend interagieren dabei mit der Fetch-API (Application Programming
  ### Rest Services
 In der app.js werden alle REST-Services durchgeführt. Über die definierte Konstante "connection" wird eine Verbindung zur Datenbank aufgebaut. 
 Dabei wird bei erfolgreicher Verbindung in der Temrminal Console "MYSQL Datenbank is connected...." ausgeben.
-Bei einem Fehler im Verbindungsaufbau z.B die Datenbank wurde nicht gestartet, die Datenbank exestiert nicht oder die Anmeldedaten sind nicht richtig, wird eine Fehlermdelung in der Terminal Console ausgegeben mit der Meldung "MYSQL Datenbank is not connected".
+Bei einem Fehler im Verbindungsaufbau z.B die Datenbank wurde nicht gestartet, die Datenbank existiert nicht oder die Anmeldedaten sind nicht richtig, wird eine Fehlermdelung in der Terminal Console ausgegeben mit der Meldung "MYSQL Datenbank is not connected".
 
 Auf der Webseite werden die REST-Funktionen "get","post","delete" und "patch" verwendet.
 
