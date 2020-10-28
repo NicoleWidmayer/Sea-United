@@ -67,8 +67,7 @@ Mit der REST-Funktion "patch" ist ein interagieren mit der Webseite und ein buch
 
  **7. Termine (termin.html)**
 Die Seite Termine enthält alle REST-Funktionen, "get", "post", "patch", "delete".
-Mit der REST-Funktion "get" werden die Dateninhalte aus der Datenbank angefordert und auf der Ausflugseite wird damit dann die Tabelle befüllt.
-Hierbei wird aus der Datenbank Tabelle "boot" und "termine" Daten ausgelesen.
+Mit der REST-Funktion "get" werden die Dateninhalte aus der Datenbank angefordert und die Tablle auf der Terminseite wird befüllt. Aus den Tabellen "boot" und "termine" die in der Datebank zu finden sind werden die Daten ausgelesen.
 Zusätzlich wird mit der Rest-Funktion "get" das DropDown mit Daten befüllt, hierbei wir die Kennung der Boote aus der Datenbank ausgelesen und in das DropDown geschrieben.
 Über die Rest-Funktion "post" ist das anlegen eines neuen Termines möglich, dafür wird in der Tabelle "termine" ein neuer Termin Eintrag angelegt.
 Mit der Rest-Funktion "delete" ist das löschen eines ausgewählten Termines aus der Datenbank Tabelle "termine" möglich.
