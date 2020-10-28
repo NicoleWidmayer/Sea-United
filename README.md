@@ -93,7 +93,7 @@ Hier findest du unsere Terminangebote, welche durch den eine angemeldete Person 
 Bei Fragen über unsere Ausflüge kann man sich an unser Unternehmen wenden. Aufgrund dessen, das wir nur ein fiktives Unternehmen sind, besitzen wir keine E-Mail-Adresse. Die Nachricht führt daher ins leere. Eine Antwort unseres Unternehmens ist somit zu 100% ausgeschlossen.
 
  **5. Anmelden (Login.html)**
-Wir waren Innovativ und haben anmelden und registrieren auf eine Html-Seite gepackt. Mit obersten Button kann sow zischen Anmelden und Registrieren gewechselt werden. Beim Anmelden bzw. Registrieren wird ein Event ausgelöst. Nach der Registrierung muss sich einmal angemeldet werden, um angemeldet zu sein. Bei falschen Eingaben ist das ganze mit Fehlermeldungen versehen. 
+Wir waren Innovativ und haben anmelden und registrieren auf eine Html-Seite gepackt. Mit dem Anmelden-/Registrieren-Button kann zwischen Anmelden und Registrieren gewechselt werden. Nach der Registrierung muss sich einmal angemeldet werden, um angemeldet zu sein. Bei falschen Eingaben ist das ganze mit Fehlermeldungen versehen. 
 Da wir uns eine sehr komplizierte Aufgabe gestellt haben für den Zeitraum und unsere Erfahrungen, zwischen einem Admin und einem User zu unterscheiden, haben wir Sicherheitstechnische aspekte nicht ganz so ernst genommen. 
 
  **6. Buchen (buchen.html)**
