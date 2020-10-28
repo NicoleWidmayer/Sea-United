@@ -58,7 +58,7 @@ Enthält keine REST-Services.
  **5. Anmelden (Login.html)**
 Auf der Anmelden Seite ist ein Anmelden über die REST-Funktion "get" möglich, dabei werden alle Dateninhalte der Benutzer aus der Datenbank Tabelle "benutzer" angefordert und mit den eingegebenen Daten verglichen.
 
-Mit der Rest-Funktion "post" ist hier auch eine Registrierung möglich, dabei werden alle neuen Daten eines Benutzers in die Datenbank Tabelle "benutzer aufgenommen.
+Mit der Rest-Funktion "post" ist hier auch eine Registrierung möglich, dabei werden alle neuen Daten eines Benutzers in die Datenbank Tabelle "benutzer" aufgenommen.
 
  **6. Buchen (buchen.html)**
 Mit der REST-Funktion "get" werden die Dateninhalte aus der Datenbank angefordert und auf der Ausflugseite wird damit dann die Tabelle befüllt.
