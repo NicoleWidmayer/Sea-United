@@ -31,7 +31,7 @@ Unsere Website ist aufgeteilt in Frontend, Backend und Datenbank.
 Front- und Backend interagieren dabei mit der Fetch-API (Application Programming Interface).
 
  ### Datenmodell
- Beispiel einer JSON Datei:
+ Beispiel einer JSON Datei:<br>
  [{​​id: 1, kategorie: "Drunken Sailor", kapazität: 20, datum: "2020-11-08T23:00:00.000Z", preis: "200.00"}​​]
 
  ### Rest Services
