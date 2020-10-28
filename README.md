@@ -94,7 +94,7 @@ Bei Fragen über unsere Ausflüge kann man sich an unser Unternehmen wenden. Auf
 
  **5. Anmelden (Login.html)**
 Wir waren Innovativ und haben anmelden und registrieren auf eine Html-Seite gepackt. Mit dem Anmelden-/Registrieren-Button kann zwischen Anmelden und Registrieren gewechselt werden. Nach der Registrierung muss sich einmal angemeldet werden, um angemeldet zu sein. Bei falschen Eingaben ist das ganze mit Fehlermeldungen versehen. 
-Da wir uns eine sehr komplizierte Aufgabe gestellt haben für den Zeitraum und unsere Erfahrungen, zwischen einem Admin und einem User zu unterscheiden, haben wir Sicherheitstechnische aspekte nicht ganz so ernst genommen. 
+Da wir uns eine sehr komplizierte Aufgabe gestellt haben für den Zeitraum und unsere Erfahrungen, zwischen einem Admin und einem User zu unterscheiden, haben wir Sicherheitstechnische Aspekte nicht ganz so ernst genommen und unterscheiden nicht zwischen Admin und User. 
 
  **6. Buchen (buchen.html)**
 Da man auch buchen können sollten wenn man angemeldet ist, haben wir die Html-Seite buchen.html mit derselben Funktion und Art und Weise wie sie aggiert, wie die ausflug.html Seite ausgesattet. Für weitere Erkläungen bitte bei dem Punkt Ausflug nachschauen. 
