@@ -30,6 +30,48 @@ Front- und Backend interagieren dabei mit der Fetch-API (Application Programming
  ### Datenmodell
 
  ### Rest Services
+In der app.js werden alle REST-Services durchgeführt. Über die definierte Konstante "connection" wird eine Verbindung zur Datenbank aufgebaut. 
+Dabei wird bei erfolgreicherverbindung in der Temrminal Console "MYSQL Datenbank is connected...." ausgeben.
+Bei einem Fehler im Verbindungsaufbau z.B die Datenbank wurde nicht gestartet, die Datenbank exestiert nicht oder die Anmeldedaten sind nicht richtig, wir eine Fehlermdelung in der Terminal Console ausgegeben mit "MYSQL Datenbank is not connected".
+
+Auf der Webseite werden die REST-Funktionen "get","post","delete" und "patch" verwendet.
+
+Mit der REST-Funktion "post" werden die Daten auf der Webseite mit den Daten aus der Datenbank abgeglichen. Dies wird beim Einloggen und dem Registrieren neuer Benutzer verwendet. Zudem hat es die Funktion eingegebene Daten auf der Website, in die Tabellen von der Datenbank einzufügen. Somit kann man auf unserer Seite sich als neuen Benutzer anlegen und neue Rezepte in die Datenbank hinzufügen.
+
+Um Daten aus der Datenbank löschen zu können, wird die Funktion "delete" verwendet. Mit ihr wird eine bestimmte Zeile aus der Datenbank oder mehrere Datenbankinhalte gelöscht. Auf der Website wählt man hier die ID eines Rezeptes aus und über die Funktion wird die Zeile mit der übereinstimmenden ID aus der Datenbank gelöscht.
+
+Damit Daten in der Tabelle auf der Forumseite angezeigt werden, wird die REST-Funktion "get" verwendet. Über diese Funktion kann man Datenbankinhalte anfordern und anzeigen lassen.
+
+**1. Startseite (index.html):**
+Enthält keine REST-Services.
+    
+ **2. Boote (boote.html)**
+Enthält keine REST-Services.
+
+ **3. Ausflug (ausflug.html)**
+Mit der REST-Funktion "get" werden die Dateninhalte aus der Datenbank angefordert und auf der Ausflugseite damit die Tabelle befüllt.
+Hierbei wird aus der Datenbank Tabelle boot und termine daten ausgelesen.
+
+Mit der REST-Funktion "post" ist ein buchen von Ausflügen möglich.
+
+ **4. Kontakt (kontakt.html)**
+Enthält keine REST-Services.
+
+ **5. Anmelden (Login.html)**
+
+
+ **6. Buchen (buchen.html)**
+ 
+
+
+ **7. Termine (termin.html)**
+
+
+ **8. Impressum (impressum.html)**
+ Enthält keine REST-Services.
+
+
+
 
  ### Frontend
 Das Frontend ist gegliedert in 8 Html-Seiten. Auf allen Seiten ist ein Header zu finden, welches den Wechsel zwischen den verscheidenne Html-Seiten ermöglicht (ausgenommen Impressum.html). Ebenfalls enthalten alle Html-Seiten, bevor man sich angemeldet hat, einen Footer. Der Footer gibt Auskunft über wesentliche Bestandteile unsere Unternehmens (Kontakt und Rechtliche Hinweise, auf diese im falle des anklickens weitergeleitet wird).  
