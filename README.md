@@ -32,7 +32,7 @@ Front- und Backend interagieren dabei mit der Fetch-API (Application Programming
  ### Rest Services
 In der app.js werden alle REST-Services durchgeführt. Über die definierte Konstante "connection" wird eine Verbindung zur Datenbank aufgebaut. 
 Dabei wird bei erfolgreicherverbindung in der Temrminal Console "MYSQL Datenbank is connected...." ausgeben.
-Bei einem Fehler im Verbindungsaufbau z.B die Datenbank wurde nicht gestartet, die Datenbank exestiert nicht oder die Anmeldedaten sind nicht richtig, wir eine Fehlermdelung in der Terminal Console ausgegeben mit "MYSQL Datenbank is not connected".
+Bei einem Fehler im Verbindungsaufbau z.B die Datenbank wurde nicht gestartet, die Datenbank exestiert nicht oder die Anmeldedaten sind nicht richtig, wird eine Fehlermdelung in der Terminal Console ausgegeben mit der Meldung "MYSQL Datenbank is not connected".
 
 Auf der Webseite werden die REST-Funktionen "get","post","delete" und "patch" verwendet.
 
@@ -60,6 +60,7 @@ Mit der Rest-Funktion "post" ist hier auch eine Registrierung möglich, dabei we
 Mit der REST-Funktion "get" werden die Dateninhalte aus der Datenbank angefordert und auf der Ausflugseite wird damit dann die Tabelle befüllt.
 Hierbei wird aus der Datenbank Tabelle "boot" und "termine" Daten ausgelesen.
 Mit der REST-Funktion "patch" ist ein interagieren mit der Webseite und ein buchen von Ausflügen möglich, hierbei wird der ausgewählte Eintrag in der Tabelle "termine" verändert und auf gebucht gesetzt.
+
  **7. Termine (termin.html)**
 Die Seite Termine enthält alle REST-Funktionen, "get", "post", "patch", "delete".
 Mit der REST-Funktion "get" werden die Dateninhalte aus der Datenbank angefordert und auf der Ausflugseite wird damit dann die Tabelle befüllt.
