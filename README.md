@@ -71,7 +71,7 @@ Mit der REST-Funktion "get" werden die Dateninhalte aus der Datenbank angeforder
 Zusätzlich wird mit der Rest-Funktion "get" das DropDown mit Daten befüllt, hierbei wir die Kennung der Boote aus der Datenbank ausgelesen und in das DropDown geschrieben.
 Über die Rest-Funktion "post" ist das anlegen eines neuen Termines möglich, dafür wird in der Tabelle "termine" ein neuer Termin Eintrag angelegt.
 Mit der Rest-Funktion "delete" ist das löschen eines ausgewählten Termines aus der Datenbank Tabelle "termine" möglich.
-Zudem ist es über die Rest-Funktion "patch" möglich, ausgewählte Termine zu bearbeiten. Dabei wir ein Update des Datenbank Eintrages durchgeführt.
+Zudem ist es über die Rest-Funktion "patch" möglich, ausgewählte Termine zu bearbeiten. Dabei wir ein Update des Datenbankeintrages durchgeführt.
 
  **8. Impressum (impressum.html)**
  Enthält keine REST-Services.
