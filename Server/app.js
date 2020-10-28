@@ -21,7 +21,7 @@ const app = express();
 const datum = new Date();
 
 // add SQL Database
-// Zum benutzen und zum Sichern der Datenbank Daten in einer Externen Datei, Quelle: https://telmoacademy.com/
+// Zum benutzen und zum Sichern der Datenbank Daten in einer Externen Datei, Quelle: https://www.npmjs.com/package/dotenv
 dotenv.config({ path: './.env' });
 
 // Connection to the Database, if not local: change host to IP-Adress
