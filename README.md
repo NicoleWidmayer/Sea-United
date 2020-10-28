@@ -77,7 +77,7 @@ Zudem ist es über die Rest-Funktion "patch" möglich, ausgewählte Termine zu b
  Enthält keine REST-Services.
 
  ### Frontend
-Das Frontend ist gegliedert in 8 Html-Seiten. Auf allen Seiten ist ein Header zu finden, welches den Wechsel zwischen den verscheidenne Html-Seiten ermöglicht (ausgenommen Impressum.html). Ebenfalls enthalten alle Html-Seiten, bevor man sich angemeldet hat, einen Footer. Der Footer gibt Auskunft über wesentliche Bestandteile unsere Unternehmens (Kontakt und Rechtliche Hinweise, auf diese im Falle des anklickens weitergeleitet wird).  
+Das Frontend ist gegliedert in 8 Html-Seiten. Auf allen Seiten ist ein Header zu finden, welches den Wechsel zwischen den verscheidenne Html-Seiten ermöglicht (ausgenommen Impressum.html). Ebenfalls enthalten alle Html-Seiten, bevor man sich angemeldet hat, einen Footer. Der Footer gibt Auskunft über wesentliche Bestandteile unseres Unternehmens (Kontakt und Rechtliche Hinweise, auf diese im Falle des anklickens weitergeleitet wird).  
 
  **1. Startseite (index.html):**
 Enthält ein statisches, cliffhängendes Angebot das nicht ausgeschlagen werden kann. #WeLoveSailing
