@@ -5,7 +5,7 @@ Sea-United dein Traumerlebnis auf See.
 Sea-United, die Website auf der atemberaubende Tagesbootsausflüge gebucht werden können und unvergessliche Ausflüge garantieren werden.
 
 ## Team
- * :man_superhero: Tobias Hartmann
+ * :man/superhero: Tobias Hartmann
  * :superhero: Melissa Negele
  * :superhero: Nicole Widmayer 
  * :superhero: Beeke Wiltfang
