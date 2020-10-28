@@ -36,12 +36,12 @@ Front- und Backend interagieren dabei mit der Fetch-API (Application Programming
 
  ### Rest Services
 In der app.js werden alle REST-Services durchgeführt. Über die definierte Konstante "connection" wird eine Verbindung zur Datenbank aufgebaut. 
-Dabei wird bei erfolgreicher Verbindung in der Temrminal Console "MYSQL Datenbank is connected...." ausgeben.
+Dabei wird bei erfolgreicher Verbindung in der Terminal Console "MYSQL Datenbank is connected...." ausgeben.
 Bei einem Fehler im Verbindungsaufbau z.B die Datenbank wurde nicht gestartet, die Datenbank existiert nicht oder die Anmeldedaten sind nicht richtig, wird eine Fehlermdelung in der Terminal Console ausgegeben mit der Meldung "MYSQL Datenbank is not connected".
 
 Auf der Webseite werden die REST-Funktionen "get","post","delete" und "patch" verwendet.
 
-**1. Startseite (index.html):**
+ **1. Startseite (index.html):**
 Enthält keine REST-Services.
     
  **2. Boote (boote.html)**
@@ -49,7 +49,7 @@ Enthält keine REST-Services.
 
  **3. Ausflug (ausflug.html)**
 Mit der REST-Funktion "get" werden die Dateninhalte aus der Datenbank angefordert und auf der Ausflugseite wird damit dann die Tabelle befüllt.
-Hierbei wird aus der Datenbank Tabelle "boot" und "termine" Daten ausgelesen.
+Hierbei wird aus den Datenbank Tabellen "boot" und "termine" Daten ausgelesen.
 Mit der REST-Funktion "patch" ist ein interagieren mit der Webseite und ein buchen von Ausflügen möglich, hierbei wird der ausgewählte Eintrag in der Tabelle "termine" verändert und auf gebucht gesetzt.
 
  **4. Kontakt (kontakt.html)**
@@ -68,7 +68,7 @@ Mit der REST-Funktion "patch" ist ein interagieren mit der Webseite und ein buch
  **7. Termine (termin.html)**
 Die Seite Termine enthält alle REST-Funktionen, "get", "post", "patch", "delete".
 Mit der REST-Funktion "get" werden die Dateninhalte aus der Datenbank angefordert und die Tablle auf der Terminseite wird befüllt. Aus den Tabellen "boot" und "termine" die in der Datebank zu finden sind werden die Daten ausgelesen.
-Zusätzlich wird mit der Rest-Funktion "get" das DropDown mit Daten befüllt, hierbei wir die Kennung der Boote aus der Datenbank ausgelesen und in das DropDown geschrieben.
+Zusätzlich wird mit der Rest-Funktion "get" das DropDown mit Daten befüllt, hierbei wir die Kennung der Boote aus der Datenbank ausgelesen und in das DropDown Menü geschrieben.
 Über die Rest-Funktion "post" ist das anlegen eines neuen Termines möglich, dafür wird in der Tabelle "termine" ein neuer Termin Eintrag angelegt.
 Mit der Rest-Funktion "delete" ist das löschen eines ausgewählten Termines aus der Datenbank Tabelle "termine" möglich.
 Zudem ist es über die Rest-Funktion "patch" möglich, ausgewählte Termine zu bearbeiten. Dabei wir ein Update des Datenbankeintrages durchgeführt.
