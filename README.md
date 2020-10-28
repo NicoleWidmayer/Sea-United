@@ -11,15 +11,18 @@ Sea-United, die Website auf der atemberaubende Tagesbootsausflüge gebucht werde
  * :superhero: Beeke Wiltfang
 
 ## Quickstart
+### Vorbereitungen
  1. git clone https://github.com/NicoleWidmayer/Sea-United/edit/master/README.md.git
- 2. install XAMPP Control Panel
- 3. Apache und MySQL starten
- 4. MySQL Admin -> Neue Datenbank anlegen mit dem Namen "Sea_United"
+ 2. XAMPP Control Panel installieren
+ 3. Apache und MySQL starten (im XAMPP Control Panel)
+ 4. MySQL -> Admin -> Neue Datenbank anlegen mit dem Namen "Sea_United"
  5. Sea_United.sql importieren
- 6. node install
- 7. mithilfe von commands in den Sea-United ordner mit cd
- 8. cd server
- 9. node app.js
+ 6. node installieren
+### In Visual Studio Code
+ 7. mithilfe des cd commands in den Sea-United Ordner
+ 8. Ausführen von cd server
+ 9. Ausführen von node app.js
+### Im Browser
  10. http://localhost:5000
 
 ## Architektur
@@ -28,6 +31,8 @@ Unsere Website ist aufgeteilt in Frontend, Backend und Datenbank.
 Front- und Backend interagieren dabei mit der Fetch-API (Application Programming Interface).
 
  ### Datenmodell
+ Beispiel einer JSON Datei:
+ [{​​id: 1, kategorie: "Drunken Sailor", kapazität: 20, datum: "2020-11-08T23:00:00.000Z", preis: "200.00"}​​]
 
  ### Rest Services
 In der app.js werden alle REST-Services durchgeführt. Über die definierte Konstante "connection" wird eine Verbindung zur Datenbank aufgebaut. 
@@ -35,7 +40,6 @@ Dabei wird bei erfolgreicherverbindung in der Temrminal Console "MYSQL Datenbank
 Bei einem Fehler im Verbindungsaufbau z.B die Datenbank wurde nicht gestartet, die Datenbank exestiert nicht oder die Anmeldedaten sind nicht richtig, wird eine Fehlermdelung in der Terminal Console ausgegeben mit der Meldung "MYSQL Datenbank is not connected".
 
 Auf der Webseite werden die REST-Funktionen "get","post","delete" und "patch" verwendet.
-
 
 **1. Startseite (index.html):**
 Enthält keine REST-Services.
@@ -77,13 +81,13 @@ Zudem ist es über die Rest-Funktion "patch" möglich, ausgewählte Termine zu b
 Das Frontend ist gegliedert in 8 Html-Seiten. Auf allen Seiten ist ein Header zu finden, welches den Wechsel zwischen den verscheidenne Html-Seiten ermöglicht (ausgenommen Impressum.html). Ebenfalls enthalten alle Html-Seiten, bevor man sich angemeldet hat, einen Footer. Der Footer gibt Auskunft über wesentliche Bestandteile unsere Unternehmens (Kontakt und Rechtliche Hinweise, auf diese im falle des anklickens weitergeleitet wird).  
 
  **1. Startseite (index.html):**
-Enthält ein statisches, cliffhängendes Angebot das nicht ausgeschlagen werden kann.     #WeLOveSailing
+Enthält ein statisches, cliffhängendes Angebot das nicht ausgeschlagen werden kann. #WeLOveSailing
     
  **2. Boote (boote.html)**
 Unsere Reiseangebot werden auf dieser Seite sichtbar in Bild und Schrift dargestellt. Es zeigt dabei die atemberaubenden Angebote in voller pracht. Da diese Seite aber statisch ist, haben wir als Unternehmen nicht das Bedürfnis uns nach neuen anderen Booten umzuschauen (das ist eine statische Seite). 
 
  **3. Ausflug (ausflug.html)**
-Hier findest du unsere Terminangebote, welche durch den eine angemeldete Person eingestellt wurden. Die Termine sind mit allen ihren Details in der Tabelle ersichtlich und dort auch buchbar. Die Daten in der Tabelle stammen aus der Datenbank und sind mithilfe einer Fetch-Abfrage ersichtlich. Auf dem Button ist ein EventListener der das buchen durchführt. nach dem buchen ist der gebuchte Termin nicht mehr in der Tabelle einsehbar und kann somit nicht mehr gebucht werden. 
+Hier findest du unsere Terminangebote, welche durch den eine angemeldete Person eingestellt wurden. Die Termine sind mit allen ihren Details in der Tabelle ersichtlich und dort auch buchbar. Die Daten in der Tabelle stammen aus der Datenbank. Auf dem Button ist ein EventListener der das buchen durchführt. Nach dem buchen ist der gebuchte Termin nicht mehr in der Tabelle einsehbar und kann somit nicht mehr gebucht werden. 
 
  **4. Kontakt (kontakt.html)**
 Bei Fragen über unsere Ausflüge kann man sich an unser Unternehmen wenden. Aufgrund dessen, das wir nur ein fiktives Unternehmen sind, besitzen wir keine E-Mail-Adresse. Die Nachricht führt daher ins leere. Eine Antwort unseres Unternehmens ist somit zu 100% ausgeschlossen.
