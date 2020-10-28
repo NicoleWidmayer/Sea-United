@@ -16,6 +16,7 @@ const path = require('path');
 const { RSA_NO_PADDING } = require("constants");
 const { json, response } = require("express");
 const { request } = require("http");
+const { Console } = require("console");
 const app = express();
 
 const datum = new Date();
@@ -55,7 +56,6 @@ app.get("/ausflug", async (req, res) => {
   try {
     const [rows] = await connection.execute("SELECT t.id, b.kategorie, b.kapazität, t.datum, b.preis FROM boote AS b, termine AS t WHERE t.boot = b.kennung and t.gebucht = 0 and datum > '" + datum + "';");
     res.json(rows);
-    console.log(res.json(rows));
   } catch (err) {
     res.status(500).send();
   }
