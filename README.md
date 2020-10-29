@@ -40,7 +40,7 @@ Dabei wird bei erfolgreicher Verbindung im Terminal die Meldung "MYSQL Datenbank
 Bei einem Fehler im Verbindungsaufbau z.B die Datenbank wurde nicht gestartet, die Datenbank existiert nicht oder die Anmeldedaten sind nicht richtig, wird eine Fehlermeldung im Terminal ausgegeben mit der Meldung "MYSQL Datenbank is not connected". Die Datenbank Anmeldedaten sind in der .env Datei einsehbar und können dort auch angepasst werden.
 
 Auf der Webseite werden die REST-Funktionen "get","post","delete" und "patch" verwendet.
-Dabei kommen auch die HTTP-Statuscodes(200,201,400 & 500) zum Einsatz.
+Dabei kommen auch die HTTP-Statuscodes (200, 201, 400 & 500) zum Einsatz.
 Der Statuscode 200 wird bei erfolgreicher Ausführung zurückgesendet, der Statuscode 201 wenn ein neues Objekt erfolgreich erstellt wurde, wie es z.B beim anlegen neuer Benutzer oder neuer Termine der Fall ist.
 Der Statuscode 400 wird verwendet, wenn bei der Rest-Funktion "post", "delete" oder "patch" der SQL Befehl nicht richtig war oder falsch ausgeführt wurde.
 Sollte es zu einem Fehler kommen, wird der Fehler zusammen mit dem Statuscode 500 gesendet.
