@@ -23,7 +23,7 @@ Sea-United, die Website auf der atemberaubende Tagesbootsausflüge gebucht werde
  8. Ausführen von cd server
  9. Ausführen von node app.js
 ### Im Browser
- 10. http://localhost:5000
+ 10. http://localhost:5000 öffnen
 
 ## Architektur
 Es wurden die Programmiersprachen HTML (Hypertext Markup Language), JavaScript und CSS (Cascading Style Sheets) verwendet. 
