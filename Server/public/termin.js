@@ -110,9 +110,12 @@ function handleEditRow(id) {
     {
     kenjectSel.options[kenjectSel.options.length] = new Option(kennungObject[i]['kennung']);   
     }
+    // Default-display of "kennung"
     kenjectSel.value = allKennungObject[(id-1)];
+    // The Date needs to be the yyyy-mm-tt format to be default-displayed
     date = new Date(allDateObject[id-1]);
     document.querySelector("#update-gebdat").value = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate().toString().padStart(2, "0");
+    // Default-display of boolean value "gebucht"
     document.querySelector("#update-gebucht").value = allBookedObject[id-1];
   
     // Event Listener auf den Button Update
