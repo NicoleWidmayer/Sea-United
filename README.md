@@ -16,14 +16,14 @@ Sea-United, die Website auf der atemberaubende Tagesbootsausflüge gebucht werde
  2. XAMPP Control Panel installieren
  3. Apache und MySQL starten (im XAMPP Control Panel)
  4. MySQL -> Admin -> Neue Datenbank anlegen mit dem Namen "Sea_United"
- 5. Sea_United.sql importieren
+ 5. Sea_United.sql importieren -> aus der Datenbank können auch die bereits angelegten Benutzer mit dazugehörigem Passwort entnommen werden
+### Im Visual Studio Code Terminal
  6. node installieren
-### In Visual Studio Code
  7. mithilfe des cd commands in den Sea-United Ordner
  8. Ausführen von cd server
  9. Ausführen von node app.js
 ### Im Browser
- 10. http://localhost:5000
+ 10. http://localhost:5000 öffnen
 
 ## Architektur
 Es wurden die Programmiersprachen HTML (Hypertext Markup Language), JavaScript und CSS (Cascading Style Sheets) verwendet. 
