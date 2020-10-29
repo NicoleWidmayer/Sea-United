@@ -60,6 +60,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
                     } else {
                         alert("Termin konnte nicht angelegt werden");
                     }
+
+                    document.location.href ="/termin.html";
                 }) // End of fetch then
             } else {
                 alert("Datum muss in der Zukunft liegen!");
@@ -109,7 +111,8 @@ function handleEditRow(id) {
     kenjectSel.options[kenjectSel.options.length] = new Option(kennungObject[i]['kennung']);   
     }
     kenjectSel.value = allKennungObject[(id-1)];
-    document.querySelector("#update-gebdat").value = new Date(allDateObject[id-1]).toISOString().split('T')[0];
+    date = new Date(allDateObject[id-1]);
+    document.querySelector("#update-gebdat").value = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate().toString().padStart(2, "0");
     document.querySelector("#update-gebucht").value = allBookedObject[id-1];
   
     // Event Listener auf den Button Update
