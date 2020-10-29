@@ -25,16 +25,14 @@ document.addEventListener('DOMContentLoaded', function (e) {
     fetch('/termineAll')
     .then( async res =>{
         const data = await res.json();
-        console.log(data.length);
-        console.log(data);
         length = data[Object.keys(data)[Object.keys(data).length - 1]].ID;
         
         for(i =0; i< length;i++)
         {
-            for(i=0; i<data.length; i++) {
-                allKennungObject[data[i].ID] = data[i].kennung;
-                allDateObject[data[i].ID] = data[i].datum;
-                allBookedObject[data[i].ID] = data[i].gebucht;
+            for(k=0; k<data.length; k++) {
+                allKennungObject[data[k].ID] = data[k].kennung;
+                allDateObject[data[k].ID] = data[k].datum;
+                allBookedObject[data[k].ID] = data[k].gebucht;
             }
         }
 
