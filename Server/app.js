@@ -82,7 +82,7 @@ app.patch("/ausflugBuchen/:id", async (req, res) => {
 //Filling the table with all events
 app.get("/termineAll", async (req, res) => {
   try {
-    const [rows] = await connection.execute("SELECT b.kennung, b.preis, b.kategorie, t.datum, t.gebucht, t.ID, b.kapazität FROM boote AS b, termine AS t WHERE b.kennung = t.boot");
+    const [rows] = await connection.execute("SELECT t.ID, b.kennung, b.preis, b.kategorie, t.datum, t.gebucht, t.ID, b.kapazität FROM boote AS b, termine AS t WHERE b.kennung = t.boot");
     res.json(rows);
   } catch (err) {
     res.status(500).send();

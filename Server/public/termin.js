@@ -25,11 +25,26 @@ document.addEventListener('DOMContentLoaded', function (e) {
     fetch('/termineAll')
     .then( async res =>{
         const data = await res.json();
-        data.forEach((data) => {
-            allKennungObject.push(data.kennung);
-            allDateObject.push(data.datum);
-            allBookedObject.push(data.gebucht);
-        }) 
+        console.log(data.length);
+        console.log(data);
+        for(i =0; i< data.length;i++)
+        {
+            
+            console.log(data.ID);
+            if (!data.id === i) {
+                allKennungObject[i] = "";}
+                else {
+            allKennungObject[data.id] = data.kennung;}
+            
+
+        }
+        console.log(allKennungObject);
+        //data.forEach((data) => {
+          //  allKennungObject.push(data.kennung);
+          //  allDateObject.push(data.datum);
+          //  allBookedObject.push(data.gebucht);
+        //}) 
+
         loadHTMLTable(data);
 
         // Event Listener for button "Termin"
@@ -111,12 +126,12 @@ function handleEditRow(id) {
     kenjectSel.options[kenjectSel.options.length] = new Option(kennungObject[i]['kennung']);   
     }
     // Default-display of "kennung"
-    kenjectSel.value = allKennungObject[(id-1)];
+    kenjectSel.value = allKennungObject[(id)];
     // The Date needs to be the yyyy-mm-tt format to be default-displayed
-    date = new Date(allDateObject[id-1]);
-    document.querySelector("#update-gebdat").value = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate().toString().padStart(2, "0");
+ //   date = new Date(allDateObject[id-1]);
+   // document.querySelector("#update-gebdat").value = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate().toString().padStart(2, "0");
     // Default-display of boolean value "gebucht"
-    document.querySelector("#update-gebucht").value = allBookedObject[id-1];
+   // document.querySelector("#update-gebucht").value = allBookedObject[id-1];
   
     // Event Listener auf den Button Update
     const fetchUpdateButton = document.querySelector("#update-btn");
