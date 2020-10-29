@@ -67,7 +67,7 @@ app.patch("/ausflugBuchen/:id", async (req, res) => {
     const [rows] = await connection.execute("UPDATE termine SET gebucht = 1 WHERE id = ?;",
       [req.params.id]);
     if (rows.affectedRows === 1) {
-      res.status(204).send();
+      res.status(200).send();
     }
     else {
       res.status(400).send();
@@ -96,7 +96,7 @@ app.delete("/delete/:id", async (req, res) => {
       req.params.id,
     ]);
     if (rows.affectedRows === 1) {
-      res.status(204).send();
+      res.status(200).send();
     }
     else {
       res.status(400).send();
@@ -113,7 +113,7 @@ app.post("/erstellen", async (req, res) => {
       [req.body.datum, req.body.kennung]);
 
     if (rows.changedRows === 1) {
-      res.status(204).send();
+      res.status(201).send();
     }
     else {
       res.status(400).send();
@@ -132,7 +132,7 @@ app.patch("/UpdateTermin", async (req, res) => {
     console.log(rows);
 
     if (rows.changedRows === 1) {
-      res.status(204).send();
+      res.status(200).send();
     }
     else {
       res.status(400).send();
@@ -173,7 +173,7 @@ app.post("/register", async (req, res) => {
       [req.body.benutzername, req.body.passwort, req.body.email]);
     console.log(rows);
     if (rows.affectedRows === 1) {
-      res.status(204).send();
+      res.status(201).send();
     }
     else {
       res.status(400).send();
