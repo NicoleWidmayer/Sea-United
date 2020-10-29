@@ -27,14 +27,16 @@ document.addEventListener('DOMContentLoaded', function (e) {
         const data = await res.json();
         console.log(data.length);
         console.log(data);
+        length = data[Object.keys(data)[Object.keys(data).length - 1]].ID;
+        console.log(length);
+
         for(i =0; i< data.length;i++)
         {
             
-            console.log(data.ID);
-            if (!data.id === i) {
-                allKennungObject[i] = "";}
-                else {
-            allKennungObject[data.id] = data.kennung;}
+            console.log(data[i].ID);
+            //console.log(data[i].id);
+            if (data[i].ID === i) {
+                allKennungObject[data[i].ID] = data.kennung;}
             
 
         }
